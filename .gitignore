@@ -1,0 +1,8 @@
+# Ignore everything
+*
+# Except for..
+!.gitignore
+!init.el
+!config.org
+!config.el
+!custom.el

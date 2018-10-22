@@ -1,0 +1,500 @@
+#+Title: Emacs Configuration
+#+Author: Ian Y.E. Pan
+* Start-up
+** Better-looks and defaults
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist '(width . 95))
+  (add-to-list 'default-frame-alist '(height . 30))
+
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
+  (add-hook 'prog-mode-hook 'highlight-operators-mode)
+  (add-hook 'prog-mode-hook 'hes-mode)  ;; highlight escape sequences
+
+  (setq user-full-name "Ian Y.E. Pan")
+  (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
+  (setq initial-scratch-message nil)
+  (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
+  (setq frame-title-format '( "GNU Emacs @ %b" " [" (:eval mode-name) "]"))
+  (require 'dashboard)
+  (dashboard-setup-startup-hook)
+  (setq dashboard-banner-logo-title "(E)macs  (M)akes  (A)ll  (C)omputers  (S)uper")
+  (setq dashboard-startup-banner "~/Downloads/gnuemacs.png")
+  (setq split-height-threshold nil)  ;; always split windows side by side
+  (setq split-width-threshold 0)
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+#+END_SRC
+
+** Cleaning up the interface
+#+BEGIN_SRC emacs-lisp
+  (setq ring-bell-function 'ignore)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (blink-cursor-mode 0)
+#+END_SRC
+
+** Making *scratch* always there!
+#+BEGIN_SRC emacs-lisp
+  (setq initial-major-mode 'org-mode) ;; for *scratch* buffer
+  (with-current-buffer
+      (get-buffer-create "*scratch*") (org-mode)
+      (make-local-variable 'kill-buffer-query-functions)
+      (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer))
+  (defun kill-scratch-buffer ()
+    (set-buffer (get-buffer-create "*scratch*"))
+    (remove-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
+    (kill-buffer (current-buffer))
+    (set-buffer (get-buffer-create "*scratch*")) (org-mode)
+    (make-local-variable 'kill-buffer-query-functions)
+    (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer) nil)
+#+END_SRC
+** Column-80 Rule
+#+BEGIN_SRC emacs-lisp
+(add-hook 'prog-mode-hook 'column-enforce-mode)
+(setq column-enforce-column 79)
+#+END_SRC
+** Syntax highlight
+#+BEGIN_SRC emacs-lisp
+  (global-font-lock-mode t)
+#+END_SRC
+** Change yes/no to y/n
+#+BEGIN_SRC emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+** No Backup~ Files
+#+BEGIN_SRC emacs-lisp
+  (setq make-backup-files nil)
+#+END_SRC
+* Auto-Completion
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-global-modes '(not eshell-mode))  ;; No auto-completion in eshell
+  (setq company-idle-delay t) ;; no delay
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-n") #'company-select-next)
+    (define-key company-active-map (kbd "C-p") #'company-select-previous))
+#+END_SRC
+
+* Evil & Holy
+** Evil tweaks
+#+BEGIN_SRC emacs-lisp
+  (setq evil-want-C-u-scroll t)
+  (require 'evil)
+  ;; (evil-mode 1)
+  (require 'evil-surround)
+;;  (global-evil-surround-mode 1)
+;;  (evil-commentary-mode)
+;;  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+#+END_SRC
+
+** Holy Mode within Evil
+#+BEGIN_SRC emacs-lisp
+  (define-key evil-normal-state-map (kbd "C-n") 'next-line)
+  (define-key evil-insert-state-map (kbd "C-n") 'next-line)
+  (define-key evil-visual-state-map (kbd "C-n") 'next-line)
+
+  (define-key evil-normal-state-map (kbd "C-p") 'previous-line)
+  (define-key evil-insert-state-map (kbd "C-p") 'previous-line)
+  (define-key evil-visual-state-map (kbd "C-p") 'previous-line)
+
+  (define-key evil-normal-state-map (kbd "C-f") 'forward-char)
+  (define-key evil-insert-state-map (kbd "C-f") 'forward-char)
+  (define-key evil-visual-state-map (kbd "C-f") 'forward-char)
+
+  (define-key evil-normal-state-map (kbd "C-b") 'backward-char)
+  (define-key evil-insert-state-map (kbd "C-b") 'backward-char)
+  (define-key evil-visual-state-map (kbd "C-b") 'backward-char)
+
+  (define-key evil-normal-state-map (kbd "C-e") 'end-of-visual-line)
+  (define-key evil-insert-state-map (kbd "C-e") 'end-of-visual-line)
+  (define-key evil-visual-state-map (kbd "C-e") 'end-of-visual-line)
+
+  (define-key evil-normal-state-map (kbd "C-a") 'beginning-of-visual-line)
+  (define-key evil-insert-state-map (kbd "C-a") 'beginning-of-visual-line)
+  (define-key evil-visual-state-map (kbd "C-a") 'beginning-of-visual-line)
+
+  (define-key evil-insert-state-map (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
+  (define-key evil-insert-state-map (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
+  (define-key evil-insert-state-map (kbd "C-S-v") 'evil-scroll-up)  ;; scroll half-page
+  (define-key evil-insert-state-map (kbd "C-S-f") 'forward-word)
+  (define-key evil-insert-state-map (kbd "C-S-b") 'backward-word)
+
+#+END_SRC
+
+** Holy Mode tweaks
+#+BEGIN_SRC emacs-lisp
+  (define-key evil-emacs-state-map (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
+  (define-key evil-emacs-state-map (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
+  (define-key evil-emacs-state-map (kbd "C-S-v") 'evil-scroll-up)  ;; scroll half-page
+#+END_SRC
+** Emacs Default Mode tweaks
+#+BEGIN_SRC emacs-lisp
+  (global-set-key "\C-o" (kbd "C-e C-j"))
+  (global-set-key (kbd "C-h") 'delete-backward-char)
+  (global-set-key "\M-q" 'nil)
+  (global-set-key "\M-s" 'nil)
+  (global-set-key "\M-r" 'nil)
+  (global-set-key (kbd "\C-x F") 'replace-string)
+  (global-set-key (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
+  (global-set-key (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
+    #+END_SRC
+* Line Numbers
+#+BEGIN_SRC emacs-lisp
+  (require 'nlinum-relative)
+  (nlinum-relative-setup-evil)
+  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
+  (setq nlinum-relative-redisplay-delay 0)
+  (setq nlinum-relative-current-symbol "")      ;; empty to display current number
+  (setq nlinum-relative-offset 0)
+#+END_SRC
+
+* NeoTree
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "/.emacs.d/elpa/neotree/")
+  (require 'neotree)
+  (global-set-key (kbd "C-x j") 'neotree-toggle)
+  (add-hook 'neotree-mode-hook
+            (lambda ()
+              (define-key evil-normal-state-local-map
+                (kbd "l") 'neotree-enter)
+              (define-key evil-normal-state-local-map
+                (kbd "RET") 'neotree-enter)
+              (define-key evil-normal-state-local-map
+                (kbd "A") 'neotree-stretch-toggle)
+              (define-key evil-normal-state-local-map
+                (kbd "zh") 'neotree-hidden-file-toggle)))
+  (setq neo-theme 'icons)
+#+END_SRC
+
+* Rainbow Brackets and Rainbow Mode
+#+BEGIN_SRC emacs-lisp
+  (require 'rainbow-delimiters)
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'jdee-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'prog-mode-hook 'rainbow-mode)
+#+END_SRC
+
+* Flycheck and Spellcheck
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'after-init-hook 'global-flycheck-mode)
+
+  ;; Spell checker software Aspell (to replace ispell)
+  (setq ispell-program-name "/usr/local/bin/aspell")
+#+END_SRC
+* Markdown
+#+BEGIN_SRC emacs-lisp
+  (autoload 'markdown-mode "markdown-mode"
+    "Major mode for editing Markdown files" t)
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+#+END_SRC
+
+* Org Mode
+#+BEGIN_SRC emacs-lisp
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (global-set-key "\C-ca" 'org-agenda)  ;; Use C-c a to active agenda
+  ;;(require 'evil-org-agenda)
+  ;;  (evil-org-agenda-set-keys)
+  (setq org-todo-keywords
+        '((sequence "TODO" "DOING" "DONE")))
+  (setq org-todo-keyword-faces
+        '(("TODO" . (:foreground "#E74E22" :weight bold))
+          ("DOING" . (:foreground "DarkGoldenrod2" :weight bold))
+          ("DONE" . (:foreground "#83E230" :weight bold))))
+  (add-hook 'org-mode-hook 'writeroom-mode)
+  (global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
+#+END_SRC
+
+* Python
+#+BEGIN_SRC emacs-lisp
+  (elpy-enable)
+  (setq elpy-rpc-python-command "/usr/local/bin/python3")
+  (setq python-shell-interpreter "/usr/local/bin/python3")
+  (add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1)))
+  (defun my/python-mode-hook ()
+    (add-to-list 'company-backends 'company-jedi))  ;; company-jedi
+  (add-hook 'python-mode-hook 'my/python-mode-hook)
+#+END_SRC
+
+* Yasnippets
+#+BEGIN_SRC emacs-lisp
+  (yas-global-mode 1)
+#+END_SRC
+
+* Smooth Scrolling
+#+BEGIN_SRC emacs-lisp
+  (require 'smooth-scrolling)
+  (smooth-scrolling-mode 1)
+  (setq scroll-margin 2
+        smooth-scroll-margin 2
+        scroll-conservatively 0
+        scroll-up-aggressively 0.01
+        scroll-down-aggressively 0.01)
+  (setq-default scroll-up-aggressively 0.01
+                scroll-down-aggressively 0.01)
+#+END_SRC
+* Which-Key
+#+BEGIN_SRC emacs-lisp
+  (require 'which-key)
+  (which-key-mode t)
+#+END_SRC
+
+* Indentation
+#+BEGIN_SRC emacs-lisp
+  (setq-default tab-width 2)
+  (setq evil-shift-width 2)  ;; Using < and > to shift.
+  (defvaralias 'c-basic-offset 'tab-width)
+  (defvaralias 'cperl-indent-level 'tab-width)
+  (setq-default indent-tabs-mode nil)
+  (setq js-indent-level 2)
+  (setq c-default-style '((java-mode . "java") (other . "gnu")))
+  (defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
+         (interactive)
+         (insert "\n")
+         (when (looking-at "}")
+           (insert "\n")
+           (indent-according-to-mode)
+           (forward-line -1))
+         (indent-according-to-mode)
+
+         (when (looking-at ")")
+           (insert "\n")
+           (indent-according-to-mode)
+           (forward-line -1))
+         (indent-according-to-mode)
+
+         (when (looking-at "]")
+           (insert "\n")
+           (indent-according-to-mode)
+           (forward-line -1))
+         (indent-according-to-mode))
+  (global-set-key (kbd "RET") 'newline-and-push-brace)
+  (require 'auto-indent-mode)
+#+END_SRC
+
+* Vimrc Mode
+#+BEGIN_SRC emacs-lisp
+  (require 'vimrc-mode)
+  (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode))
+#+END_SRC
+
+* Smart Parentheses
+#+BEGIN_SRC emacs-lisp
+  (smartparens-global-mode 1)
+  ;; (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+  (setq show-paren-delay 0)
+  (show-paren-mode 1)
+#+END_SRC
+
+* LaTeX
+#+BEGIN_SRC emacs-lisp
+  ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
+  (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
+  (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
+
+  ;; Colourful Org LaTeX Code Blocks
+  (require 'ox-latex)
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  (setq org-latex-listings 'minted)
+  (setq org-latex-pdf-process
+        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+  (setq org-latex-minted-options '(("linenos=true")))
+#+END_SRC
+* Word-Wrapping & Indicating Empty Lines
+#+BEGIN_SRC emacs-lisp
+  (global-visual-line-mode t)
+  (setq-default indicate-empty-lines t)
+#+END_SRC
+* Some MacOS-Like Keybindings
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "\C-x F") 'replace-string)
+ #+END_SRC
+* Avy-easymotion
+#+BEGIN_SRC emacs-lisp
+  (define-key evil-normal-state-map (kbd "f") nil)
+  (define-key evil-normal-state-map (kbd "f") 'avy-goto-word-1)
+  (setq avy-keys '(?a ?s ?d ?f ?g ?h ?n ?w ?e ?r ?y ?u ?o ?t ?v ?i ?j ?k ?l))
+#+END_SRC
+* Ido
+#+BEGIN_SRC emacs-lisp
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (require 'ido-vertical-mode)
+  (ido-mode 1)
+  (ido-vertical-mode 1)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  (require 'flx-ido)
+  (flx-ido-mode 1)
+  (setq ido-enable-flex-matching t)
+#+END_SRC
+* Smex
+#+BEGIN_SRC emacs-lisp
+  (require 'smex)
+  (global-set-key (kbd "M-x") 'smex)
+#+END_SRC
+* Eshell
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "<M-return>") 'eshell)
+  (require 'esh-autosuggest)  ;; Fish-like autosuggestion
+  (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
+  (eshell-git-prompt-use-theme 'powerline)
+
+  ;; The 'clear' command
+  (defun eshell/clear ()
+    "Clear the eshell buffer to the top."
+    (interactive)
+    (let ((inhibit-read-only t))
+      (erase-buffer)))
+  (global-set-key (kbd "C-8") 'eshell-previous-input)
+  (global-set-key (kbd "C-9") 'eshell-next-input)
+
+  ;; To let eshell use brew-installed commands
+  (setenv "PATH" (concat "/usr/local/bin/" ":" (getenv "PATH")))
+  (setq exec-path (append '("/usr/local/bin/") exec-path))
+  ;; Eshell aliases
+  (defalias 'ff 'find-file)
+#+END_SRC
+* Emmet
+#+BEGIN_SRC emacs-lisp
+  (require 'emmet-mode)
+  (add-hook 'html-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode)
+  (add-hook 'js2-mode-hook 'emmet-mode)
+#+END_SRC
+* JavaScript
+#+BEGIN_SRC emacs-lisp
+  ;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+  ;; (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+  (require 'prettier-js)
+  (setq prettier-js-args '(
+                           "--bracket-spacing" "true"
+                           "--jsx-bracket-same-line" "true"))
+#+END_SRC
+* Dired
+#+BEGIN_SRC emacs-lisp
+  (put 'dired-find-alternate-file 'disabled nil)
+  (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "RET")
+                                          'dired-find-alternate-file)))
+#+END_SRC
+** Dired Sidebar
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x D") 'ido-dired)
+  (global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
+#+END_SRC
+* Registers
+#+BEGIN_SRC emacs-lisp
+  (set-register ?e (cons 'file "~/.emacs.d/init.el"))
+  (set-register ?o (cons 'file "~/.emacs.d/config.org"))
+  (set-register ?c (cons 'file "~/.emacs.d/custom.el"))
+  (set-register ?r (cons 'file "~/.emacs.d/themes/tronlegacy-theme.el"))
+  (set-register ?t (cons 'file "~/todo.org"))
+#+END_SRC
+* Magit
+#+BEGIN_SRC emacs-lisp
+ ;; (require 'evil-magit)
+  (global-set-key (kbd "C-x g") 'magit-status)
+#+END_SRC
+* Mode Line
+#+BEGIN_SRC emacs-lisp
+  (require 'moody)
+  (moody-replace-mode-line-buffer-identification)
+  (moody-replace-vc-mode)
+  (let ((line (face-attribute 'mode-line :underline)))
+    (set-face-attribute 'mode-line          nil :foreground   "#CBECFF")
+    (set-face-attribute 'mode-line          nil :background   "#3D5666")
+    (set-face-attribute 'mode-line          nil :overline   nil)
+    (set-face-attribute 'mode-line-inactive nil :overline   nil)
+    (set-face-attribute 'mode-line-inactive nil :underline  nil)
+    (set-face-attribute 'mode-line          nil :box        nil)
+    (set-face-attribute 'mode-line-inactive nil :box        nil))
+  (minions-mode)
+#+END_SRC
+* Comparing files
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-c d") 'diff)
+  (global-set-key (kbd "C-c e") 'ediff)
+  (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
+  (global-set-key (kbd "C-c E") 'ediff-current-file)
+  (eval-after-load 'diff-mode
+    '(progn
+       (set-face-background 'diff-added "#355531")
+       (set-face-foreground 'diff-added "#dcffdd")
+       (set-face-background 'diff-removed "#553333")
+       (set-face-foreground 'diff-removed "#ffdddc")))
+#+END_SRC
+* Transparency
+#+BEGIN_SRC emacs-lisp
+  (defun toggle-transparency ()
+    (interactive)
+    (let ((alpha (frame-parameter nil 'alpha)))
+      (set-frame-parameter
+       nil 'alpha
+       (if (eql (cond ((numberp alpha) alpha)
+                      ((numberp (cdr alpha)) (cdr alpha))
+                      ((numberp (cadr alpha)) (cadr alpha))) 100)
+           '(75 . 75) '(100 . 100)))))
+  (global-set-key (kbd "C-c t") 'toggle-transparency)
+#+END_SRC
+* Views and Windows
+** Toggle View
+#+BEGIN_SRC emacs-lisp
+  (defun toggle-window-split ()
+    (interactive)
+    (if (= (count-windows) 2)
+        (let* ((this-win-buffer (window-buffer))
+               (next-win-buffer (window-buffer (next-window)))
+               (this-win-edges (window-edges (selected-window)))
+               (next-win-edges (window-edges (next-window)))
+               (this-win-2nd (not (and (<= (car this-win-edges)
+                                           (car next-win-edges))
+                                       (<= (cadr this-win-edges)
+                                           (cadr next-win-edges)))))
+               (splitter
+                (if (= (car this-win-edges)
+                       (car (window-edges (next-window))))
+                    'split-window-horizontally
+                  'split-window-vertically)))
+          (delete-other-windows)
+          (let ((first-win (selected-window)))
+            (funcall splitter)
+            (if this-win-2nd (other-window 1))
+            (set-window-buffer (selected-window) this-win-buffer)
+            (set-window-buffer (next-window) next-win-buffer)
+            (select-window first-win)
+            (if this-win-2nd (other-window 1))))))
+  (global-set-key (kbd "C-x 4 5") 'toggle-window-split)
+#+END_SRC
+** Split window and follow
+#+BEGIN_SRC emacs-lisp
+  (defun split-and-follow-horizontally ()
+    (interactive)
+    (split-window-below)
+    (balance-windows)
+    (other-window 1))
+  (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+  (defun split-and-follow-vertically ()
+    (interactive)
+    (split-window-right)
+    (balance-windows)
+    (other-window 1))
+  (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+#+END_SRC
+
+* Expand-Region
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-=") 'er/expand-region)
+  (global-set-key (kbd "C--") 'er/contract-region)
+#+END_SRC
+* Multiple-cursors
+#+BEGIN_SRC emacs-lisp
+  (require 'multiple-cursors)
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  (define-key mc/keymap (kbd "<return>") nil)
+#+END_SRC
