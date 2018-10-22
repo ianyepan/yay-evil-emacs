@@ -1,3 +1,4 @@
+(display-battery-mode 1)
 (add-to-list 'default-frame-alist '(width . 95))
 (add-to-list 'default-frame-alist '(height . 30))
 
@@ -14,8 +15,8 @@
 (dashboard-setup-startup-hook)
 (setq dashboard-banner-logo-title "(E)macs  (M)akes  (A)ll  (C)omputers  (S)uper")
 (setq dashboard-startup-banner "~/Downloads/gnuemacs.png")
-(setq split-height-threshold nil)  ;; always split windows side by side
-(setq split-width-threshold 0)
+;;  (setq split-height-threshold nil)  ;; always split windows side by side
+;;  (setq split-width-threshold 0)
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
@@ -146,8 +147,8 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (global-set-key "\C-ca" 'org-agenda)  ;; Use C-c a to active agenda
-(require 'evil-org-agenda)
-(evil-org-agenda-set-keys)
+;;(require 'evil-org-agenda)
+;;  (evil-org-agenda-set-keys)
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "DONE")))
 (setq org-todo-keyword-faces
@@ -237,6 +238,7 @@
 
 (define-key evil-normal-state-map (kbd "f") nil)
 (define-key evil-normal-state-map (kbd "f") 'avy-goto-word-1)
+(global-set-key (kbd "C-:") 'avy-goto-word-1)
 (setq avy-keys '(?a ?s ?d ?f ?g ?h ?n ?w ?e ?r ?y ?u ?o ?t ?v ?i ?j ?k ?l))
 
 (setq ido-enable-flex-matching t)
