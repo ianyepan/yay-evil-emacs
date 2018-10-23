@@ -1,5 +1,6 @@
 #+Title: Emacs Configuration
 #+Author: Ian Y.E. Pan
+#+Date: Since 21.Oct.2018
 * Start-up
 ** Better-looks and defaults
 #+BEGIN_SRC emacs-lisp
