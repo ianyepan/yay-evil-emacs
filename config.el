@@ -47,19 +47,32 @@
 
 (setq make-backup-files nil)
 
+(global-visual-line-mode t)
+(setq-default indicate-empty-lines t)
+
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-global-modes '(not eshell-mode))  ;; No auto-completion in eshell
 (setq company-idle-delay t) ;; no delay
 (with-eval-after-load 'company
+;; Use C-n/p to select company suggestions.
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-(setq evil-want-C-u-scroll t)
-  (require 'evil)
-  ;; (evil-mode 1)
-  (require 'evil-surround)
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "M-q") 'nil)
+(global-set-key (kbd "M-s") 'nil)
+(global-set-key (kbd "M-r") 'nil)
+(global-set-key (kbd "C-x F") 'replace-string)
+(global-set-key (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
+(global-set-key (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
+(global-set-key (kbd "s-c") 'kill-ring-save)
+
+;;  (setq evil-want-C-u-scroll t)
+(require 'evil) ;; At least for scrolling half-page up down.
+;; (evil-mode 1)
+;; (require 'evil-surround)
 ;;  (global-evil-surround-mode 1)
 ;;  (evil-commentary-mode)
 ;;  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
@@ -90,22 +103,9 @@
 
 (define-key evil-insert-state-map (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
 (define-key evil-insert-state-map (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
-(define-key evil-insert-state-map (kbd "C-S-v") 'evil-scroll-up)  ;; scroll half-page
-(define-key evil-insert-state-map (kbd "C-S-f") 'forward-word)
-(define-key evil-insert-state-map (kbd "C-S-b") 'backward-word)
 
 (define-key evil-emacs-state-map (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
 (define-key evil-emacs-state-map (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
-(define-key evil-emacs-state-map (kbd "C-S-v") 'evil-scroll-up)  ;; scroll half-page
-
-(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key "\M-q" 'nil)
-(global-set-key "\M-s" 'nil)
-(global-set-key "\M-r" 'nil)
-(global-set-key (kbd "C-x F") 'replace-string)
-(global-set-key (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
-(global-set-key (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
-(global-set-key (kbd "s-c") 'kill-ring-save)
 
 (require 'nlinum-relative)
 (nlinum-relative-setup-evil)
@@ -117,6 +117,7 @@
 (add-to-list 'load-path "/.emacs.d/elpa/neotree/")
 (require 'neotree)
 (global-set-key (kbd "C-x j") 'neotree-toggle)
+;; Evil NeoTree
 (add-hook 'neotree-mode-hook
           (lambda ()
             (define-key evil-normal-state-local-map
@@ -131,7 +132,6 @@
 
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'jdee-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
@@ -146,7 +146,7 @@
 
 (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (global-set-key "\C-ca" 'org-agenda)  ;; Use C-c a to active agenda
+  (global-set-key (kbd "C-c a") 'org-agenda)  ;; Use C-c a to active agenda
   ;;(require 'evil-org-agenda)
   ;;  (evil-org-agenda-set-keys)
   (setq org-todo-keywords
@@ -184,8 +184,8 @@
 (setq-default tab-width 2)
 (setq evil-shift-width 2)  ;; Using < and > to shift.
 (defvaralias 'c-basic-offset 'tab-width)
-(defvaralias 'cperl-indent-level 'tab-width)
-(setq-default indent-tabs-mode nil)
+;; (defvaralias 'cperl-indent-level 'tab-width)
+(setq-default indent-tabs-mode nil) ;; Always use spaces
 (setq js-indent-level 2)
 (setq c-default-style '((java-mode . "java") (other . "gnu")))
 (defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
@@ -231,11 +231,6 @@
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 (setq org-latex-minted-options '(("linenos=true")))
 
-(global-visual-line-mode t)
-(setq-default indicate-empty-lines t)
-
-(global-set-key (kbd "\C-x F") 'replace-string)
-
 (define-key evil-normal-state-map (kbd "f") nil)
 (define-key evil-normal-state-map (kbd "f") 'avy-goto-word-1)
 (global-set-key (kbd "C-;") 'avy-goto-word-1)
@@ -277,21 +272,21 @@
 (require 'emmet-mode)
 (add-hook 'html-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
-(add-hook 'js2-mode-hook 'emmet-mode)
+(add-hook 'js-mode-hook 'emmet-mode)
+(add-hook 'js-jsx-mode-hook 'emmet-mode)
 
 ;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-jsx-mode))
 ;; (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
 (require 'prettier-js)
-(setq prettier-js-args '(
-                         "--bracket-spacing" "true"
+(setq prettier-js-args '("--bracket-spacing" "true"
                          "--jsx-bracket-same-line" "true"))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "RET")
                                         'dired-find-alternate-file)))
 
-(global-set-key (kbd "C-x D") 'ido-dired)
+(global-set-key (kbd "C-x D") 'ido-dired) ;; The actual dired-mode
 (global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
 
 (set-register ?e (cons 'file "~/.emacs.d/init.el"))
@@ -301,20 +296,7 @@
 (set-register ?t (cons 'file "~/todo.org"))
 
 ;; (require 'evil-magit)
- (global-set-key (kbd "C-x g") 'magit-status)
-
-(require 'moody)
-(moody-replace-mode-line-buffer-identification)
-(moody-replace-vc-mode)
-(let ((line (face-attribute 'mode-line :underline)))
-  (set-face-attribute 'mode-line          nil :foreground   "#CBECFF")
-  (set-face-attribute 'mode-line          nil :background   "#3D5666")
-  (set-face-attribute 'mode-line          nil :overline   nil)
-  (set-face-attribute 'mode-line-inactive nil :overline   nil)
-  (set-face-attribute 'mode-line-inactive nil :underline  nil)
-  (set-face-attribute 'mode-line          nil :box        nil)
-  (set-face-attribute 'mode-line-inactive nil :box        nil))
-(minions-mode)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (global-set-key (kbd "C-c d") 'diff)
 (global-set-key (kbd "C-c e") 'ediff)

@@ -7,11 +7,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(all-the-icons-scale-factor 1.0)
- '(beacon-blink-delay 0.3)
- '(beacon-blink-duration 0.8)
+ '(beacon-blink-delay 0.2)
+ '(beacon-blink-duration 0.5)
  '(beacon-blink-when-focused t)
  '(beacon-blink-when-window-scrolls nil)
- '(beacon-color 0.4)
+ '(beacon-color 0.5)
  '(beacon-mode t)
  '(beacon-push-mark nil)
  '(beacon-size 40)
@@ -32,6 +32,7 @@
  '(flx-ido-mode t)
  '(fringe-mode '(nil . 1) nil (fringe))
  '(global-company-mode t)
+ '(global-visual-line-mode t)
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(ido-mode 'both nil (ido))
@@ -45,7 +46,6 @@
  '(lazy-highlight-initial-delay 0)
  '(mc/always-repeat-command t)
  '(mc/always-run-for-all t)
- '(moody-mode-line-height 21)
  '(neo-autorefresh t)
  '(neo-window-position 'right)
  '(neo-window-width 30)
@@ -68,11 +68,11 @@
    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
-   '(expand-region switch-window beacon writeroom-mode eshell-git-prompt vscode-icon dired-sidebar tide all-the-icons minions moody edit-server flx-ido vimrc-mode lorem-ipsum dockerfile-mode evil-org rainbow-mode smex esh-autosuggest evil-magit ido-vertical-mode markdown-mode whitespace-cleanup-mode magit spacemacs-theme highlight-escape-sequences dired-icon highlight-operators highlight-numbers company-jedi emmet-mode column-enforce-mode yasnippet-snippets yasnippet-classic-snippets which-key smooth-scrolling rainbow-delimiters prettier-js org-bullets nlinum-relative neotree js2-mode jedi java-snippets evil-surround evil-smartparens evil-commentary elpy dashboard base16-theme avy auto-indent-mode))
+   '(multiple-cursors expand-region switch-window beacon writeroom-mode eshell-git-prompt vscode-icon dired-sidebar tide all-the-icons minions edit-server flx-ido vimrc-mode lorem-ipsum dockerfile-mode evil-org rainbow-mode smex esh-autosuggest evil-magit ido-vertical-mode markdown-mode whitespace-cleanup-mode magit spacemacs-theme highlight-escape-sequences dired-icon highlight-operators highlight-numbers company-jedi emmet-mode column-enforce-mode yasnippet-snippets yasnippet-classic-snippets which-key smooth-scrolling rainbow-delimiters prettier-js org-bullets nlinum-relative neotree js2-mode jedi java-snippets evil-surround evil-smartparens evil-commentary elpy dashboard base16-theme avy auto-indent-mode))
  '(python-indent-guess-indent-offset nil)
  '(shr-max-image-proportion 0.5)
  '(writeroom-global-effects
-   '(writeroom-set-fullscreen writeroom-set-alpha writeroom-set-menu-bar-lines writeroom-set-tool-bar-lines writeroom-set-bottom-divider-width))
+   '(writeroom-set-alpha writeroom-set-menu-bar-lines writeroom-set-tool-bar-lines writeroom-set-bottom-divider-width))
  '(writeroom-mode-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -95,9 +95,9 @@
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#839DB2" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
  '(fringe ((t (:background "#002b36"))))
- '(js2-function-param ((t (:foreground "#659F93"))))
  '(linum ((t (:background "#002b36" :foreground "#647C83"))))
  '(mc/cursor-face ((t (:background "#888888" :foreground "black"))))
+ '(mode-line ((t (:background "#000000" :foreground "#dddddd" :box (:line-width 2 :color "grey75" :style released-button)))))
  '(neo-dir-link-face ((t (:foreground "#fffafa" :height 140 :family "San Francisco"))))
  '(neo-file-link-face ((t (:height 140 :family "San Francisco"))))
  '(nlinum-relative-current-face ((t (:inherit linum :background "#002b36" :foreground "#c6c6c6" :weight normal))))
