@@ -98,14 +98,14 @@
 (define-key evil-emacs-state-map (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
 (define-key evil-emacs-state-map (kbd "C-S-v") 'evil-scroll-up)  ;; scroll half-page
 
-(global-set-key "\C-o" (kbd "C-e C-j"))
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key "\M-q" 'nil)
 (global-set-key "\M-s" 'nil)
 (global-set-key "\M-r" 'nil)
-(global-set-key (kbd "\C-x F") 'replace-string)
+(global-set-key (kbd "C-x F") 'replace-string)
 (global-set-key (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
 (global-set-key (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
+(global-set-key (kbd "s-c") 'kill-ring-save)
 
 (require 'nlinum-relative)
 (nlinum-relative-setup-evil)
@@ -145,18 +145,18 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(global-set-key "\C-ca" 'org-agenda)  ;; Use C-c a to active agenda
-;;(require 'evil-org-agenda)
-;;  (evil-org-agenda-set-keys)
-(setq org-todo-keywords
-      '((sequence "TODO" "DOING" "DONE")))
-(setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "#E74E22" :weight bold))
-        ("DOING" . (:foreground "DarkGoldenrod2" :weight bold))
-        ("DONE" . (:foreground "#83E230" :weight bold))))
-(add-hook 'org-mode-hook 'writeroom-mode)
-(global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (global-set-key "\C-ca" 'org-agenda)  ;; Use C-c a to active agenda
+  ;;(require 'evil-org-agenda)
+  ;;  (evil-org-agenda-set-keys)
+  (setq org-todo-keywords
+        '((sequence "TODO" "DOING" "DONE")))
+  (setq org-todo-keyword-faces
+        '(("TODO" . (:foreground "#E74E22" :weight bold))
+          ("DOING" . (:foreground "DarkGoldenrod2" :weight bold))
+          ("DONE" . (:foreground "#83E230" :weight bold))))
+;;  (add-hook 'org-mode-hook 'writeroom-mode)
+  (global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
 
 (elpy-enable)
 (setq elpy-rpc-python-command "/usr/local/bin/python3")
@@ -238,7 +238,7 @@
 
 (define-key evil-normal-state-map (kbd "f") nil)
 (define-key evil-normal-state-map (kbd "f") 'avy-goto-word-1)
-(global-set-key (kbd "C-:") 'avy-goto-word-1)
+(global-set-key (kbd "C-;") 'avy-goto-word-1)
 (setq avy-keys '(?a ?s ?d ?f ?g ?h ?n ?w ?e ?r ?y ?u ?o ?t ?v ?i ?j ?k ?l))
 
 (setq ido-enable-flex-matching t)
@@ -254,25 +254,25 @@
 (require 'smex)
 (global-set-key (kbd "M-x") 'smex)
 
-(global-set-key (kbd "<M-return>") 'eshell)
-(require 'esh-autosuggest)  ;; Fish-like autosuggestion
-(add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
-(eshell-git-prompt-use-theme 'powerline)
+;;  (global-set-key (kbd "<M-return>") 'eshell)
+  (require 'esh-autosuggest)  ;; Fish-like autosuggestion
+  (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
+  (eshell-git-prompt-use-theme 'powerline)
 
-;; The 'clear' command
-(defun eshell/clear ()
-  "Clear the eshell buffer to the top."
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)))
-(global-set-key (kbd "C-8") 'eshell-previous-input)
-(global-set-key (kbd "C-9") 'eshell-next-input)
+  ;; The 'clear' command
+  (defun eshell/clear ()
+    "Clear the eshell buffer to the top."
+    (interactive)
+    (let ((inhibit-read-only t))
+      (erase-buffer)))
+  (global-set-key (kbd "C-8") 'eshell-previous-input)
+  (global-set-key (kbd "C-9") 'eshell-next-input)
 
-;; To let eshell use brew-installed commands
-(setenv "PATH" (concat "/usr/local/bin/" ":" (getenv "PATH")))
-(setq exec-path (append '("/usr/local/bin/") exec-path))
-;; Eshell aliases
-(defalias 'ff 'find-file)
+  ;; To let eshell use brew-installed commands
+  (setenv "PATH" (concat "/usr/local/bin/" ":" (getenv "PATH")))
+  (setq exec-path (append '("/usr/local/bin/") exec-path))
+  ;; Eshell aliases
+  (defalias 'ff 'find-file)
 
 (require 'emmet-mode)
 (add-hook 'html-mode-hook 'emmet-mode)
@@ -386,3 +386,26 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (define-key mc/keymap (kbd "<return>") nil)
+
+(defun move-region (start end n)
+  "Move the current region up or down by N lines."
+  (interactive "r\np")
+  (let ((line-text (delete-and-extract-region start end)))
+    (forward-line n)
+    (let ((start (point)))
+      (insert line-text)
+      (setq deactivate-mark nil)
+      (set-mark start))))
+
+(defun move-region-up (start end n)
+  "Move the current line up by N lines."
+  (interactive "r\np")
+  (move-region start end (if (null n) -1 (- n))))
+
+(defun move-region-down (start end n)
+  "Move the current line down by N lines."
+  (interactive "r\np")
+  (move-region start end (if (null n) 1 n)))
+
+(global-set-key (kbd "M-<up>") 'move-region-up)
+(global-set-key (kbd "M-<down>") 'move-region-down)

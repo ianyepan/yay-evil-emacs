@@ -132,14 +132,14 @@
 #+END_SRC
 ** Emacs Default Mode tweaks
 #+BEGIN_SRC emacs-lisp
-  (global-set-key "\C-o" (kbd "C-e C-j"))
   (global-set-key (kbd "C-h") 'delete-backward-char)
   (global-set-key "\M-q" 'nil)
   (global-set-key "\M-s" 'nil)
   (global-set-key "\M-r" 'nil)
-  (global-set-key (kbd "\C-x F") 'replace-string)
+  (global-set-key (kbd "C-x F") 'replace-string)
   (global-set-key (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
   (global-set-key (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
+  (global-set-key (kbd "s-c") 'kill-ring-save)
     #+END_SRC
 * Line Numbers
 #+BEGIN_SRC emacs-lisp
@@ -205,7 +205,7 @@
         '(("TODO" . (:foreground "#E74E22" :weight bold))
           ("DOING" . (:foreground "DarkGoldenrod2" :weight bold))
           ("DONE" . (:foreground "#83E230" :weight bold))))
-  (add-hook 'org-mode-hook 'writeroom-mode)
+;;  (add-hook 'org-mode-hook 'writeroom-mode)
   (global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
 #+END_SRC
 
@@ -317,7 +317,7 @@
 #+BEGIN_SRC emacs-lisp
   (define-key evil-normal-state-map (kbd "f") nil)
   (define-key evil-normal-state-map (kbd "f") 'avy-goto-word-1)
-  (global-set-key (kbd "C-:") 'avy-goto-word-1)
+  (global-set-key (kbd "C-;") 'avy-goto-word-1)
   (setq avy-keys '(?a ?s ?d ?f ?g ?h ?n ?w ?e ?r ?y ?u ?o ?t ?v ?i ?j ?k ?l))
 #+END_SRC
 * Ido
@@ -339,7 +339,7 @@
 #+END_SRC
 * Eshell
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "<M-return>") 'eshell)
+;;  (global-set-key (kbd "<M-return>") 'eshell)
   (require 'esh-autosuggest)  ;; Fish-like autosuggestion
   (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
   (eshell-git-prompt-use-theme 'powerline)
@@ -499,4 +499,29 @@
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
   (define-key mc/keymap (kbd "<return>") nil)
+#+END_SRC
+* Move Region (Lines)
+#+BEGIN_SRC emacs-lisp
+  (defun move-region (start end n)
+    "Move the current region up or down by N lines."
+    (interactive "r\np")
+    (let ((line-text (delete-and-extract-region start end)))
+      (forward-line n)
+      (let ((start (point)))
+        (insert line-text)
+        (setq deactivate-mark nil)
+        (set-mark start))))
+
+  (defun move-region-up (start end n)
+    "Move the current line up by N lines."
+    (interactive "r\np")
+    (move-region start end (if (null n) -1 (- n))))
+
+  (defun move-region-down (start end n)
+    "Move the current line down by N lines."
+    (interactive "r\np")
+    (move-region start end (if (null n) 1 n)))
+
+  (global-set-key (kbd "M-<up>") 'move-region-up)
+  (global-set-key (kbd "M-<down>") 'move-region-down)
 #+END_SRC

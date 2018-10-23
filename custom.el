@@ -1,3 +1,6 @@
+;;; custom.el --- Emacs Configuration through Custom
+;;; Commentary:
+;;; Code:
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -67,6 +70,7 @@
  '(package-selected-packages
    '(expand-region switch-window beacon writeroom-mode eshell-git-prompt vscode-icon dired-sidebar tide all-the-icons minions moody edit-server flx-ido vimrc-mode lorem-ipsum dockerfile-mode evil-org rainbow-mode smex esh-autosuggest evil-magit ido-vertical-mode markdown-mode whitespace-cleanup-mode magit spacemacs-theme highlight-escape-sequences dired-icon highlight-operators highlight-numbers company-jedi emmet-mode column-enforce-mode yasnippet-snippets yasnippet-classic-snippets which-key smooth-scrolling rainbow-delimiters prettier-js org-bullets nlinum-relative neotree js2-mode jedi java-snippets evil-surround evil-smartparens evil-commentary elpy dashboard base16-theme avy auto-indent-mode))
  '(python-indent-guess-indent-offset nil)
+ '(shr-max-image-proportion 0.5)
  '(writeroom-global-effects
    '(writeroom-set-fullscreen writeroom-set-alpha writeroom-set-menu-bar-lines writeroom-set-tool-bar-lines writeroom-set-bottom-divider-width))
  '(writeroom-mode-line t))
@@ -90,15 +94,17 @@
  '(eshell-git-prompt-powerline-clean-face ((t (:background "MediumSeaGreen" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#839DB2" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
+ '(fringe ((t (:background "#002b36"))))
  '(js2-function-param ((t (:foreground "#659F93"))))
+ '(linum ((t (:background "#002b36" :foreground "#647C83"))))
  '(mc/cursor-face ((t (:background "#888888" :foreground "black"))))
  '(neo-dir-link-face ((t (:foreground "#fffafa" :height 140 :family "San Francisco"))))
  '(neo-file-link-face ((t (:height 140 :family "San Francisco"))))
- '(nlinum-relative-current-face ((t (:inherit linum :background "#000000" :foreground "#c6c6c6" :weight normal))))
+ '(nlinum-relative-current-face ((t (:inherit linum :background "#002b36" :foreground "#c6c6c6" :weight normal))))
  '(org-block ((t (:background "#20282F" :foreground "#839DB2"))))
  '(org-document-title ((t (:height 2.0 :family "Georgia"))))
  '(org-level-1 ((t (:inherit outline-1 :weight bold :height 1.3))))
  '(org-level-2 ((t (:inherit outline-2 :weight bold :height 1.1))))
  '(org-level-3 ((t (:inherit outline-3 :weight bold :height 1.1))))
  '(org-table ((t (:background "#152432"))))
- '(variable-pitch ((t (:foreground "#eeeeee" :height 1.6 :family "CMU Serif")))))
+ '(variable-pitch ((t (:foreground "#eeeeee" :height 1.3 :family "CMU Serif")))))

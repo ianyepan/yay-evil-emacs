@@ -1,4 +1,4 @@
-;;; .emacs --- Custom Emacs Configuration
+;;; init.el --- Emacs init file
 ;;  Author: Ian Y.E. Pan
 ;;; Commentary:
 ;;; Code:
@@ -23,4 +23,4 @@
 (load custom-file)
 
 (provide 'init)
-;; init.el ends here
+;;; init.el ends here
