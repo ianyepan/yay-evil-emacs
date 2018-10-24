@@ -1,6 +1,7 @@
 (display-battery-mode 1)
-(add-to-list 'default-frame-alist '(width . 95))
-(add-to-list 'default-frame-alist '(height . 30))
+(minions-mode 1)
+;; (add-to-list 'default-frame-alist '(width . 95))
+;; (add-to-list 'default-frame-alist '(height . 30))
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
@@ -50,7 +51,7 @@
 (global-visual-line-mode t)
 (setq-default indicate-empty-lines t)
 
-(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'prog-mode-hook 'company-mode)
 (setq company-global-modes '(not eshell-mode))  ;; No auto-completion in eshell
 (setq company-idle-delay t) ;; no delay
 (with-eval-after-load 'company
@@ -111,7 +112,7 @@
 (nlinum-relative-setup-evil)
 (add-hook 'prog-mode-hook 'nlinum-relative-mode)
 (setq nlinum-relative-redisplay-delay 0)
-(setq nlinum-relative-current-symbol "")      ;; empty to display current number
+(setq nlinum-relative-current-symbol "")  ;; empty to display current number
 (setq nlinum-relative-offset 0)
 
 (add-to-list 'load-path "/.emacs.d/elpa/neotree/")
@@ -391,3 +392,9 @@
 
 (global-set-key (kbd "M-<up>") 'move-region-up)
 (global-set-key (kbd "M-<down>") 'move-region-down)
+
+;; Go to end of line, forward-delete char, insert space.
+(fset 'join-lines
+      (lambda (&optional arg) "Join lines the Vim style"
+        (interactive "p") (kmacro-exec-ring-item '(" " 0 "%d") arg)))
+(global-set-key (kbd "C-x J") 'join-lines)
