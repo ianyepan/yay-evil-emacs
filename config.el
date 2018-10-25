@@ -1,25 +1,21 @@
 (display-battery-mode 1)
-(minions-mode 1)
-;; (add-to-list 'default-frame-alist '(width . 95))
-;; (add-to-list 'default-frame-alist '(height . 30))
+  (minions-mode 1)
+  
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
+  (add-hook 'prog-mode-hook 'highlight-operators-mode)
+  (add-hook 'prog-mode-hook 'hes-mode)  ;; highlight escape sequences
 
-(add-hook 'prog-mode-hook 'highlight-numbers-mode)
-(add-hook 'prog-mode-hook 'highlight-operators-mode)
-(add-hook 'prog-mode-hook 'hes-mode)  ;; highlight escape sequences
-
-(setq user-full-name "Ian Y.E. Pan")
-(global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
-(setq initial-scratch-message nil)
-(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
-(setq frame-title-format '( "GNU Emacs @ %b" " [" (:eval mode-name) "]"))
-(require 'dashboard)
-(dashboard-setup-startup-hook)
-(setq dashboard-banner-logo-title "(E)macs  (M)akes  (A)ll  (C)omputers  (S)uper")
-(setq dashboard-startup-banner "~/Downloads/gnuemacs.png")
-;;  (setq split-height-threshold nil)  ;; always split windows side by side
-;;  (setq split-width-threshold 0)
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
+  (setq user-full-name "Ian Y.E. Pan")
+  (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
+  (setq initial-scratch-message nil)
+  (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
+;;  (setq frame-title-format '( "GNU Emacs @ %b" " [" (:eval mode-name) "]"))
+  (require 'dashboard)
+  (dashboard-setup-startup-hook)
+  (setq dashboard-banner-logo-title "(E)macs  (M)akes  (A)ll  (C)omputers  (S)uper")
+  (setq dashboard-startup-banner "~/Downloads/gnuemacs.png")
+;;  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
@@ -233,9 +229,9 @@
 (setq org-latex-minted-options '(("linenos=true")))
 
 (define-key evil-normal-state-map (kbd "f") nil)
-(define-key evil-normal-state-map (kbd "f") 'avy-goto-word-1)
+(define-key evil-normal-state-map (kbd "f") 'avy-goto-word-0)
 (global-set-key (kbd "C-;") 'avy-goto-word-1)
-(setq avy-keys '(?a ?s ?d ?f ?g ?h ?n ?w ?e ?r ?y ?u ?o ?t ?v ?i ?j ?k ?l))
+(setq avy-keys '(?a ?b ?c ?y ?e ?w ?g ?h ?i ?j ?x ?m ?n ?o ?p ?q ?r ?s ?t ?u ?v ?f ?k ?d ?l))
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)

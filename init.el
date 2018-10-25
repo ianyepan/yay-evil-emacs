@@ -12,7 +12,7 @@
 ;; Load theme by hand, don't use 'M-x customize-themes'
 ;; (add-to-list `custom-theme-load-path "~/.emacs.d/themes/")
 ;; (load-theme `tronlegacy t)
-(load-theme 'base16-solarized-dark t)
+(load-theme 'base16-solarized-light t)
 
 ;; Load actual config file
 (require 'org)

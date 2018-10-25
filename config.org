@@ -15,12 +15,12 @@
   (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
   (setq initial-scratch-message nil)
   (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
-  (setq frame-title-format '( "GNU Emacs @ %b" " [" (:eval mode-name) "]"))
+;;  (setq frame-title-format '( "GNU Emacs @ %b" " [" (:eval mode-name) "]"))
   (require 'dashboard)
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "(E)macs  (M)akes  (A)ll  (C)omputers  (S)uper")
   (setq dashboard-startup-banner "~/Downloads/gnuemacs.png")
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;;  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
 #+END_SRC
 ** Cleaning up the interface
@@ -293,9 +293,9 @@
 * Avy-easymotion
 #+BEGIN_SRC emacs-lisp
   (define-key evil-normal-state-map (kbd "f") nil)
-  (define-key evil-normal-state-map (kbd "f") 'avy-goto-word-1)
+  (define-key evil-normal-state-map (kbd "f") 'avy-goto-word-0)
   (global-set-key (kbd "C-;") 'avy-goto-word-1)
-  (setq avy-keys '(?a ?s ?d ?f ?g ?h ?n ?w ?e ?r ?y ?u ?o ?t ?v ?i ?j ?k ?l))
+  (setq avy-keys '(?a ?b ?c ?y ?e ?w ?g ?h ?i ?j ?x ?m ?n ?o ?p ?q ?r ?s ?t ?u ?v ?f ?k ?d ?l))
 #+END_SRC
 * Ido
 #+BEGIN_SRC emacs-lisp
