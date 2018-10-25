@@ -56,16 +56,16 @@
    '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-highlight-latex-and-related '(latex))
- '(org-latex-classes
-   '(("article" "\\documentclass[12pt, a4paper]{article}"
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-      ("\\paragraph{%s}" . "\\paragraph*{%s}")
-      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
- '(org-latex-listings 'minted)
- '(org-latex-pdf-process
-   '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+ ;; '(org-latex-classes
+ ;;   '(("article" "\\documentclass[12pt, a4paper]{article}"
+ ;;      ("\\section{%s}" . "\\section*{%s}")
+ ;;      ("\\subsection{%s}" . "\\subsection*{%s}")
+ ;;      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+ ;;      ("\\paragraph{%s}" . "\\paragraph*{%s}")
+ ;;      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+ ;; '(org-latex-listings 'minted)
+ ;; '(org-latex-pdf-process
+ ;;   '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
    '(solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative neotree multiple-cursors minions markdown-mode lorem-ipsum js2-mode jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region evil-surround evil-smartparens evil-org evil-magit evil-commentary eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar dashboard company-jedi column-enforce-mode beacon base16-theme avy auto-indent-mode all-the-icons))
@@ -83,7 +83,8 @@
  '(avy-lead-face ((t (:foreground "#FF4E4e"))))
  '(avy-lead-face-0 ((t (:foreground "DarkGoldenrod2"))))
  '(column-enforce-face ((t (:foreground "#ff4e4e" :underline t))))
- '(company-tooltip-selection ((t (:inherit region))))
+ '(company-preview-common ((t (:inherit region))))
+ '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#D7CDAE"))))
  '(eshell-git-prompt-powerline-clean-face ((t (:background "MediumSeaGreen" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#839DB2" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
@@ -94,12 +95,13 @@
  '(neo-dir-link-face ((t (:height 140 :family "San Francisco"))))
  '(neo-file-link-face ((t (:height 140 :family "San Francisco"))))
  '(nlinum-relative-current-face ((t (:inherit linum :background "#FCF6E3" :foreground "#000000" :weight normal))))
- '(org-block ((t (:background "#002b36" :foreground "#839DB2"))))
+ '(org-block ((t (:background "#002b36" :foreground "#B4B9BD"))))
  '(org-document-title ((t (:height 2.0 :family "Georgia"))))
  '(org-level-1 ((t (:inherit outline-1 :weight bold :height 1.3))))
  '(org-level-2 ((t (:inherit outline-2 :weight bold :height 1.1))))
  '(org-level-3 ((t (:inherit outline-3 :weight bold :height 1.1))))
- '(region ((t (:background "#E6DBBA"))))
+ '(region ((t (:background "#D7CDAE"))))
+ '(show-paren-match ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
  '(variable-pitch ((t (:height 1.3 :family "CMU Serif")))))
 
 (provide 'custom)
