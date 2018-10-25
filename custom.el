@@ -56,16 +56,15 @@
    '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-highlight-latex-and-related '(latex))
- ;; '(org-latex-classes
- ;;   '(("article" "\\documentclass[12pt, a4paper]{article}"
- ;;      ("\\section{%s}" . "\\section*{%s}")
- ;;      ("\\subsection{%s}" . "\\subsection*{%s}")
- ;;      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
- ;;      ("\\paragraph{%s}" . "\\paragraph*{%s}")
- ;;      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
- ;; '(org-latex-listings 'minted)
- ;; '(org-latex-pdf-process
- ;;   '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+ '(org-latex-classes
+   '(("article" "\\documentclass[12pt, a4paper]{article}"
+      ("\\section{%s}" . "\\section*{%s}")
+      ("\\subsection{%s}" . "\\subsection*{%s}")
+      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+      ("\\paragraph{%s}" . "\\paragraph*{%s}")
+      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+ '(org-latex-listings 'minted)
+ '(org-latex-pdf-process '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
    '(solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative neotree multiple-cursors minions markdown-mode lorem-ipsum js2-mode jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region evil-surround evil-smartparens evil-org evil-magit evil-commentary eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar dashboard company-jedi column-enforce-mode beacon base16-theme avy auto-indent-mode all-the-icons))

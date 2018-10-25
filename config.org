@@ -274,11 +274,10 @@
 * LaTeX
 #+BEGIN_SRC emacs-lisp
   ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
-  ;; (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
-  ;; (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
+  (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
+  (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
 
-  ;; ;;
-  Colourful Org LaTeX Code Blocks
+  ;; Colourful Org LaTeX Code Blocks
   (require 'ox-latex)
   (add-to-list 'org-latex-packages-alist '("" "minted"))
   (setq org-latex-listings 'minted)
