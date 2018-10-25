@@ -1,21 +1,21 @@
 (display-battery-mode 1)
-  (minions-mode 1)
-  
-  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
-  (add-hook 'prog-mode-hook 'highlight-operators-mode)
-  (add-hook 'prog-mode-hook 'hes-mode)  ;; highlight escape sequences
+(minions-mode 1)
 
-  (setq user-full-name "Ian Y.E. Pan")
-  (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
-  (setq initial-scratch-message nil)
-  (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
-;;  (setq frame-title-format '( "GNU Emacs @ %b" " [" (:eval mode-name) "]"))
-  (require 'dashboard)
-  (dashboard-setup-startup-hook)
-  (setq dashboard-banner-logo-title "(E)macs  (M)akes  (A)ll  (C)omputers  (S)uper")
-  (setq dashboard-startup-banner "~/Downloads/gnuemacs.png")
-;;  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+(add-hook 'prog-mode-hook 'highlight-numbers-mode)
+(add-hook 'prog-mode-hook 'highlight-operators-mode)
+(add-hook 'prog-mode-hook 'hes-mode)  ;; highlight escape sequences
+
+(setq user-full-name "Ian Y.E. Pan")
+(global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
+(setq initial-scratch-message nil)
+(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
+;; (setq frame-title-format '( "GNU Emacs @ %b" " [" (:eval mode-name) "]"))
+(require 'dashboard)
+(dashboard-setup-startup-hook)
+;; (setq dashboard-banner-logo-title "(E)macs  (M)akes  (A)ll  (C)omputers  (S)uper")
+;; (setq dashboard-startup-banner "~/Downloads/gnuemacs.png")
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
@@ -301,10 +301,10 @@
 (global-set-key (kbd "C-c E") 'ediff-current-file)
 (eval-after-load 'diff-mode
   '(progn
-     (set-face-background 'diff-added "#355531")
-     (set-face-foreground 'diff-added "#dcffdd")
-     (set-face-background 'diff-removed "#553333")
-     (set-face-foreground 'diff-removed "#ffdddc")))
+     (set-face-foreground 'diff-added "#355531")
+     (set-face-background 'diff-added "#dcffdd")
+     (set-face-foreground 'diff-removed "#553333")
+     (set-face-background 'diff-removed "#ffdddc")))
 
 (defun toggle-transparency ()
   (interactive)
