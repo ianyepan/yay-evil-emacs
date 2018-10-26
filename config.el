@@ -151,6 +151,9 @@
 (require 'vimrc-mode)
 (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode))
 
+(require 'hungry-delete)
+(global-hungry-delete-mode)
+
 (smartparens-global-mode 1)
 (setq show-paren-delay 0)
 (show-paren-mode 1)

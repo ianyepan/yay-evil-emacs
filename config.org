@@ -206,6 +206,12 @@ Let ~C-v~ and ~M-v~ scroll half-page instead of full-page
   (require 'vimrc-mode)
   (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode))
 #+END_SRC
+* Hungry Delete
+Deleting a whitespace character will delete all whitespace until the next non-whitespace character.
+#+BEGIN_SRC emacs-lisp
+  (require 'hungry-delete)
+  (global-hungry-delete-mode)
+#+END_SRC
 * Smart Parentheses
 #+BEGIN_SRC emacs-lisp
   (smartparens-global-mode 1)
