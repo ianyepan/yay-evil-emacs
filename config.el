@@ -1,3 +1,5 @@
+(server-start)
+
 (setq inhibit-splash-screen t)
 (display-battery-mode 1)
 (minions-mode 1)
@@ -85,16 +87,16 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (require 'org-bullets)
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (global-set-key (kbd "C-c a") 'org-agenda)  ;; Use C-c a to active agenda
-  (setq org-todo-keywords
-        '((sequence "TODO" "DOING" "DONE")))
-  (setq org-todo-keyword-faces
-        '(("TODO" . (:foreground "#E74E22" :weight bold))
-          ("DOING" . (:foreground "DarkGoldenrod2" :weight bold))
-          ("DONE" . (:foreground "#83E230" :weight bold))))
-;;  (add-hook 'org-mode-hook 'writeroom-mode)
-  (global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(global-set-key (kbd "C-c a") 'org-agenda)  ;; Use C-c a to active agenda
+(setq org-todo-keywords
+      '((sequence "TODO" "DOING" "DONE")))
+(setq org-todo-keyword-faces
+      '(
+        ("TODO" . (:background "#FFCDCD" :box t))
+        ("DOING" . (:background "#FDF381" :box t))
+        ("DONE" . (:background "#E0FDD5" :box t))))
+(global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
 
 (elpy-enable)
 (setq elpy-rpc-python-command "/usr/local/bin/python3")

@@ -2,6 +2,10 @@
 #+Author: Ian Y.E. Pan
 #+Date: Since 21.Oct.2018
 * Start-up
+** Always start the server
+#+BEGIN_SRC emacs-lisp
+  (server-start)
+#+END_SRC
 ** Better-looks and defaults
 Minions mode for reducing the long line of minor modes in mode-line.
 
@@ -133,10 +137,10 @@ Let ~C-v~ and ~M-v~ scroll half-page instead of full-page
   (setq org-todo-keywords
         '((sequence "TODO" "DOING" "DONE")))
   (setq org-todo-keyword-faces
-        '(("TODO" . (:foreground "#E74E22" :weight bold))
-          ("DOING" . (:foreground "DarkGoldenrod2" :weight bold))
-          ("DONE" . (:foreground "#83E230" :weight bold))))
-;;  (add-hook 'org-mode-hook 'writeroom-mode)
+        '(
+          ("TODO" . (:background "#FFCDCD" :box t))
+          ("DOING" . (:background "#FDF381" :box t))
+          ("DONE" . (:background "#E0FDD5" :box t))))
   (global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
 #+END_SRC
 * Python
