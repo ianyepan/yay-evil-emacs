@@ -4,7 +4,7 @@
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
-(add-hook 'prog-mode-hook 'hes-mode)  ;; highlight escape sequences
+(add-hook 'prog-mode-hook 'hes-mode)
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
 (setq user-full-name "Ian Y.E. Pan")
@@ -17,7 +17,7 @@
 (menu-bar-mode -1)
 (blink-cursor-mode 0)
 
-(setq initial-major-mode 'org-mode) ;; for *scratch* buffer
+(setq initial-major-mode 'org-mode)
 (with-current-buffer
     (get-buffer-create "*scratch*") (org-mode)
     (make-local-variable 'kill-buffer-query-functions)
@@ -43,10 +43,9 @@
 (setq-default indicate-empty-lines t)
 
 (add-hook 'prog-mode-hook 'company-mode)
-(setq company-global-modes '(not eshell-mode))  ;; No auto-completion in eshell
-(setq company-idle-delay t) ;; no delay
+(setq company-global-modes '(not eshell-mode))
+(setq company-idle-delay t)
 (with-eval-after-load 'company
-;; Use C-n/p to select company suggestions.
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
@@ -57,50 +56,9 @@
 (global-set-key (kbd "M-s") 'nil)
 (global-set-key (kbd "M-r") 'nil)
 (global-set-key (kbd "C-x F") 'replace-string)
-(global-set-key (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
-(global-set-key (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
 (global-set-key (kbd "s-c") 'kill-ring-save)
 
-;;  (setq evil-want-C-u-scroll t)
-(require 'evil) ;; At least for scrolling half-page up down.
-;; (evil-mode 1)
-;; (require 'evil-surround)
-;;  (global-evil-surround-mode 1)
-;;  (evil-commentary-mode)
-;;  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
-
-(define-key evil-normal-state-map (kbd "C-n") 'next-line)
-(define-key evil-insert-state-map (kbd "C-n") 'next-line)
-(define-key evil-visual-state-map (kbd "C-n") 'next-line)
-
-(define-key evil-normal-state-map (kbd "C-p") 'previous-line)
-(define-key evil-insert-state-map (kbd "C-p") 'previous-line)
-(define-key evil-visual-state-map (kbd "C-p") 'previous-line)
-
-(define-key evil-normal-state-map (kbd "C-f") 'forward-char)
-(define-key evil-insert-state-map (kbd "C-f") 'forward-char)
-(define-key evil-visual-state-map (kbd "C-f") 'forward-char)
-
-(define-key evil-normal-state-map (kbd "C-b") 'backward-char)
-(define-key evil-insert-state-map (kbd "C-b") 'backward-char)
-(define-key evil-visual-state-map (kbd "C-b") 'backward-char)
-
-(define-key evil-normal-state-map (kbd "C-e") 'end-of-visual-line)
-(define-key evil-insert-state-map (kbd "C-e") 'end-of-visual-line)
-(define-key evil-visual-state-map (kbd "C-e") 'end-of-visual-line)
-
-(define-key evil-normal-state-map (kbd "C-a") 'beginning-of-visual-line)
-(define-key evil-insert-state-map (kbd "C-a") 'beginning-of-visual-line)
-(define-key evil-visual-state-map (kbd "C-a") 'beginning-of-visual-line)
-
-(define-key evil-insert-state-map (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
-(define-key evil-insert-state-map (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
-
-(define-key evil-emacs-state-map (kbd "C-v") 'evil-scroll-down)  ;; scroll half-page
-(define-key evil-emacs-state-map (kbd "M-v") 'evil-scroll-up)  ;; scroll half-page
-
 (require 'nlinum-relative)
-(nlinum-relative-setup-evil)
 (add-hook 'prog-mode-hook 'nlinum-relative-mode)
 (setq nlinum-relative-redisplay-delay 0)
 (setq nlinum-relative-current-symbol "")  ;; empty to display current number
@@ -109,17 +67,7 @@
 (add-to-list 'load-path "/.emacs.d/elpa/neotree/")
 (require 'neotree)
 (global-set-key (kbd "C-x j") 'neotree-toggle)
-;; Evil NeoTree
-(add-hook 'neotree-mode-hook
-          (lambda ()
-            (define-key evil-normal-state-local-map
-              (kbd "l") 'neotree-enter)
-            (define-key evil-normal-state-local-map
-              (kbd "RET") 'neotree-enter)
-            (define-key evil-normal-state-local-map
-              (kbd "A") 'neotree-stretch-toggle)
-            (define-key evil-normal-state-local-map
-              (kbd "zh") 'neotree-hidden-file-toggle)))
+
 (setq neo-theme 'icons)
 
 (require 'rainbow-delimiters)
@@ -139,8 +87,6 @@
 (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (global-set-key (kbd "C-c a") 'org-agenda)  ;; Use C-c a to active agenda
-  ;;(require 'evil-org-agenda)
-  ;;  (evil-org-agenda-set-keys)
   (setq org-todo-keywords
         '((sequence "TODO" "DOING" "DONE")))
   (setq org-todo-keyword-faces
@@ -174,7 +120,6 @@
 (which-key-mode t)
 
 (setq-default tab-width 2)
-(setq evil-shift-width 2)  ;; Using < and > to shift.
 (defvaralias 'c-basic-offset 'tab-width)
 ;; (defvaralias 'cperl-indent-level 'tab-width)
 (setq-default indent-tabs-mode nil) ;; Always use spaces
@@ -207,7 +152,6 @@
 (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode))
 
 (smartparens-global-mode 1)
-;; (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
@@ -223,8 +167,6 @@
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 (setq org-latex-minted-options '(("linenos=true")))
 
-(define-key evil-normal-state-map (kbd "f") nil)
-(define-key evil-normal-state-map (kbd "f") 'avy-goto-word-0)
 (global-set-key (kbd "C-;") 'avy-goto-word-1)
 (setq avy-keys '(?a ?b ?c ?y ?e ?w ?g ?h ?i ?j ?x ?m ?n ?o ?p ?q ?r ?s ?t ?u ?v ?f ?k ?d ?l))
 
@@ -287,7 +229,6 @@
 (set-register ?r (cons 'file "~/.emacs.d/themes/tronlegacy-theme.el"))
 (set-register ?t (cons 'file "~/todo.org"))
 
-;; (require 'evil-magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (global-set-key (kbd "C-c d") 'diff)
