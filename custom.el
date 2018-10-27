@@ -41,17 +41,13 @@
  '(ido-vertical-define-keys 'C-n-and-C-p-only)
  '(ido-vertical-mode t)
  '(isearch-lazy-highlight t)
- '(jdee-compiler '("javac"))
- '(jdee-server-dir "~/myJars")
  '(js-indent-level 2)
- '(js2-strict-missing-semi-warning nil)
  '(lazy-highlight-initial-delay 0)
  '(mc/always-repeat-command t)
  '(mc/always-run-for-all t)
  '(neo-autorefresh t)
  '(neo-window-position 'right)
  '(neo-window-width 30)
- '(olivetti-body-width 80)
  '(org-agenda-files
    '("~/todo.org" "~/Notes-in-Org-LaTeX/GNU-Emacs/gnu-emacs.org" "~/Notes-in-Org-LaTeX/Docker/docker.org"))
  '(org-format-latex-options
