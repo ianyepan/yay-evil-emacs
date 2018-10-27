@@ -56,7 +56,6 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-(global-set-key (kbd "C-h") 'nil)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-q") 'nil)
 (global-set-key (kbd "M-s") 'nil)
@@ -97,9 +96,9 @@
       '((sequence "TODO" "DOING" "DONE")))
 (setq org-todo-keyword-faces
       '(
-        ("TODO" . (:background "#FFCDCD" :box t))
-        ("DOING" . (:background "#FDF381" :box t))
-        ("DONE" . (:background "#E0FDD5" :box t))))
+        ("TODO" . (:background "#FFCDCD" :foreground "#801111" :box t))
+        ("DOING" . (:background "#FDF381" :foreground "#4D3100" :box t))
+        ("DONE" . (:background "#E0FDD5" :foreground "#1A4D00" :box t))))
 (global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
 
 (elpy-enable)
