@@ -91,7 +91,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
     (define-key company-active-map (kbd "C-p") #'company-select-previous))
 #+END_SRC
 * Emacs Keybindings tweaks
-Let ~C-v~ and ~M-v~ scroll half-page instead of full-page
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-h") 'delete-backward-char)
   (global-set-key (kbd "M-q") 'nil)
@@ -414,9 +413,13 @@ Deleting a whitespace character will delete all whitespace until the next non-wh
 #+END_SRC
 * Self-Defined Macros
 #+BEGIN_SRC emacs-lisp
-  ;; Go to end of line, forward-delete char, insert space.
   (fset 'join-lines
         (lambda (&optional arg) "Join lines the Vim style"
           (interactive "p") (kmacro-exec-ring-item '(" " 0 "%d") arg)))
   (global-set-key (kbd "C-x J") 'join-lines)
+
+  (fset 'make-word-italics
+     (lambda (&optional arg) "Keyboard macro."
+       (interactive "p") (kmacro-exec-ring-item '([47 escape 102 47] 0 "%d") arg)))
+  (global-set-key (kbd "C-x I") 'make-word-italics)
 #+END_SRC

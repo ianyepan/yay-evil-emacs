@@ -44,6 +44,9 @@
 (global-visual-line-mode t)
 (setq-default indicate-empty-lines t)
 
+(drag-stuff-global-mode 1)
+(drag-stuff-define-keys)  ;; Use Meta-up/down/left/right
+
 (add-hook 'prog-mode-hook 'company-mode)
 (setq company-global-modes '(not eshell-mode))
 (setq company-idle-delay t)
@@ -53,6 +56,7 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
+(global-set-key (kbd "C-h") 'nil)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-q") 'nil)
 (global-set-key (kbd "M-s") 'nil)
@@ -307,11 +311,12 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (define-key mc/keymap (kbd "<return>") nil)
 
-(drag-stuff-global-mode 1)
-(drag-stuff-define-keys)
-
-;; Go to end of line, forward-delete char, insert space.
 (fset 'join-lines
       (lambda (&optional arg) "Join lines the Vim style"
         (interactive "p") (kmacro-exec-ring-item '(" " 0 "%d") arg)))
 (global-set-key (kbd "C-x J") 'join-lines)
+
+(fset 'make-word-italics
+   (lambda (&optional arg) "Keyboard macro."
+     (interactive "p") (kmacro-exec-ring-item '([47 escape 102 47] 0 "%d") arg)))
+(global-set-key (kbd "C-x I") 'make-word-italics)
