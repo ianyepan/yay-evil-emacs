@@ -70,6 +70,14 @@ Default to org-mode for *scratch* buffer
   (global-visual-line-mode t)
   (setq-default indicate-empty-lines t)
 #+END_SRC
+* Move Text with Meta (Drag-Stuff)
+Bear in mind that the keybindings of Meta-up/down will override its functionalities in Org mode. In addition, when moving a region, it's best to use ~C-x <spc>~ to cut a vertical selection line to indicate which lines to move. (Same logic goes for when commenting lines in ~C-x C-;~)
+
+Meta-right/left transposes the current word with the right/left one.
+#+BEGIN_SRC emacs-lisp
+  (drag-stuff-global-mode 1)
+  (drag-stuff-define-keys)  ;; Use Meta-up/down/left/right
+#+END_SRC
 * Auto-Completion
 Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disable company in eshell. Use ~C-n/p~ to select candidates in company menu.
 #+BEGIN_SRC emacs-lisp
@@ -390,7 +398,6 @@ Deleting a whitespace character will delete all whitespace until the next non-wh
     (other-window 1))
   (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 #+END_SRC
-
 * Expand-Region
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-=") 'er/expand-region)
@@ -404,31 +411,6 @@ Deleting a whitespace character will delete all whitespace until the next non-wh
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
   (define-key mc/keymap (kbd "<return>") nil)
-#+END_SRC
-* Move Region (Lines)
-#+BEGIN_SRC emacs-lisp
-  (defun move-region (start end n)
-    "Move the current region up or down by N lines."
-    (interactive "r\np")
-    (let ((line-text (delete-and-extract-region start end)))
-      (forward-line n)
-      (let ((start (point)))
-        (insert line-text)
-        (setq deactivate-mark nil)
-        (set-mark start))))
-
-  (defun move-region-up (start end n)
-    "Move the current line up by N lines."
-    (interactive "r\np")
-    (move-region start end (if (null n) -1 (- n))))
-
-  (defun move-region-down (start end n)
-    "Move the current line down by N lines."
-    (interactive "r\np")
-    (move-region start end (if (null n) 1 n)))
-
-  (global-set-key (kbd "M-<up>") 'move-region-up)
-  (global-set-key (kbd "M-<down>") 'move-region-down)
 #+END_SRC
 * Self-Defined Macros
 #+BEGIN_SRC emacs-lisp
