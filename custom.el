@@ -7,6 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(all-the-icons-scale-factor 1.0)
+ '(avy-background t)
  '(beacon-blink-delay 0.1)
  '(beacon-blink-duration 0.4)
  '(beacon-blink-when-focused t)
@@ -20,11 +21,13 @@
  '(cdlatex-auto-help-delay 0.7)
  '(column-enforce-column 79)
  '(company-cmake-executable nil)
+ '(company-dabbrev-minimum-length 1)
  '(company-global-modes '(not eshell-mode))
  '(company-idle-delay t)
+ '(company-minimum-prefix-length 1)
  '(css-fontify-colors nil)
  '(css-indent-offset 2)
- '(cursor-type 'bar)
+ '(cursor-type 'box)
  '(dired-sidebar-width 35)
  '(dired-use-ls-dired nil)
  '(display-time-24hr-format t)
@@ -66,7 +69,7 @@
    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
-   '(drag-stuff parrot cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative neotree multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode beacon base16-theme avy auto-indent-mode all-the-icons))
+   '(htmlize drag-stuff parrot cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative neotree multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode beacon base16-theme avy auto-indent-mode all-the-icons))
  '(python-indent-guess-indent-offset nil)
  '(shr-max-image-proportion 0.5)
  '(which-key-echo-keystrokes 0.25)
@@ -81,11 +84,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 144 :width normal :foundry "nil" :family "Monaco"))))
+ '(avy-background-face ((t (:foreground "#bbbbbb"))))
  '(avy-lead-face ((t (:foreground "#FF4E4e"))))
  '(avy-lead-face-0 ((t (:foreground "DarkGoldenrod2"))))
  '(column-enforce-face ((t (:foreground "#ff4e4e" :underline t))))
  '(company-preview-common ((t (:inherit region))))
  '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#D7CDAE"))))
+ '(cursor ((t (:background "#000000"))))
  '(eshell-git-prompt-powerline-clean-face ((t (:background "MediumSeaGreen" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#839DB2" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))

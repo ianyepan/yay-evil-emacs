@@ -3,9 +3,10 @@
 (setq inhibit-splash-screen t)
 (display-battery-mode 1)
 (minions-mode 1)
+(setq org-ellipsis "⤵") ;; it's a downward-pointing arrow
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
-(global-hl-line-mode 1)
+(add-hook 'prog-mode-hook 'hl-line-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
@@ -90,6 +91,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+(require 'ox-md)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (global-set-key (kbd "C-c a") 'org-agenda)  ;; Use C-c a to active agenda

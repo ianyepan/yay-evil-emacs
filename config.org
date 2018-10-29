@@ -1,4 +1,4 @@
-#+Title: Emacs Configuration
+#+Title: Ian's Emacs Configuration
 #+Author: Ian Y.E. Pan
 #+Date: Since 21.Oct.2018
 * Start-up
@@ -14,9 +14,10 @@ Minions mode for reducing the long line of minor modes in mode-line.
   (setq inhibit-splash-screen t)
   (display-battery-mode 1)
   (minions-mode 1)
+  (setq org-ellipsis "⤵") ;; it's a downward-pointing arrow
 
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
-  (global-hl-line-mode 1)
+  (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'prog-mode-hook 'highlight-operators-mode)
   (add-hook 'prog-mode-hook 'hes-mode)
   (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
@@ -139,6 +140,7 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 
 * Org Mode
 #+BEGIN_SRC emacs-lisp
+  (require 'ox-md)
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (global-set-key (kbd "C-c a") 'org-agenda)  ;; Use C-c a to active agenda
