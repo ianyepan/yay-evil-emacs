@@ -5,6 +5,7 @@
 (minions-mode 1)
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
+(global-hl-line-mode 1)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
