@@ -90,7 +90,6 @@
  '(column-enforce-face ((t (:foreground "#ff4e4e" :underline t))))
  '(company-preview-common ((t (:inherit region))))
  '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#D7CDAE"))))
- '(cursor ((t (:background "#000000"))))
  '(eshell-git-prompt-powerline-clean-face ((t (:background "MediumSeaGreen" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#839DB2" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
@@ -114,4 +113,4 @@
  '(variable-pitch ((t (:height 1.3 :family "CMU Serif")))))
 
 (provide 'custom)
-;;; custome.el ends here
+;;; custom.el ends here
