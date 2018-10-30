@@ -3,7 +3,6 @@
 (setq inhibit-splash-screen t)
 (display-battery-mode 1)
 (minions-mode 1)
-(setq org-ellipsis "⤵") ;; it's a downward-pointing arrow
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'hl-line-mode)

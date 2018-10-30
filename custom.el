@@ -53,6 +53,7 @@
  '(neo-window-position 'right)
  '(neo-window-width 30)
  '(org-agenda-files '("~/todo.org" "~/Notes-in-Org-LaTeX/Docker/docker.org"))
+ '(org-ellipsis "⤵")
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\[")))
@@ -105,6 +106,7 @@
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date))))
  '(org-block ((t (:background "#FFF9E5" :foreground "#000000"))))
  '(org-document-title ((t (:height 2.0 :family "CMU Serif"))))
+ '(org-ellipsis ((t (:foreground "Black"))))
  '(org-meta-line ((t (:background "#dddddd" :foreground "#777777"))))
  '(outline-1 ((t (:background "#E4F2FF" :foreground "#0E3A6D" :overline t :weight bold :height 1.3))))
  '(outline-2 ((t (:background "#FFE7E4" :foreground "#801111" :overline t :weight bold :height 1.2))))
