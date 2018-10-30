@@ -52,6 +52,7 @@
  '(neo-autorefresh t)
  '(neo-window-position 'right)
  '(neo-window-width 30)
+ '(nlinum-relative-redisplay-delay 0)
  '(org-agenda-files '("~/todo.org" "~/Notes-in-Org-LaTeX/Docker/docker.org"))
  '(org-ellipsis "⤵")
  '(org-format-latex-options
@@ -96,6 +97,7 @@
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
  '(fringe ((t (:inherit linum))))
  '(highlight ((t (:background "#eeeeee"))))
+ '(linum ((t (:inherit (shadow default) :background "#eeeeee"))))
  '(mc/cursor-face ((t (:background "#888888" :foreground "black"))))
  '(mode-line ((t (:background "#dddddd" :box (:line-width 2 :color "#777" :style released-button)))))
  '(neo-dir-link-face ((t (:height 140 :family "San Francisco"))))
