@@ -7,10 +7,9 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (setq package-enable-at-startup nil)
 
-;; Load theme by hand, don't use 'M-x customize-themes'
 ;; (add-to-list `custom-theme-load-path "~/.emacs.d/themes/")
 ;; (load-theme `tronlegacy t)
-(load-theme 'base16-solarized-light t)
+;; (load-theme 'base16-solarized-light t)
 
 ;; Load actual config file
 (require 'org)
