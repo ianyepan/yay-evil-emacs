@@ -9,7 +9,7 @@
 ** Better-looks and defaults
 Minions mode for reducing the long line of minor modes in mode-line.
 
-``hes'' mode stands for ``highligh escape sequences''
+``hes'' mode stannds for ``highligh escape sequences''
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-splash-screen t)
   (display-battery-mode 1)
@@ -74,6 +74,10 @@ Default to org-mode for *scratch* buffer
 #+END_SRC
 * Move Text with Meta (Drag-Stuff)
 Bear in mind that the keybindings of Meta-up/down will override its functionalities in Org mode. In addition, when moving a region, it's best to use ~C-x <spc>~ to cut a vertical selection line to indicate which lines to move. (Same logic goes for when commenting lines in ~C-x C-;~)
+
+
+
+
 
 Meta-right/left transposes the current word with the right/left one.
 #+BEGIN_SRC emacs-lisp

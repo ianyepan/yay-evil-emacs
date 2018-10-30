@@ -12,7 +12,7 @@
  '(beacon-blink-duration 0.4)
  '(beacon-blink-when-focused t)
  '(beacon-blink-when-window-scrolls nil)
- '(beacon-color "#E75C31")
+ '(beacon-color "#000000")
  '(beacon-mode t)
  '(beacon-push-mark nil)
  '(beacon-size 25)
