@@ -3,6 +3,7 @@
 (setq inhibit-splash-screen t)
 (display-battery-mode 1)
 (minions-mode 1)
+;; (beacon-mode t)
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'hl-line-mode)
@@ -12,7 +13,7 @@
 
 (setq user-full-name "Ian Y.E. Pan")
 (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
@@ -65,7 +66,7 @@
 (global-set-key (kbd "s-c") 'kill-ring-save)
 
 (require 'nlinum-relative)
-(add-hook 'prog-mode-hook 'nlinum-relative-mode)
+;; (add-hook 'prog-mode-hook 'nlinum-relative-mode)
 (setq nlinum-relative-redisplay-delay 0)
 (setq nlinum-relative-current-symbol "")  ;; empty to display current number
 (setq nlinum-relative-offset 0)

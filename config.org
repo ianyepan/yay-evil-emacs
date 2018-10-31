@@ -1,19 +1,20 @@
 #+Title: Ian's Emacs Configuration
 #+Author: Ian Y.E. Pan
-#+Date: Since 21.Oct.2018
+#+Date: 2018
 * Start-up
-** Always start the server
+** Always start the server (emacsclient)
 #+BEGIN_SRC emacs-lisp
   (server-start)
 #+END_SRC
 ** Better-looks and defaults
-Minions mode for reducing the long line of minor modes in mode-line.
+- Minions mode for reducing the long line of minor modes in mode-line.
 
-``hes'' mode stannds for ``highligh escape sequences''
+- ``hes'' mode stannds for ``highligh escape sequences''
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-splash-screen t)
   (display-battery-mode 1)
   (minions-mode 1)
+  ;; (beacon-mode t)
 
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'prog-mode-hook 'hl-line-mode)
@@ -23,7 +24,7 @@ Minions mode for reducing the long line of minor modes in mode-line.
 
   (setq user-full-name "Ian Y.E. Pan")
   (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
-  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  ;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
 #+END_SRC
 Cleaning up the interface.
 #+BEGIN_SRC emacs-lisp
@@ -103,7 +104,7 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 * Line Numbers
 #+BEGIN_SRC emacs-lisp
   (require 'nlinum-relative)
-  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
+  ;; (add-hook 'prog-mode-hook 'nlinum-relative-mode)
   (setq nlinum-relative-redisplay-delay 0)
   (setq nlinum-relative-current-symbol "")  ;; empty to display current number
   (setq nlinum-relative-offset 0)
@@ -329,7 +330,7 @@ Deleting a whitespace character will delete all whitespace until the next non-wh
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
-* Comparing files
+* Comparing files: Diff & Ediff
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-c d") 'diff)
   (global-set-key (kbd "C-c e") 'ediff)

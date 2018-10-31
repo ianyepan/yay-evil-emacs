@@ -13,7 +13,6 @@
  '(beacon-blink-when-focused t)
  '(beacon-blink-when-window-scrolls nil)
  '(beacon-color "#000000")
- '(beacon-mode t)
  '(beacon-push-mark nil)
  '(beacon-size 25)
  '(blink-cursor-blinks 20)
