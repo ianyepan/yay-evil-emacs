@@ -295,7 +295,9 @@ Meta-right/left transposes the current word with the right/left one.
 - ``hes'' mode stannds for ``highligh escape sequences''
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-splash-screen t)
+  (sml-modeline-mode t)
   (display-battery-mode 1)
+  (column-number-mode t)
   (minions-mode 1)
   ;; (beacon-mode t)
 

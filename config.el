@@ -220,7 +220,9 @@
 (server-start)
 
 (setq inhibit-splash-screen t)
+(sml-modeline-mode t)
 (display-battery-mode 1)
+(column-number-mode t)
 (minions-mode 1)
 ;; (beacon-mode t)
 
