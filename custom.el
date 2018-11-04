@@ -39,7 +39,6 @@
  '(flx-ido-mode t)
  '(fringe-mode '(nil . 1) nil (fringe))
  '(global-visual-line-mode t)
- '(global-yascroll-bar-mode t)
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(ido-mode 'both nil (ido))
@@ -81,18 +80,16 @@
  '(which-key-mode t)
  '(writeroom-global-effects
    '(writeroom-set-alpha writeroom-set-menu-bar-lines writeroom-set-tool-bar-lines writeroom-set-bottom-divider-width))
- '(writeroom-mode-line t)
- '(yascroll:delay-to-hide 0.7)
- '(yascroll:scroll-bar '(left-fringe)))
+ '(writeroom-mode-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 144 :width normal :foundry "nil" :family "Monaco"))))
- '(avy-background-face ((t (:foreground "#bbbbbb"))))
- '(avy-lead-face ((t (:foreground "#000000"))))
- '(avy-lead-face-0 ((t (:foreground "#d21500"))))
+ '(avy-background-face ((t (:foreground "#999999"))))
+ '(avy-lead-face ((t (:foreground "#000000" :weight bold))))
+ '(avy-lead-face-0 ((t (:foreground "#d21500" :weight bold))))
  '(column-enforce-face ((t (:foreground "#ff4e4e" :underline t))))
  '(company-preview-common ((t (:inherit region))))
  '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#D7CDAE"))))
@@ -128,8 +125,7 @@
  '(show-paren-match ((t (:background "##9AFF00" :foreground "Black"))))
  '(sml-modeline-end-face ((t (:inherit mode-line))))
  '(sml-modeline-vis-face ((t (:inherit mode-line))))
- '(variable-pitch ((t (:height 1.3 :family "CMU Serif"))))
- '(yascroll:thumb-fringe ((t (:background "#bbbbbb" :foreground "#bbbbbb")))))
+ '(variable-pitch ((t (:height 1.3 :family "CMU Serif")))))
 
 (provide 'custom)
 ;;; custom.el ends here

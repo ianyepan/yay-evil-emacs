@@ -243,11 +243,11 @@ Meta-right/left transposes the current word with the right/left one.
 #+END_SRC
 * Registers
 #+BEGIN_SRC emacs-lisp
-  (set-register ?e (cons 'file "~/.emacs.d/init.el"))
-  (set-register ?o (cons 'file "~/.emacs.d/config.org"))
-  (set-register ?c (cons 'file "~/.emacs.d/custom.el"))
-  (set-register ?r (cons 'file "~/.emacs.d/themes/tronlegacy-theme.el"))
-  (set-register ?t (cons 'file "~/todo.org"))
+  (set-register ?e '(file . "~/.emacs.d/init.el"))
+  (set-register ?o '(file . "~/.emacs.d/config.org"))
+  (set-register ?c '(file . "~/.emacs.d/custom.el"))
+  (set-register ?r '(file . "~/.emacs.d/themes/tronlegacy-theme.el"))
+  (set-register ?t '(file . "~/todo.org"))
 #+END_SRC
 * Self-Defined Macros
 #+BEGIN_SRC emacs-lisp

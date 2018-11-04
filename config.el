@@ -184,11 +184,11 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
-(set-register ?e (cons 'file "~/.emacs.d/init.el"))
-(set-register ?o (cons 'file "~/.emacs.d/config.org"))
-(set-register ?c (cons 'file "~/.emacs.d/custom.el"))
-(set-register ?r (cons 'file "~/.emacs.d/themes/tronlegacy-theme.el"))
-(set-register ?t (cons 'file "~/todo.org"))
+(set-register ?e '(file . "~/.emacs.d/init.el"))
+(set-register ?o '(file . "~/.emacs.d/config.org"))
+(set-register ?c '(file . "~/.emacs.d/custom.el"))
+(set-register ?r '(file . "~/.emacs.d/themes/tronlegacy-theme.el"))
+(set-register ?t '(file . "~/todo.org"))
 
 (fset 'join-lines
       (lambda (&optional arg) "Join lines the Vim style"
