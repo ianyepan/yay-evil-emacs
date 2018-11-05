@@ -28,7 +28,8 @@
  '(css-indent-offset 2)
  '(cursor-type 'box)
  '(custom-safe-themes
-   '("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c9f102cf31165896631747fd20a0ca0b9c64ecae019ce5c2786713a5b7d6315e" "1263771faf6967879c3ab8b577c6c31020222ac6d3bac31f331a74275385a452" "fede08d0f23fc0612a8354e0cf800c9ecae47ec8f32c5f29da841fe090dfc450" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "99c86852decaeb0c6f51ce8bd46e4906a4f28ab4c5b201bdc3fdf85b24f88518" default))
+   '("6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c9f102cf31165896631747fd20a0ca0b9c64ecae019ce5c2786713a5b7d6315e" "1263771faf6967879c3ab8b577c6c31020222ac6d3bac31f331a74275385a452" "fede08d0f23fc0612a8354e0cf800c9ecae47ec8f32c5f29da841fe090dfc450" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "99c86852decaeb0c6f51ce8bd46e4906a4f28ab4c5b201bdc3fdf85b24f88518" default))
+ '(default-input-method "chinese-zozy")
  '(dired-sidebar-width 35)
  '(dired-use-ls-dired nil)
  '(display-time-24hr-format t)
@@ -101,8 +102,6 @@
  '(highlight ((t (:background "#eeeeee"))))
  '(linum ((t (:inherit (shadow default) :background "#eeeeee"))))
  '(mc/cursor-face ((t (:background "#888888" :foreground "black"))))
- '(mode-line ((t (:background "#dddddd" :foreground "#000000" :box (:line-width 2 :color "#777777" :style released-button)))))
- '(mode-line-inactive ((t (:inherit mode-line :background "#aaaaaa" :foreground "#000000" :box t))))
  '(neo-dir-link-face ((t (:height 140 :family "San Francisco"))))
  '(neo-file-link-face ((t (:height 140 :family "San Francisco"))))
  '(nlinum-relative-current-face ((t (:inherit linum :foreground "Black"))))
