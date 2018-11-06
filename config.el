@@ -97,12 +97,6 @@
          (forward-line -1))
        (indent-according-to-mode)
 
-       (when (looking-at ")")
-         (insert "\n")
-         (indent-according-to-mode)
-         (forward-line -1))
-       (indent-according-to-mode)
-
        (when (looking-at "]")
          (insert "\n")
          (indent-according-to-mode)
