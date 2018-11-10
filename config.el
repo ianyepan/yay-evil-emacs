@@ -234,7 +234,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
-(blink-cursor-mode 0)
+(blink-cursor-mode t)
 
 (setq initial-major-mode 'org-mode)
 (with-current-buffer

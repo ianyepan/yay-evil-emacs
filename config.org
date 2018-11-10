@@ -311,7 +311,7 @@ Cleaning up the interface.
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (menu-bar-mode -1)
-  (blink-cursor-mode 0)
+  (blink-cursor-mode t)
 #+END_SRC
 ** Making *scratch* always there!
 Default to org-mode for *scratch* buffer
