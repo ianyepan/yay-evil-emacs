@@ -218,7 +218,6 @@
 (display-battery-mode 1)
 (column-number-mode t)
 (minions-mode 1)
-;; (beacon-mode t)
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'hl-line-mode)
