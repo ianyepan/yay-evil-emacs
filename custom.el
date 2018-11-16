@@ -6,7 +6,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(all-the-icons-scale-factor 1.0)
+ '(ansi-color-names-vector
+   ["#ffffff" "#ed6a43" "#183691" "#795da3" "#795da3" "#a71d5d" "#795da3" "#333333"])
+ '(ansi-term-color-vector
+   [unspecified "#ffffff" "#ed6a43" "#183691" "#795da3" "#795da3" "#a71d5d" "#795da3" "#333333"])
  '(avy-background t)
  '(blink-cursor-blinks 20)
  '(cdlatex-auto-help-delay 0.7)
@@ -20,7 +23,7 @@
  '(css-fontify-colors nil)
  '(cursor-type 'box)
  '(custom-safe-themes
-   '("6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c9f102cf31165896631747fd20a0ca0b9c64ecae019ce5c2786713a5b7d6315e" "1263771faf6967879c3ab8b577c6c31020222ac6d3bac31f331a74275385a452" "fede08d0f23fc0612a8354e0cf800c9ecae47ec8f32c5f29da841fe090dfc450" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "99c86852decaeb0c6f51ce8bd46e4906a4f28ab4c5b201bdc3fdf85b24f88518" default))
+   '("0daf22a3438a9c0998c777a771f23435c12a1d8844969a28f75820dd71ff64e1" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c9f102cf31165896631747fd20a0ca0b9c64ecae019ce5c2786713a5b7d6315e" "1263771faf6967879c3ab8b577c6c31020222ac6d3bac31f331a74275385a452" "fede08d0f23fc0612a8354e0cf800c9ecae47ec8f32c5f29da841fe090dfc450" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "99c86852decaeb0c6f51ce8bd46e4906a4f28ab4c5b201bdc3fdf85b24f88518" default))
  '(default-input-method "chinese-zozy")
  '(dired-sidebar-width 35)
  '(dired-use-ls-dired nil)
@@ -41,7 +44,6 @@
  '(mc/always-run-for-all t)
  '(neo-window-position 'right)
  '(neo-window-width 35)
- '(nlinum-relative-redisplay-delay 0)
  '(org-agenda-files '("~/todo.org" "~/Notes-in-Org-LaTeX/Docker/docker.org"))
  '(org-ellipsis "⤵")
  '(org-format-latex-options
@@ -60,7 +62,7 @@
    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
-   '(sml-modeline htmlize drag-stuff cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative neotree multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode base16-theme avy auto-indent-mode all-the-icons))
+   '(sml-modeline htmlize drag-stuff cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode base16-theme avy auto-indent-mode))
  '(python-indent-guess-indent-offset nil)
  '(shr-max-image-proportion 0.5)
  '(sp-escape-quotes-after-insert nil)
@@ -82,14 +84,8 @@
  '(eshell-git-prompt-powerline-clean-face ((t (:background "MediumSeaGreen" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#839DB2" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
- '(font-lock-comment-face ((t (:foreground "Firebrick" :slant italic))))
- '(fringe ((t (:inherit linum))))
+ '(fringe ((t (:inherit highlight))))
  '(highlight ((t (:background "#eeeeee"))))
- '(linum ((t (:inherit (shadow default) :background "#eeeeee"))))
- '(mc/cursor-face ((t (:background "#888888" :foreground "black"))))
- '(neo-dir-link-face ((t (:height 140 :family "San Francisco"))))
- '(neo-file-link-face ((t (:height 140 :family "San Francisco"))))
- '(nlinum-relative-current-face ((t (:inherit linum :foreground "Black"))))
  '(org-agenda-date ((t (:background "#eeeeee" :foreground "#1662AF" :weight bold :overline t :height 1.1))))
  '(org-agenda-date-today ((t (:background "#FFF587" :foreground "#1662af" :overline t :weight bold :height 1.5))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date))))

@@ -196,14 +196,6 @@ Meta-right/left transposes the current word with the right/left one.
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
   (define-key mc/keymap (kbd "<return>") nil)
 #+END_SRC
-* NeoTree
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'load-path "/.emacs.d/elpa/neotree/")
-  (require 'neotree)
-  (global-set-key (kbd "C-x j") 'neotree-toggle)
-
-  (setq neo-theme 'icons)
-#+END_SRC
 * Org Mode
 #+BEGIN_SRC emacs-lisp
   (require 'ox-md)

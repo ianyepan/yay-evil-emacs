@@ -147,12 +147,6 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (define-key mc/keymap (kbd "<return>") nil)
 
-(add-to-list 'load-path "/.emacs.d/elpa/neotree/")
-(require 'neotree)
-(global-set-key (kbd "C-x j") 'neotree-toggle)
-
-(setq neo-theme 'icons)
-
 (require 'ox-md)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
