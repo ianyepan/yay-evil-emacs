@@ -79,8 +79,6 @@
  '(avy-lead-face ((t (:foreground "#000000" :weight bold))))
  '(avy-lead-face-0 ((t (:foreground "#d21500" :weight bold))))
  '(column-enforce-face ((t (:foreground "#ff4e4e" :underline t))))
- '(company-preview-common ((t (:inherit region))))
- '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#D7CDAE"))))
  '(eshell-git-prompt-powerline-clean-face ((t (:background "MediumSeaGreen" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#839DB2" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
