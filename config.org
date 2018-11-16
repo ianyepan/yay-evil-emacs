@@ -61,12 +61,12 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 #+END_SRC
 * Eshell
 #+BEGIN_SRC emacs-lisp
-;;  (global-set-key (kbd "<M-return>") 'eshell)
+  ;;  (global-set-key (kbd "<M-return>") 'eshell)
   (require 'esh-autosuggest)  ;; Fish-like autosuggestion
   (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
   (eshell-git-prompt-use-theme 'powerline)
 
-  ;; The 'clear' command
+  ;; The ``clear'' command
   (defun eshell/clear ()
     "Clear the eshell buffer to the top."
     (interactive)

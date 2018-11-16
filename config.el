@@ -42,24 +42,24 @@
 (add-hook 'js-jsx-mode-hook 'emmet-mode)
 
 ;;  (global-set-key (kbd "<M-return>") 'eshell)
-  (require 'esh-autosuggest)  ;; Fish-like autosuggestion
-  (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
-  (eshell-git-prompt-use-theme 'powerline)
+(require 'esh-autosuggest)  ;; Fish-like autosuggestion
+(add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
+(eshell-git-prompt-use-theme 'powerline)
 
-  ;; The 'clear' command
-  (defun eshell/clear ()
-    "Clear the eshell buffer to the top."
-    (interactive)
-    (let ((inhibit-read-only t))
-      (erase-buffer)))
-  (global-set-key (kbd "C-8") 'eshell-previous-input)
-  (global-set-key (kbd "C-9") 'eshell-next-input)
+;; The ``clear'' command
+(defun eshell/clear ()
+  "Clear the eshell buffer to the top."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+(global-set-key (kbd "C-8") 'eshell-previous-input)
+(global-set-key (kbd "C-9") 'eshell-next-input)
 
-  ;; To let eshell use brew-installed commands
-  (setenv "PATH" (concat "/usr/local/bin/" ":" (getenv "PATH")))
-  (setq exec-path (append '("/usr/local/bin/") exec-path))
-  ;; Eshell aliases
-  (defalias 'ff 'find-file)
+;; To let eshell use brew-installed commands
+(setenv "PATH" (concat "/usr/local/bin/" ":" (getenv "PATH")))
+(setq exec-path (append '("/usr/local/bin/") exec-path))
+;; Eshell aliases
+(defalias 'ff 'find-file)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
