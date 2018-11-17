@@ -6,10 +6,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#ffffff" "#ed6a43" "#183691" "#795da3" "#795da3" "#a71d5d" "#795da3" "#333333"])
- '(ansi-term-color-vector
-   [unspecified "#ffffff" "#ed6a43" "#183691" "#795da3" "#795da3" "#a71d5d" "#795da3" "#333333"])
  '(avy-background t)
  '(blink-cursor-blinks 20)
  '(cdlatex-auto-help-delay 0.7)
@@ -42,8 +38,6 @@
  '(lazy-highlight-initial-delay 0)
  '(mc/always-repeat-command t)
  '(mc/always-run-for-all t)
- '(neo-window-position 'right)
- '(neo-window-width 35)
  '(org-agenda-files '("~/todo.org" "~/Notes-in-Org-LaTeX/Docker/docker.org"))
  '(org-ellipsis "⤵")
  '(org-format-latex-options
