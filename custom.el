@@ -36,6 +36,7 @@
  '(ido-vertical-mode t)
  '(isearch-lazy-highlight t)
  '(lazy-highlight-initial-delay 0)
+ '(line-spacing 0.15)
  '(mc/always-repeat-command t)
  '(mc/always-run-for-all t)
  '(org-agenda-files '("~/todo.org" "~/Notes-in-Org-LaTeX/Docker/docker.org"))
