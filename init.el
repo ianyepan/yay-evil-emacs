@@ -7,6 +7,9 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (setq package-enable-at-startup nil)
 
+;; Load theme
+(load-theme 'github-modern t)
+
 ;; Load actual config file
 (require 'org)
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))

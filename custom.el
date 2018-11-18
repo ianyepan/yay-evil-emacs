@@ -19,7 +19,7 @@
  '(css-fontify-colors nil)
  '(cursor-type 'box)
  '(custom-safe-themes
-   '("5057614f7e14de98bbc02200e2fe827ad897696bfd222d1bcab42ad8ff313e20" "0daf22a3438a9c0998c777a771f23435c12a1d8844969a28f75820dd71ff64e1" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c9f102cf31165896631747fd20a0ca0b9c64ecae019ce5c2786713a5b7d6315e" "1263771faf6967879c3ab8b577c6c31020222ac6d3bac31f331a74275385a452" "fede08d0f23fc0612a8354e0cf800c9ecae47ec8f32c5f29da841fe090dfc450" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "99c86852decaeb0c6f51ce8bd46e4906a4f28ab4c5b201bdc3fdf85b24f88518" default))
+   '("19f3cbf2287806f427d76c551f59a1eb21c5d07432ff0412f8195d37ff83cfef" "13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "4f6c8a9fe1f3739bbe9a4f6b5c6a5c80965735227dcfe19c3e3da22ed4321d7d" "5057614f7e14de98bbc02200e2fe827ad897696bfd222d1bcab42ad8ff313e20" "0daf22a3438a9c0998c777a771f23435c12a1d8844969a28f75820dd71ff64e1" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c9f102cf31165896631747fd20a0ca0b9c64ecae019ce5c2786713a5b7d6315e" "1263771faf6967879c3ab8b577c6c31020222ac6d3bac31f331a74275385a452" "fede08d0f23fc0612a8354e0cf800c9ecae47ec8f32c5f29da841fe090dfc450" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "99c86852decaeb0c6f51ce8bd46e4906a4f28ab4c5b201bdc3fdf85b24f88518" default))
  '(default-input-method "chinese-zozy")
  '(dired-sidebar-width 35)
  '(dired-use-ls-dired nil)
@@ -57,7 +57,8 @@
    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
-   '(github-modern-theme htmlize drag-stuff cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode base16-theme avy auto-indent-mode))
+   '(moe-theme github-modern-theme htmlize drag-stuff cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode base16-theme avy auto-indent-mode))
+ '(pdf-view-midnight-colors '("#6a737d" . "#fffbdd"))
  '(prettier-js-args
    '("--bracket-spacing" "true" "--jsx-bracket-same-line" "true" "--print-width" "80"))
  '(python-indent-guess-indent-offset nil)
@@ -77,12 +78,13 @@
  '(avy-background-face ((t (:foreground "#999999"))))
  '(avy-lead-face ((t (:foreground "#000000" :weight bold))))
  '(avy-lead-face-0 ((t (:foreground "#d21500" :weight bold))))
- '(column-enforce-face ((t (:foreground "#ff4e4e" :underline t))))
+ '(column-enforce-face ((t (:foreground "#C50000" :weight bold :underline t))))
  '(eshell-git-prompt-powerline-clean-face ((t (:background "MediumSeaGreen" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#839DB2" :foreground "#000000"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
  '(fringe ((t (:inherit highlight))))
  '(highlight ((t (:background "#eeeeee"))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "grey90" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light))))
  '(org-agenda-date ((t (:background "#eeeeee" :foreground "#1662AF" :weight bold :overline t :height 1.1))))
  '(org-agenda-date-today ((t (:background "#FFF587" :foreground "#1662af" :overline t :weight bold :height 1.5))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date))))
