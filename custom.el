@@ -57,7 +57,9 @@
    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
-   '(github-modern-theme sml-modeline htmlize drag-stuff cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode base16-theme avy auto-indent-mode))
+   '(github-modern-theme htmlize drag-stuff cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode base16-theme avy auto-indent-mode))
+ '(prettier-js-args
+   '("--bracket-spacing" "true" "--jsx-bracket-same-line" "true" "--print-width" "80"))
  '(python-indent-guess-indent-offset nil)
  '(shr-max-image-proportion 0.5)
  '(sp-escape-quotes-after-insert nil)
