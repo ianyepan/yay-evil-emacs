@@ -41,7 +41,11 @@
 (add-hook 'js-mode-hook 'emmet-mode)
 (add-hook 'js-jsx-mode-hook 'emmet-mode)
 
-;;  (global-set-key (kbd "<M-return>") 'eshell)
+(defun eshell-new()
+  "Open a new instance of eshell, numbered by <N>."
+  (interactive)
+  (eshell 'N))
+
 (require 'esh-autosuggest)  ;; Fish-like autosuggestion
 (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
 (eshell-git-prompt-use-theme 'powerline)
