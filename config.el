@@ -182,11 +182,6 @@
 (set-register ?r '(file . "~/.emacs.d/themes/tronlegacy-theme.el"))
 (set-register ?t '(file . "~/todo.org"))
 
-(fset 'join-lines
-      (lambda (&optional arg) "Join lines the Vim style"
-        (interactive "p") (kmacro-exec-ring-item '(" " 0 "%d") arg)))
-(global-set-key (kbd "C-x C-k J") 'join-lines)
-
 (fset 'make-word-italics
    (lambda (&optional arg) "Keyboard macro."
      (interactive "p") (kmacro-exec-ring-item '([47 escape 102 47] 0 "%d") arg)))
@@ -224,7 +219,6 @@
 
 (setq user-full-name "Ian Y.E. Pan")
 (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
-;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
@@ -314,3 +308,9 @@
 (which-key-mode t)
 
 (yas-global-mode 1)
+
+(defun vim-join-line ()
+  "Join the current line with the line beneath it, the way Vim does it."
+  (interactive)
+  (join-line -1))
+(global-set-key (kbd "C-S-j") 'vim-join-line)

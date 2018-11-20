@@ -7,7 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(avy-background t)
- '(blink-cursor-blinks 20)
+ '(blink-cursor-blinks 0)
  '(cdlatex-auto-help-delay 0.7)
  '(column-enforce-column 79)
  '(company-cmake-executable nil)
