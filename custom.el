@@ -19,7 +19,7 @@
  '(css-fontify-colors nil)
  '(cursor-type 'box)
  '(custom-safe-themes
-   '("000db439945835efd0da94580b2b551c6ddd4145556636aace091f512c8e6bbc" "19f3cbf2287806f427d76c551f59a1eb21c5d07432ff0412f8195d37ff83cfef" default))
+   '("100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "000db439945835efd0da94580b2b551c6ddd4145556636aace091f512c8e6bbc" "19f3cbf2287806f427d76c551f59a1eb21c5d07432ff0412f8195d37ff83cfef" default))
  '(default-input-method "chinese-zozy")
  '(dired-sidebar-width 35)
  '(dired-use-ls-dired nil)
@@ -82,9 +82,6 @@
  '(eshell-git-prompt-powerline-clean-face ((t (:background "#22863a" :foreground "#ffffff"))))
  '(eshell-git-prompt-powerline-dir-face ((t (:background "#04347E" :foreground "#ffffff"))))
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "DarkGoldenrod2" :foreground "#000000"))))
- '(fringe ((t (:inherit highlight))))
- '(highlight ((t (:background "#eeeeee"))))
- '(mode-line-inactive ((t (:inherit mode-line :background "grey90" :foreground "grey20" :box (:line-width -1 :color "grey75") :weight light))))
  '(org-agenda-date ((t (:background "#eeeeee" :foreground "#1662AF" :weight bold :overline t :height 1.1))))
  '(org-agenda-date-today ((t (:background "#FFF587" :foreground "#1662af" :overline t :weight bold :height 1.5))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date))))
