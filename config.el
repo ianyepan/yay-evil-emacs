@@ -99,13 +99,8 @@
          (insert "\n")
          (indent-according-to-mode)
          (forward-line -1))
-       (indent-according-to-mode)
-
-       (when (looking-at "]")
-         (insert "\n")
-         (indent-according-to-mode)
-         (forward-line -1))
        (indent-according-to-mode))
+
 (global-set-key (kbd "RET") 'newline-and-push-brace)
 (require 'auto-indent-mode)
 
