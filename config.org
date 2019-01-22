@@ -97,12 +97,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   ;; Spell checker software Aspell (to replace ispell)
   (setq ispell-program-name "/usr/local/bin/aspell")
 #+END_SRC
-* Hungry Delete
-Deleting a whitespace character will delete all whitespace until the next non-whitespace character.
-#+BEGIN_SRC emacs-lisp
-  (require 'hungry-delete)
-  (global-hungry-delete-mode)
-#+END_SRC
 * Ido
 #+BEGIN_SRC emacs-lisp
   (setq ido-enable-flex-matching t)
@@ -223,7 +217,7 @@ Meta-right/left transposes the current word with the right/left one.
 * Rainbow Brackets and Rainbow Mode
 #+BEGIN_SRC emacs-lisp
   (require 'rainbow-delimiters)
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'prog-mode-hook 'rainbow-mode)
 #+END_SRC
 * Registers

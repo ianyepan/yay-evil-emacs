@@ -17,7 +17,7 @@
  '(company-minimum-prefix-length 2)
  '(compilation-message-face 'default)
  '(css-fontify-colors nil)
- '(cursor-type 'box)
+ '(cursor-type '(bar . 1))
  '(custom-safe-themes
    '("100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "000db439945835efd0da94580b2b551c6ddd4145556636aace091f512c8e6bbc" "19f3cbf2287806f427d76c551f59a1eb21c5d07432ff0412f8195d37ff83cfef" default))
  '(default-input-method "chinese-zozy")
@@ -57,7 +57,7 @@
    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
-   '(moe-theme github-modern-theme htmlize drag-stuff cdlatex hungry-delete smartparens undo-tree magit solarized-theme yasnippet-snippets yasnippet-classic-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode switch-window spacemacs-theme smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi java-snippets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy edit-server dockerfile-mode dired-sidebar company-jedi column-enforce-mode base16-theme avy auto-indent-mode))
+   '(github-modern-theme htmlize drag-stuff cdlatex smartparens undo-tree magit yasnippet-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy dockerfile-mode dired-sidebar company-jedi column-enforce-mode avy auto-indent-mode))
  '(pdf-view-midnight-colors '("#6a737d" . "#fffbdd"))
  '(prettier-js-args
    '("--bracket-spacing" "true" "--jsx-bracket-same-line" "true" "--print-width" "80"))
@@ -101,7 +101,7 @@
  '(rainbow-delimiters-depth-4-face ((t (:inherit nil :foreground "#0079E7"))))
  '(rainbow-delimiters-depth-5-face ((t (:inherit nil :foreground "#A0522D"))))
  '(rainbow-delimiters-depth-6-face ((t (:inherit nil :foreground "#00AA90"))))
- '(show-paren-match ((t (:background "##9AFF00" :foreground "Black"))))
+ '(show-paren-match ((t (:background "#97EA39" :foreground "Black"))))
  '(sml-modeline-end-face ((t (:inherit mode-line))))
  '(sml-modeline-vis-face ((t (:inherit mode-line))))
  '(variable-pitch ((t (:height 1.3 :family "CMU Serif")))))

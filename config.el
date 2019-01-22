@@ -73,9 +73,6 @@
 ;; Spell checker software Aspell (to replace ispell)
 (setq ispell-program-name "/usr/local/bin/aspell")
 
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (require 'ido-vertical-mode)
@@ -168,7 +165,7 @@
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 
 (require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
