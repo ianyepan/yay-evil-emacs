@@ -19,7 +19,7 @@
  '(css-fontify-colors nil)
  '(cursor-type '(bar . 1))
  '(custom-safe-themes
-   '("100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "000db439945835efd0da94580b2b551c6ddd4145556636aace091f512c8e6bbc" "19f3cbf2287806f427d76c551f59a1eb21c5d07432ff0412f8195d37ff83cfef" default))
+   '("358008075ebf553cbac291fbc25b555a63ca6ea06951f862db6cb19e8ed299f4" "487063309a67424949cacf52f368199ece937ec2987613869255c4f62eff745d" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "000db439945835efd0da94580b2b551c6ddd4145556636aace091f512c8e6bbc" "19f3cbf2287806f427d76c551f59a1eb21c5d07432ff0412f8195d37ff83cfef" default))
  '(default-input-method "chinese-zozy")
  '(dired-sidebar-width 35)
  '(dired-use-ls-dired nil)
@@ -90,8 +90,7 @@
  '(org-ellipsis ((t (:foreground "Black"))))
  '(org-level-1 ((t (:background "#c5c5c5" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.4))))
  '(org-level-2 ((t (:background "#d5d5d5" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.3))))
- '(org-level-3 ((t (:background "#eeeeee" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.2
-                                ))))
+ '(org-level-3 ((t (:background "#eeeeee" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.2))))
  '(org-meta-line ((t (:background "#e2e2e2" :foreground "#777777"))))
  '(outline-1 ((t (:background "#e8e8e8" :foreground "#000000" :overline t :weight bold :height 1.2))))
  '(outline-2 ((t (:background "#cccccc" :foreground "#000000" :overline t :weight bold :height 1.1))))
