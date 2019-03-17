@@ -88,9 +88,9 @@
  '(org-block ((t (:background "#f7f7f7" :foreground "#000000"))))
  '(org-document-title ((t (:height 2.0 :family "CMU Serif"))))
  '(org-ellipsis ((t (:foreground "Black"))))
- '(org-level-1 ((t (:background "#c5c5c5" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.5))))
- '(org-level-2 ((t (:background "#cccccc" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.4))))
- '(org-level-3 ((t (:background "#eeeeee" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.3
+ '(org-level-1 ((t (:background "#c5c5c5" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.4))))
+ '(org-level-2 ((t (:background "#d5d5d5" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.3))))
+ '(org-level-3 ((t (:background "#eeeeee" :foreground "#000000" :family "Garamond" :overline t :weight bold :height 1.2
                                 ))))
  '(org-meta-line ((t (:background "#e2e2e2" :foreground "#777777"))))
  '(outline-1 ((t (:background "#e8e8e8" :foreground "#000000" :overline t :weight bold :height 1.2))))
@@ -102,7 +102,7 @@
  '(rainbow-delimiters-depth-4-face ((t (:inherit nil :foreground "#0079E7"))))
  '(rainbow-delimiters-depth-5-face ((t (:inherit nil :foreground "#A0522D"))))
  '(rainbow-delimiters-depth-6-face ((t (:inherit nil :foreground "#00AA90"))))
- '(show-paren-match ((t (:background "#97EA39" :foreground "Black"))))
+ '(show-paren-match ((t (:background "#B5F170" :weight normal :foreground "Black"))))
  '(sml-modeline-end-face ((t (:inherit mode-line))))
  '(sml-modeline-vis-face ((t (:inherit mode-line))))
  '(variable-pitch ((t (:height 1.3 :family "Garamond")))))

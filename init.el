@@ -8,7 +8,9 @@
 (setq package-enable-at-startup nil)
 
 ;; Load theme
-(load-theme 'github-modern t)
+;; (load-theme 'github-modern t)
+(load-theme 'monochrome t)
+
 
 ;; Load actual config file
 (require 'org)
