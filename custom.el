@@ -101,7 +101,7 @@
  '(rainbow-delimiters-depth-4-face ((t (:inherit nil :foreground "#0079E7"))))
  '(rainbow-delimiters-depth-5-face ((t (:inherit nil :foreground "#A0522D"))))
  '(rainbow-delimiters-depth-6-face ((t (:inherit nil :foreground "#00AA90"))))
- '(show-paren-match ((t (:background "#B5F170" :weight normal :foreground "Black"))))
+ '(show-paren-match ((t (:background nil :weight bold :underline t))))
  '(sml-modeline-end-face ((t (:inherit mode-line))))
  '(sml-modeline-vis-face ((t (:inherit mode-line))))
  '(variable-pitch ((t (:height 1.3 :family "Garamond")))))

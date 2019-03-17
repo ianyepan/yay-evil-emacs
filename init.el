@@ -9,7 +9,7 @@
 
 ;; Load theme
 ;; (load-theme 'github-modern t)
-(load-theme 'monochrome t)
+(load-theme 'monochrome-bright t)
 
 
 ;; Load actual config file

@@ -1,6 +1,6 @@
 #+Title: Ian's Emacs Configuration
 #+Author: Ian Y.E. Pan
-#+Date: 2018
+#+Date: 2019
 * Auto-Completion
 Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disable company in eshell. Use ~C-n/p~ to select candidates in company menu.
 #+BEGIN_SRC emacs-lisp
