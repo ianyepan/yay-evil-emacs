@@ -9,10 +9,9 @@
 
 ;; Load theme
 ;; (load-theme 'github-modern t)
-(load-theme 'monochrome-bright t)
+(load-theme 'spacemacs-light t)
 
-
-;; Load actual config file
+;; Load actual config file (config.org)
 (require 'org)
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
 

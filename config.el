@@ -84,11 +84,13 @@
 (setq ido-enable-flex-matching t)
 
 (setq-default tab-width 2)
-(defvaralias 'c-basic-offset 'tab-width)
+;; (defvaralias 'c-basic-offset 'tab-width)
 ;; (defvaralias 'cperl-indent-level 'tab-width)
 (setq-default indent-tabs-mode nil) ;; Always use spaces
 (setq js-indent-level 2)
-(setq c-default-style '((java-mode . "java") (other . "gnu")))
+;; (setq c-default-style '((java-mode . "java") (other . "bsd")) c-basic-offset 3)
+(setq c-default-style "bsd"
+      c-basic-offset 3)
 (defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
        (interactive)
        (insert "\n")

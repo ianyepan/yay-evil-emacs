@@ -112,11 +112,10 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 * Indentation
 #+BEGIN_SRC emacs-lisp
   (setq-default tab-width 2)
-  (defvaralias 'c-basic-offset 'tab-width)
-  ;; (defvaralias 'cperl-indent-level 'tab-width)
-  (setq-default indent-tabs-mode nil) ;; Always use spaces
+  (setq-default indent-tabs-mode nil) ;; Always use spaces, no tabs
   (setq js-indent-level 2)
-  (setq c-default-style '((java-mode . "java") (other . "gnu")))
+  (setq c-default-style "bsd"
+        c-basic-offset 3)
   (defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
          (interactive)
          (insert "\n")
@@ -151,14 +150,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (setq org-latex-pdf-process
         '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
   (setq org-latex-minted-options '(("linenos=true")))
-#+END_SRC
-* Line Numbers
-#+BEGIN_SRC emacs-lisp
-  (require 'nlinum-relative)
-  ;; (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-  (setq nlinum-relative-redisplay-delay 0)
-  (setq nlinum-relative-current-symbol "")  ;; empty to display current number
-  (setq nlinum-relative-offset 0)
 #+END_SRC
 * Magit
 #+BEGIN_SRC emacs-lisp
@@ -214,10 +205,8 @@ Meta-right/left transposes the current word with the right/left one.
     (add-to-list 'company-backends 'company-jedi))  ;; company-jedi
   (add-hook 'python-mode-hook 'my/python-mode-hook)
 #+END_SRC
-* Rainbow Brackets and Rainbow Mode
+* Rainbow Mode (CSS Colours)
 #+BEGIN_SRC emacs-lisp
-  (require 'rainbow-delimiters)
-  ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'prog-mode-hook 'rainbow-mode)
 #+END_SRC
 * Registers
