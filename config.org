@@ -111,11 +111,12 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 #+END_SRC
 * Indentation
 #+BEGIN_SRC emacs-lisp
-  (setq-default tab-width 2)
+  (setq-default tab-width 3)
   (setq-default indent-tabs-mode nil) ;; Always use spaces, no tabs
   (setq js-indent-level 2)
-  (setq c-default-style "bsd"
-        c-basic-offset 3)
+  (setq c-default-style "bsd"             ; Allman style
+        c-basic-offset 3)                 ; 3-space indentation for c
+  (add-hook 'python-mode-hook '(lambda () (setq python-indent 3))) ; 3-space-indentation for python
   (defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
          (interactive)
          (insert "\n")

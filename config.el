@@ -83,14 +83,12 @@
 (flx-ido-mode 1)
 (setq ido-enable-flex-matching t)
 
-(setq-default tab-width 2)
-;; (defvaralias 'c-basic-offset 'tab-width)
-;; (defvaralias 'cperl-indent-level 'tab-width)
-(setq-default indent-tabs-mode nil) ;; Always use spaces
+(setq-default tab-width 3)
+(setq-default indent-tabs-mode nil) ;; Always use spaces, no tabs
 (setq js-indent-level 2)
-;; (setq c-default-style '((java-mode . "java") (other . "bsd")) c-basic-offset 3)
-(setq c-default-style "bsd"
-      c-basic-offset 3)
+(setq c-default-style "bsd"             ; Allman style
+      c-basic-offset 3)                 ; 3-space indentation
+(add-hook 'python-mode-hook '(lambda () (setq python-indent 2)))
 (defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
        (interactive)
        (insert "\n")
@@ -121,12 +119,6 @@
 (setq org-latex-pdf-process
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 (setq org-latex-minted-options '(("linenos=true")))
-
-(require 'nlinum-relative)
-;; (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-(setq nlinum-relative-redisplay-delay 0)
-(setq nlinum-relative-current-symbol "")  ;; empty to display current number
-(setq nlinum-relative-offset 0)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
@@ -166,8 +158,6 @@
   (add-to-list 'company-backends 'company-jedi))  ;; company-jedi
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 
-(require 'rainbow-delimiters)
-;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
