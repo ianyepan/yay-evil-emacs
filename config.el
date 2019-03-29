@@ -14,12 +14,12 @@
 (global-set-key (kbd "C-c e") 'ediff)
 (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
 (global-set-key (kbd "C-c E") 'ediff-current-file)
-(eval-after-load 'diff-mode
-  '(progn
-     (set-face-foreground 'diff-added "#355531")
-     (set-face-background 'diff-added "#dcffdd")
-     (set-face-foreground 'diff-removed "#553333")
-     (set-face-background 'diff-removed "#ffdddc")))
+;; (eval-after-load 'diff-mode
+  ;; '(progn
+     ;; (set-face-foreground 'diff-added "#355531")
+     ;; (set-face-background 'diff-added "#dcffdd")
+     ;; (set-face-foreground 'diff-removed "#553333")
+     ;; (set-face-background 'diff-removed "#ffdddc")))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "RET")
@@ -87,8 +87,8 @@
 (setq-default indent-tabs-mode nil) ;; Always use spaces, no tabs
 (setq js-indent-level 2)
 (setq c-default-style "bsd"             ; Allman style
-      c-basic-offset 3)                 ; 3-space indentation
-(add-hook 'python-mode-hook '(lambda () (setq python-indent 2)))
+      c-basic-offset 3)                 ; 3-space indentation for c
+(add-hook 'python-mode-hook '(lambda () (setq python-indent 3))) ; 3-space-indentation for python
 (defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
        (interactive)
        (insert "\n")

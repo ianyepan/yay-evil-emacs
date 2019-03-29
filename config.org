@@ -24,12 +24,12 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (global-set-key (kbd "C-c e") 'ediff)
   (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
   (global-set-key (kbd "C-c E") 'ediff-current-file)
-  (eval-after-load 'diff-mode
-    '(progn
-       (set-face-foreground 'diff-added "#355531")
-       (set-face-background 'diff-added "#dcffdd")
-       (set-face-foreground 'diff-removed "#553333")
-       (set-face-background 'diff-removed "#ffdddc")))
+  ;; (eval-after-load 'diff-mode
+    ;; '(progn
+       ;; (set-face-foreground 'diff-added "#355531")
+       ;; (set-face-background 'diff-added "#dcffdd")
+       ;; (set-face-foreground 'diff-removed "#553333")
+       ;; (set-face-background 'diff-removed "#ffdddc")))
 #+END_SRC
 * Dired
 #+BEGIN_SRC emacs-lisp

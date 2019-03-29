@@ -9,7 +9,7 @@
 
 ;; Load theme
 ;; (load-theme 'github-modern t)
-(load-theme 'spacemacs-light t)
+(load-theme 'spacemacs-dark t)
 
 ;; Load actual config file (config.org)
 (require 'org)
