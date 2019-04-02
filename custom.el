@@ -75,7 +75,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Hack"))))
- '(show-paren-match ((t (:underline t :weight bold))))
+ '(show-paren-match ((t (:background nil :foreground "#fffafa" :underline t :weight bold))))
  '(variable-pitch ((t (:height 1.3 :family "Garamond")))))
 
 (provide 'custom)
