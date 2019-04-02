@@ -208,7 +208,7 @@ Meta-right/left transposes the current word with the right/left one.
 #+END_SRC
 * Rainbow Mode (CSS Colours)
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'rainbow-mode)
+  ;; (add-hook 'prog-mode-hook 'rainbow-mode)
 #+END_SRC
 * Registers
 #+BEGIN_SRC emacs-lisp

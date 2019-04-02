@@ -158,7 +158,7 @@
   (add-to-list 'company-backends 'company-jedi))  ;; company-jedi
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 
-(add-hook 'prog-mode-hook 'rainbow-mode)
+;; (add-hook 'prog-mode-hook 'rainbow-mode)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?o '(file . "~/.emacs.d/config.org"))
