@@ -8,7 +8,7 @@
 (setq package-enable-at-startup nil)
 
 ;; Load theme
-(load-theme 'sanityinc-tomorrow-blue t)
+(load-theme 'spacemacs-dark t)
 
 ;; Load actual config file ("./config.org")
 (require 'org)

@@ -17,9 +17,9 @@
  '(company-minimum-prefix-length 2)
  '(compilation-message-face 'default)
  '(css-fontify-colors nil)
- '(cursor-type '(bar . 1))
+ '(cursor-type 'box)
  '(custom-safe-themes
-   '("d74fe1508cff43708fa2f97c4bf58d19f0e002b2e0c92bf958bf483113b7d89d" "7c0495f3973b9f79251205995ccccca41262b41a86553f81efe71c0dc3a50f43" "0eccc893d77f889322d6299bec0f2263bffb6d3ecc79ccef76f1a2988859419e" "1dd7b369ab51f00e91b6a990634017916e7bdeb64002b4dda0d7a618785725ac" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8654a53760ed4660cfefabd41d1d8193b04caf384aabfe179adc30716fda8b2a" "233329275a894632acb308ec2c27d5c67a1f3a49fa7d350df44703fe0b1e7f92" "358008075ebf553cbac291fbc25b555a63ca6ea06951f862db6cb19e8ed299f4" "487063309a67424949cacf52f368199ece937ec2987613869255c4f62eff745d" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "000db439945835efd0da94580b2b551c6ddd4145556636aace091f512c8e6bbc" "19f3cbf2287806f427d76c551f59a1eb21c5d07432ff0412f8195d37ff83cfef" default))
+   '("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d74fe1508cff43708fa2f97c4bf58d19f0e002b2e0c92bf958bf483113b7d89d" "7c0495f3973b9f79251205995ccccca41262b41a86553f81efe71c0dc3a50f43" "0eccc893d77f889322d6299bec0f2263bffb6d3ecc79ccef76f1a2988859419e" "1dd7b369ab51f00e91b6a990634017916e7bdeb64002b4dda0d7a618785725ac" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8654a53760ed4660cfefabd41d1d8193b04caf384aabfe179adc30716fda8b2a" "233329275a894632acb308ec2c27d5c67a1f3a49fa7d350df44703fe0b1e7f92" "358008075ebf553cbac291fbc25b555a63ca6ea06951f862db6cb19e8ed299f4" "487063309a67424949cacf52f368199ece937ec2987613869255c4f62eff745d" "100eeb65d336e3d8f419c0f09170f9fd30f688849c5e60a801a1e6addd8216cb" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "000db439945835efd0da94580b2b551c6ddd4145556636aace091f512c8e6bbc" "19f3cbf2287806f427d76c551f59a1eb21c5d07432ff0412f8195d37ff83cfef" default))
  '(default-input-method "chinese-zozy")
  '(dired-sidebar-width 35)
  '(dired-use-ls-dired nil)
@@ -57,7 +57,7 @@
    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
-   '(reverse-theme color-theme-sanityinc-tomorrow spacemacs-theme github-modern-theme htmlize drag-stuff cdlatex smartparens undo-tree magit yasnippet-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy dockerfile-mode dired-sidebar company-jedi column-enforce-mode avy auto-indent-mode))
+   '(color-theme-sanityinc-tomorrow reverse-theme spacemacs-theme github-modern-theme htmlize drag-stuff cdlatex smartparens undo-tree magit yasnippet-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy dockerfile-mode dired-sidebar company-jedi column-enforce-mode avy auto-indent-mode))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(prettier-js-args
    '("--bracket-spacing" "true" "--jsx-bracket-same-line" "true" "--print-width" "80"))
@@ -74,8 +74,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Hack"))))
- '(show-paren-match ((t (:background nil :foreground "#fffafa" :underline t :weight bold))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Hack"))))
  '(variable-pitch ((t (:height 1.3 :family "Garamond")))))
 
 (provide 'custom)
