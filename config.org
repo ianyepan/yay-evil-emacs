@@ -1,4 +1,4 @@
-#+Title: Ian's Emacs Configuration
+#+Title: Ian Y.E. Pan's Emacs Configuration
 #+Author: Ian Y.E. Pan
 #+Date: 2019
 * Auto-Completion
