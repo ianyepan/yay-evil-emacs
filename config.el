@@ -215,6 +215,8 @@
     (get-buffer-create "*scratch*") (org-mode)
     (make-local-variable 'kill-buffer-query-functions)
     (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer))
+(setq initial-scratch-message "# Welcome back to Emacs, Ian Y.E. Pan
+# Here's the scratch buffer for quick notes\n\n")
 (defun kill-scratch-buffer ()
   (set-buffer (get-buffer-create "*scratch*"))
   (remove-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
