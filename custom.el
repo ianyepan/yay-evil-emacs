@@ -36,7 +36,6 @@
  '(ido-vertical-mode t)
  '(isearch-lazy-highlight t)
  '(lazy-highlight-initial-delay 0)
- '(line-spacing 0.2)
  '(mc/always-repeat-command t)
  '(mc/always-run-for-all t)
  '(org-agenda-files '("~/todo.org"))
@@ -57,7 +56,7 @@
    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
  '(org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
  '(package-selected-packages
-   '(kaolin-themes color-theme-sanityinc-tomorrow reverse-theme spacemacs-theme github-modern-theme htmlize drag-stuff cdlatex smartparens undo-tree magit yasnippet-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy dockerfile-mode dired-sidebar company-jedi column-enforce-mode avy auto-indent-mode))
+   '(color-theme-sanityinc-tomorrow reverse-theme spacemacs-theme github-modern-theme htmlize drag-stuff cdlatex smartparens undo-tree magit yasnippet-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets nlinum-relative multiple-cursors minions markdown-mode lorem-ipsum jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido expand-region eshell-git-prompt esh-autosuggest emmet-mode elpy dockerfile-mode dired-sidebar company-jedi column-enforce-mode avy auto-indent-mode))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(prettier-js-args
    '("--bracket-spacing" "true" "--jsx-bracket-same-line" "true" "--print-width" "80"))
@@ -74,7 +73,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "source code pro"))))
  '(variable-pitch ((t (:height 1.3 :family "Garamond")))))
 
 (provide 'custom)

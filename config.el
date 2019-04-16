@@ -48,7 +48,8 @@
 
 (require 'esh-autosuggest)  ;; Fish-like autosuggestion
 (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
-(eshell-git-prompt-use-theme 'powerline)
+
+(eshell-git-prompt-use-theme 'git-radar)
 
 ;; The ``clear'' command
 (defun eshell/clear ()
@@ -108,6 +109,12 @@
 (setq prettier-js-args '("--bracket-spacing" "true"
                          "--jsx-bracket-same-line" "true"))
 
+(defun vim-join-line ()
+  "Join the current line with the line beneath it, the way Vim does it."
+  (interactive)
+  (delete-indentation 1))
+(global-set-key (kbd "C-S-j") 'vim-join-line)
+
 ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
 (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
 (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
@@ -150,6 +157,7 @@
         ("DONE" . (:background "#E0FDD5" :foreground "#1A4D00" :box t))))
 (global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
 
+(require 'elpy)
 (elpy-enable)
 (setq elpy-rpc-python-command "/usr/local/bin/python3")
 (setq python-shell-interpreter "/usr/local/bin/python3")
@@ -189,6 +197,30 @@
               scroll-down-aggressively 0.01)
 
 (server-start)
+
+;; (setq-default line-spacing 3)
+;; Set the padding between lines
+(defvar line-padding 2.5)
+(defun add-line-padding ()
+  "Add extra padding between lines"
+
+  ; remove padding overlays if they already exist
+  (let ((overlays (overlays-at (point-min))))
+    (while overlays
+      (let ((overlay (car overlays)))
+        (if (overlay-get overlay 'is-padding-overlay)
+            (delete-overlay overlay)))
+      (setq overlays (cdr overlays))))
+
+  ; add a new padding overlay
+  (let ((padding-overlay (make-overlay (point-min) (point-max))))
+    (overlay-put padding-overlay 'is-padding-overlay t)
+    (overlay-put padding-overlay 'line-spacing (* .1 line-padding))
+    (overlay-put padding-overlay 'line-height (+ 1 (* .1 line-padding))))
+  (setq mark-active nil))
+
+
+(add-hook 'buffer-list-update-hook 'add-line-padding)
 
 (setq inhibit-splash-screen t)
 (display-battery-mode 1)
@@ -248,6 +280,19 @@
          '(75 . 75) '(100 . 100)))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 
+(defun toggle-transparency ()
+  (interactive)
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (set-frame-parameter
+     nil 'alpha
+     (if (eql (cond ((numberp alpha) alpha)
+                    ((numberp (cdr alpha)) (cdr alpha))
+                    ;; Also handle undocumented (<active> <inactive>) form.
+                    ((numberp (cadr alpha)) (cadr alpha)))
+              100)
+         '(85 . 85) '(100 . 100)))))
+(global-set-key (kbd "C-c t") 'toggle-transparency)
+
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
@@ -292,9 +337,3 @@
 (which-key-mode t)
 
 (yas-global-mode 1)
-
-(defun vim-join-line ()
-  "Join the current line with the line beneath it, the way Vim does it."
-  (interactive)
-  (delete-indentation 1))
-(global-set-key (kbd "C-S-j") 'vim-join-line)
