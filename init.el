@@ -10,7 +10,8 @@
 
 ;; Load theme
 ;; (load-theme 'sanityinc-tomorrow-blue t)
-(load-theme 'spacemacs-dark t)
+;; (load-theme 'spacemacs-dark t)
+(load-theme 'monokai t)
 
 ;; Load actual config file ("./config.org")
 (require 'org)
