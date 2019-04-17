@@ -353,19 +353,6 @@ Default to org-mode for *scratch* buffer
   (global-visual-line-mode t)
   (setq-default indicate-empty-lines t)
 #+END_SRC
-* Transparency
-#+BEGIN_SRC emacs-lisp
-  (defun toggle-transparency ()
-    (interactive)
-    (let ((alpha (frame-parameter nil 'alpha)))
-      (set-frame-parameter
-       nil 'alpha
-       (if (eql (cond ((numberp alpha) alpha)
-                      ((numberp (cdr alpha)) (cdr alpha))
-                      ((numberp (cadr alpha)) (cadr alpha))) 100)
-           '(75 . 75) '(100 . 100)))))
-  (global-set-key (kbd "C-c t") 'toggle-transparency)
-#+END_SRC
 * Transparent Emacs
 Use ~C-c t~ to toggle transparency
 #+BEGIN_SRC emacs-lisp
@@ -381,7 +368,6 @@ Use ~C-c t~ to toggle transparency
                 100)
            '(85 . 85) '(100 . 100)))))
   (global-set-key (kbd "C-c t") 'toggle-transparency)
-
 #+END_SRC
 * Views and Windows
 ** Toggle View
