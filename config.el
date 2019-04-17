@@ -198,9 +198,8 @@
 
 (server-start)
 
-;; (setq-default line-spacing 3)
 ;; Set the padding between lines
-(defvar line-padding 2.5)
+(defvar line-padding 0)                 ; change value from 0 - 3
 (defun add-line-padding ()
   "Add extra padding between lines"
 
