@@ -198,9 +198,9 @@
 
 (server-start)
 
-(setq frame-title-format
-      '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
+(setq frame-title-format		
+      '((:eval (if (buffer-file-name)		
+                   (abbreviate-file-name (buffer-file-name))		
                  "%b"))))
 
 ;; Set the padding between lines
@@ -222,7 +222,7 @@
 (add-hook 'buffer-list-update-hook 'add-line-padding)
 
 ;; Transparency
-(set-frame-parameter (selected-frame) 'alpha '(75 75)
+(set-frame-parameter (selected-frame) 'alpha '(75 75))
 (add-to-list 'default-frame-alist '(alpha 75 75))
 
 (setq inhibit-splash-screen t)
