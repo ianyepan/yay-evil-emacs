@@ -264,6 +264,13 @@ Meta-right/left transposes the current word with the right/left one.
   (server-start)
 #+END_SRC
 ** Better-looks and defaults
+- Setting frame title format to include the path of the current visiting file.
+#+BEGIN_SRC emacs-lisp
+  (setq frame-title-format
+        '((:eval (if (buffer-file-name)
+                     (abbreviate-file-name (buffer-file-name))
+                   "%b"))))
+#+END_SRC
 - Line height for better readability
 #+BEGIN_SRC emacs-lisp
   ;; Set the padding between lines
@@ -285,8 +292,8 @@ Meta-right/left transposes the current word with the right/left one.
   (add-hook 'buffer-list-update-hook 'add-line-padding)
 
   ;; Transparency
-  (set-frame-parameter (selected-frame) 'alpha '(85 85))
-  (add-to-list 'default-frame-alist '(alpha 85 85))
+  (set-frame-parameter (selected-frame) 'alpha '(75 75)
+  (add-to-list 'default-frame-alist '(alpha 75 75))
 #+END_SRC
 - ``hes'' mode stannds for ``highligh escape sequences''
 #+BEGIN_SRC emacs-lisp
@@ -365,7 +372,7 @@ Use ~C-c t~ to toggle transparency
                       ;; Also handle undocumented (<active> <inactive>) form.
                       ((numberp (cadr alpha)) (cadr alpha)))
                 100)
-           '(85 . 85) '(100 . 100)))))
+           '(75 . 75) '(100 . 100)))))
   (global-set-key (kbd "C-c t") 'toggle-transparency)
 #+END_SRC
 * Views and Windows

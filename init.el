@@ -21,6 +21,5 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-
 (provide 'init)
 ;;; init.el ends here
