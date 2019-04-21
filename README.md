@@ -14,9 +14,3 @@ I will constantly push new commits since *a real Emacser* is never completely sa
 My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `custom.el`
 (I configured the path to which the settings changed by Custom will all be extracted and written.)
 
-### Some Screenshots of my set up and my Emacs
-P.s. Also check out my self-made theme at https://github.com/ianpan870102/Emacs-Tron-Legacy-Theme
-![alt text](./screenshots/unixporn.png)
-![alt text](./screenshots/unixporn2.png)
-![alt text](./screenshots/screenshot-1.png)
-![alt text](./screenshots/screenshot1.png)
