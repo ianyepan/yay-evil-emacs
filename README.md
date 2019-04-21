@@ -2,7 +2,7 @@
 
 ## Version 1 is less customized and is deprecated in favour of a clean washup that resulted in this repo.
 
-This is my personal Emacs configuration, tailored to suit my needs. I've documented (as detailed as possible) what each
+This is my personal Emacs configuration (I'm using GNU Emacs 26.2), tailored to suit my needs. I've documented (as detailed as possible) what each
 function does in my `config.org` file.
 
 I will constantly push new commits since *a real Emacser* is never completely satisfied with his setup (*LOL*)
