@@ -270,6 +270,8 @@ Meta-right/left transposes the current word with the right/left one.
         '((:eval (if (buffer-file-name)		
                      (abbreviate-file-name (buffer-file-name))		
                    "%b"))))		
+  ;; Title bar match theme
+  (when (eq system-type 'darwin) (ns-auto-titlebar-mode))
 #+END_SRC
 - Line height for better readability
 #+BEGIN_SRC emacs-lisp
