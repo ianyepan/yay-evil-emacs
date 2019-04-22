@@ -66,9 +66,6 @@
 ;; Eshell aliases
 (defalias 'ff 'find-file)
 
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C--") 'er/contract-region)
-
 (add-hook 'after-init-hook 'global-flycheck-mode)
 
 ;; Spell checker software Aspell (to replace ispell)
@@ -201,7 +198,9 @@
 (setq frame-title-format		
       '((:eval (if (buffer-file-name)		
                    (abbreviate-file-name (buffer-file-name))		
-                 "%b"))))
+                 "%b"))))		
+;; Title bar match theme
+(when (eq system-type 'darwin) (ns-auto-titlebar-mode))
 
 ;; Set the padding between lines
 (defvar line-padding 0)                 ; change value from 0 - 3
