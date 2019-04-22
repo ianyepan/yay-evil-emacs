@@ -231,7 +231,7 @@
 (minions-mode 1)
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
-(add-hook 'prog-mode-hook 'hl-line-mode)
+;; (add-hook 'prog-mode-hook 'hl-line-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
