@@ -8,8 +8,8 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-(load-theme 'sanityinc-tomorrow-blue t)
-;; (load-theme 'spacemacs-dark t)
+;; (load-theme 'sanityinc-tomorrow-blue t)
+(load-theme 'monochrome t)
 ;; (load-theme 'monokai t)
 
 ;; Tron Legacy Theme

@@ -221,8 +221,8 @@
 (add-hook 'buffer-list-update-hook 'add-line-padding)
 
 ;; Transparency
-(set-frame-parameter (selected-frame) 'alpha '(75 75))
-(add-to-list 'default-frame-alist '(alpha 75 75))
+(set-frame-parameter (selected-frame) 'alpha '(85 85))
+(add-to-list 'default-frame-alist '(alpha 85 85))
 
 (setq inhibit-splash-screen t)
 (display-battery-mode 1)
@@ -281,7 +281,7 @@
                     ;; Also handle undocumented (<active> <inactive>) form.
                     ((numberp (cadr alpha)) (cadr alpha)))
               100)
-         '(75 . 75) '(100 . 100)))))
+         '(85 . 85) '(100 . 100)))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 
 (defun toggle-window-split ()
