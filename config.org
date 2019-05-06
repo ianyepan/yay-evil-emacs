@@ -44,10 +44,7 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 #+END_SRC
 * Emacs Keybindings tweaks
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-h") 'delete-backward-char)
-  (global-set-key (kbd "M-q") 'nil)
-  (global-set-key (kbd "M-s") 'nil)
-  (global-set-key (kbd "M-r") 'nil)
+  (global-set-key (kbd "M-q") 'nil)       ; fill paragraph (for line breaks)
   (global-set-key (kbd "C-x F") 'replace-string)
   (global-set-key (kbd "s-c") 'kill-ring-save)
     #+END_SRC
@@ -242,11 +239,12 @@ Meta-right/left transposes the current word with the right/left one.
   (global-set-key (kbd "M-x") 'smex)
 #+END_SRC
 * Smooth Scrolling
+Added the "...aggressively..." to prevent the cursor to jump around when user scrolls.
 #+BEGIN_SRC emacs-lisp
   (require 'smooth-scrolling)
   (smooth-scrolling-mode 1)
-  (setq scroll-margin 2
-        smooth-scroll-margin 2
+  (setq scroll-margin 1
+        smooth-scroll-margin 1
         scroll-conservatively 0
         scroll-up-aggressively 0.01
         scroll-down-aggressively 0.01)

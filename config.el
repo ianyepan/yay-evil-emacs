@@ -28,10 +28,8 @@
 (global-set-key (kbd "C-x D") 'ido-dired) ;; The actual dired-mode
 (global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
 
-(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "M-q") 'nil)
-(global-set-key (kbd "M-s") 'nil)
-(global-set-key (kbd "M-r") 'nil)
+;; (global-set-key (kbd "M-q") 'nil)
+;; (global-set-key (kbd "M-s") 'nil)
 (global-set-key (kbd "C-x F") 'replace-string)
 (global-set-key (kbd "s-c") 'kill-ring-save)
 
@@ -185,8 +183,8 @@
 
 (require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
-(setq scroll-margin 2
-      smooth-scroll-margin 2
+(setq scroll-margin 1
+      smooth-scroll-margin 1
       scroll-conservatively 0
       scroll-up-aggressively 0.01
       scroll-down-aggressively 0.01)
