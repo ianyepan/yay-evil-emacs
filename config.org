@@ -47,6 +47,7 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (global-set-key (kbd "M-q") 'nil)       ; fill paragraph (for line breaks)
   (global-set-key (kbd "C-x F") 'replace-string)
   (global-set-key (kbd "s-c") 'kill-ring-save)
+  (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
     #+END_SRC
 * Emmet
 #+BEGIN_SRC emacs-lisp
@@ -252,12 +253,16 @@ Added the "...aggressively..." to prevent the cursor to jump around when user sc
                 scroll-down-aggressively 0.01)
 #+END_SRC
 * Start-up
+** Set my Username
+#+BEGIN_SRC emacs-lisp
+  (setq user-full-name "Ian Y.E. Pan")
+#+END_SRC
 ** Always start the server (emacsclient)
 #+BEGIN_SRC emacs-lisp
   (server-start)
 #+END_SRC
-** Better-looks and defaults
-- Setting frame title format to include the path of the current visiting file.		
+** Better looks and defaults
+*** Setting frame title format to include the path of the current visiting file.		
 #+BEGIN_SRC emacs-lisp		
   (setq frame-title-format		
         '((:eval (if (buffer-file-name)		
@@ -266,7 +271,7 @@ Added the "...aggressively..." to prevent the cursor to jump around when user sc
   ;; Title bar match theme
   (when (eq system-type 'darwin) (ns-auto-titlebar-mode))
 #+END_SRC
-- Line height for better readability
+*** Line height (for better readability)
 #+BEGIN_SRC emacs-lisp
   ;; Set the padding between lines
   (defvar line-padding 0)                 ; change value from 0 - 3
@@ -285,34 +290,29 @@ Added the "...aggressively..." to prevent the cursor to jump around when user sc
     (setq mark-active nil))
 
   (add-hook 'buffer-list-update-hook 'add-line-padding)
-
-  ;; Transparency
-  (set-frame-parameter (selected-frame) 'alpha '(85 85))
-  (add-to-list 'default-frame-alist '(alpha 85 85))
 #+END_SRC
-- Mode-line et al: p.s. ``hes'' mode stannds for ``highligh escape sequences''
+*** Mode-line tweaks
+#+BEGIN_SRC emacs-lisp
+  (display-battery-mode 1)
+  (minions-mode 1)
+#+END_SRC
+*** Improving / Cleaning up the interface.
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-splash-screen t)
-  (display-battery-mode 1)
-  (column-number-mode t)
-  (minions-mode 1)
-
-  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
-  ;; (add-hook 'prog-mode-hook 'hl-line-mode)
-  (add-hook 'prog-mode-hook 'highlight-operators-mode)
-  (add-hook 'prog-mode-hook 'hes-mode)
-  (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
-
-  (setq user-full-name "Ian Y.E. Pan")
-  (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
-#+END_SRC
-- Cleaning up the interface.
-#+BEGIN_SRC emacs-lisp
   (setq ring-bell-function 'ignore)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (menu-bar-mode -1)
   (blink-cursor-mode t)
+  (column-number-mode t)
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
+  (add-hook 'prog-mode-hook 'highlight-operators-mode)
+  (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
+  (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
+
+  ;; Transparency
+  (set-frame-parameter (selected-frame) 'alpha '(85 85))
+  (add-to-list 'default-frame-alist '(alpha 85 85))
 #+END_SRC
 ** Making *scratch* always there!
 Default to org-mode for *scratch* buffer

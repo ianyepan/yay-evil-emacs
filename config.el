@@ -28,8 +28,7 @@
 (global-set-key (kbd "C-x D") 'ido-dired) ;; The actual dired-mode
 (global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
 
-;; (global-set-key (kbd "M-q") 'nil)
-;; (global-set-key (kbd "M-s") 'nil)
+(global-set-key (kbd "M-q") 'nil)       ; fill paragraph (for line breaks)
 (global-set-key (kbd "C-x F") 'replace-string)
 (global-set-key (kbd "s-c") 'kill-ring-save)
 
