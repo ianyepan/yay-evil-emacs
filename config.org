@@ -262,6 +262,10 @@ Added the "...aggressively..." to prevent the cursor to jump around when user sc
   (server-start)
 #+END_SRC
 ** Better looks and defaults
+*** Treat a region like a typical text selection (allow replacing of the active region by just typing text)
+#+BEGIN_SRC emacs-lisp
+  (delete-selection-mode 1)
+#+END_SRC
 *** Setting frame title format to include the path of the current visiting file.		
 #+BEGIN_SRC emacs-lisp		
   (setq frame-title-format		

@@ -31,6 +31,7 @@
 (global-set-key (kbd "M-q") 'nil)       ; fill paragraph (for line breaks)
 (global-set-key (kbd "C-x F") 'replace-string)
 (global-set-key (kbd "s-c") 'kill-ring-save)
+(global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
 
 (require 'emmet-mode)
 (add-hook 'html-mode-hook 'emmet-mode)
@@ -190,7 +191,11 @@
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
+(setq user-full-name "Ian Y.E. Pan")
+
 (server-start)
+
+(delete-selection-mode 1)
 
 (setq frame-title-format		
       '((:eval (if (buffer-file-name)		
@@ -217,29 +222,24 @@
 
 (add-hook 'buffer-list-update-hook 'add-line-padding)
 
-;; Transparency
-(set-frame-parameter (selected-frame) 'alpha '(85 85))
-(add-to-list 'default-frame-alist '(alpha 85 85))
-
-(setq inhibit-splash-screen t)
 (display-battery-mode 1)
-(column-number-mode t)
 (minions-mode 1)
 
-(add-hook 'prog-mode-hook 'highlight-numbers-mode)
-;; (add-hook 'prog-mode-hook 'hl-line-mode)
-(add-hook 'prog-mode-hook 'highlight-operators-mode)
-(add-hook 'prog-mode-hook 'hes-mode)
-(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
-
-(setq user-full-name "Ian Y.E. Pan")
-(global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
-
+(setq inhibit-splash-screen t)
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (blink-cursor-mode t)
+(column-number-mode t)
+(add-hook 'prog-mode-hook 'highlight-numbers-mode)
+(add-hook 'prog-mode-hook 'highlight-operators-mode)
+(add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
+(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
+
+;; Transparency
+(set-frame-parameter (selected-frame) 'alpha '(85 85))
+(add-to-list 'default-frame-alist '(alpha 85 85))
 
 (setq initial-major-mode 'org-mode)
 (with-current-buffer
