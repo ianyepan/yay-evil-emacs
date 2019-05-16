@@ -4,7 +4,7 @@
 * Auto-Completion
 Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disable company in eshell. Use ~C-n/p~ to select candidates in company menu.
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'company-mode)
+  ;; (add-hook 'prog-mode-hook 'company-mode) ; invoke company-mode for coding
   (setq company-global-modes '(not eshell-mode))
   (setq company-idle-delay t)
   (with-eval-after-load 'company
@@ -111,14 +111,15 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (setq c-default-style "bsd"             ; Allman style
         c-basic-offset 3)                 ; 3-space indentation for c
   (add-hook 'python-mode-hook '(lambda () (setq python-indent 3))) ; 3-space-indentation for python
-  (defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
-         (interactive)
-         (insert "\n")
-         (when (looking-at "}")
-           (insert "\n")
-           (indent-according-to-mode)
-           (forward-line -1))
-         (indent-according-to-mode))
+  (defun newline-and-push-brace ()
+    "`newline-and-indent', but bracket aware."
+    (interactive)
+    (insert "\n")
+    (when (looking-at "}")
+      (insert "\n")
+      (indent-according-to-mode)
+      (forward-line -1))
+    (indent-according-to-mode))
 
   (global-set-key (kbd "RET") 'newline-and-push-brace)
   (require 'auto-indent-mode)
@@ -219,7 +220,6 @@ Meta-right/left transposes the current word with the right/left one.
   (set-register ?o '(file . "~/.emacs.d/config.org"))
   (set-register ?c '(file . "~/.emacs.d/custom.el"))
   (set-register ?r '(file . "~/.emacs.d/themes/tronlegacy-theme.el"))
-  (set-register ?t '(file . "~/todo.org"))
 #+END_SRC
 * Self-Defined Macros
 #+BEGIN_SRC emacs-lisp
@@ -230,7 +230,7 @@ Meta-right/left transposes the current word with the right/left one.
 #+END_SRC
 * Smart Parentheses
 #+BEGIN_SRC emacs-lisp
-  (smartparens-global-mode 1)
+  ;; (smartparens-global-mode 1)
   (setq show-paren-delay 0)
   (show-paren-mode 1)
 #+END_SRC

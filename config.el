@@ -1,4 +1,4 @@
-(add-hook 'prog-mode-hook 'company-mode)
+;; (add-hook 'prog-mode-hook 'company-mode) ; invoke company-mode for coding
 (setq company-global-modes '(not eshell-mode))
 (setq company-idle-delay t)
 (with-eval-after-load 'company
@@ -85,14 +85,15 @@
 (setq c-default-style "bsd"             ; Allman style
       c-basic-offset 3)                 ; 3-space indentation for c
 (add-hook 'python-mode-hook '(lambda () (setq python-indent 3))) ; 3-space-indentation for python
-(defun newline-and-push-brace () "`newline-and-indent', but bracket aware."
-       (interactive)
-       (insert "\n")
-       (when (looking-at "}")
-         (insert "\n")
-         (indent-according-to-mode)
-         (forward-line -1))
-       (indent-according-to-mode))
+(defun newline-and-push-brace ()
+  "`newline-and-indent', but bracket aware."
+  (interactive)
+  (insert "\n")
+  (when (looking-at "}")
+    (insert "\n")
+    (indent-according-to-mode)
+    (forward-line -1))
+  (indent-according-to-mode))
 
 (global-set-key (kbd "RET") 'newline-and-push-brace)
 (require 'auto-indent-mode)
@@ -167,14 +168,13 @@
 (set-register ?o '(file . "~/.emacs.d/config.org"))
 (set-register ?c '(file . "~/.emacs.d/custom.el"))
 (set-register ?r '(file . "~/.emacs.d/themes/tronlegacy-theme.el"))
-(set-register ?t '(file . "~/todo.org"))
 
 (fset 'make-word-italics
    (lambda (&optional arg) "Keyboard macro."
      (interactive "p") (kmacro-exec-ring-item '([47 escape 102 47] 0 "%d") arg)))
 (global-set-key (kbd "C-x C-k I") 'make-word-italics)
 
-(smartparens-global-mode 1)
+;; (smartparens-global-mode 1)
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
