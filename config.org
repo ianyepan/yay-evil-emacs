@@ -297,7 +297,6 @@ Added the "...aggressively..." to prevent the cursor to jump around when user sc
 #+END_SRC
 *** Mode-line tweaks
 #+BEGIN_SRC emacs-lisp
-  (display-battery-mode 1)
   (minions-mode 1)
 #+END_SRC
 *** Improving / Cleaning up the interface.

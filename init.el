@@ -1,6 +1,7 @@
 ;;; init.el --- Emacs init file
 ;;  Author: Ian Y.E. Pan
 ;;; Commentary:
+;;; A personalized configuration file tailored to suit my needs
 ;;; Code:
 (require 'package)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
@@ -9,14 +10,13 @@
 (package-initialize)
 
 ;; (load-theme 'sanityinc-tomorrow-blue t)
-(load-theme 'monochrome t)
-;; (load-theme 'monokai t)
+(load-theme 'reverse t)
 
 ;; Tron Legacy Theme
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;; (load-theme `tronlegacy t)
 
-;; Load actual config file ("./config.org")
+;; Load actual config file './config.org'
 (require 'org)
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
 
