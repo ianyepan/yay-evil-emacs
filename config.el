@@ -7,9 +7,6 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-(global-set-key (kbd "C-;") 'avy-goto-word-1)
-(setq avy-keys '(?a ?b ?c ?y ?e ?w ?g ?h ?i ?j ?x ?m ?n ?o ?p ?q ?r ?s ?t ?u ?v ?f ?k ?d ?l))
-
 (global-set-key (kbd "C-c d") 'diff)
 (global-set-key (kbd "C-c e") 'ediff)
 (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
@@ -33,19 +30,10 @@
 (global-set-key (kbd "s-c") 'kill-ring-save)
 (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
 
-(require 'emmet-mode)
-(add-hook 'html-mode-hook 'emmet-mode)
-(add-hook 'css-mode-hook 'emmet-mode)
-(add-hook 'js-mode-hook 'emmet-mode)
-(add-hook 'js-jsx-mode-hook 'emmet-mode)
-
 (defun eshell-new()
   "Open a new instance of eshell, numbered by <N>."
   (interactive)
   (eshell 'N))
-
-(require 'esh-autosuggest)  ;; Fish-like autosuggestion
-(add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
 
 (eshell-git-prompt-use-theme 'git-radar)
 
@@ -222,7 +210,6 @@
 
 (add-hook 'buffer-list-update-hook 'add-line-padding)
 
-(display-battery-mode 1)
 (minions-mode 1)
 
 (setq inhibit-splash-screen t)

@@ -13,11 +13,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
     (define-key company-active-map (kbd "C-n") #'company-select-next)
     (define-key company-active-map (kbd "C-p") #'company-select-previous))
 #+END_SRC
-* Avy-easymotion
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-;") 'avy-goto-word-1)
-  (setq avy-keys '(?a ?b ?c ?y ?e ?w ?g ?h ?i ?j ?x ?m ?n ?o ?p ?q ?r ?s ?t ?u ?v ?f ?k ?d ?l))
-#+END_SRC
 * Comparing files: Diff & Ediff
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-c d") 'diff)
@@ -49,23 +44,12 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (global-set-key (kbd "s-c") 'kill-ring-save)
   (global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
     #+END_SRC
-* Emmet
-#+BEGIN_SRC emacs-lisp
-  (require 'emmet-mode)
-  (add-hook 'html-mode-hook 'emmet-mode)
-  (add-hook 'css-mode-hook 'emmet-mode)
-  (add-hook 'js-mode-hook 'emmet-mode)
-  (add-hook 'js-jsx-mode-hook 'emmet-mode)
-#+END_SRC
 * Eshell
 #+BEGIN_SRC emacs-lisp
   (defun eshell-new()
     "Open a new instance of eshell, numbered by <N>."
     (interactive)
     (eshell 'N))
-
-  (require 'esh-autosuggest)  ;; Fish-like autosuggestion
-  (add-hook 'eshell-mode-hook #'esh-autosuggest-mode)
 
   (eshell-git-prompt-use-theme 'git-radar)
 
@@ -168,9 +152,9 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 #+END_SRC
 
 * Move Text with Meta (Drag-Stuff)
-Bear in mind that the keybindings of Meta-up/down will override its functionalities in Org mode. In addition, when moving a region, it's best to use ~C-x <spc>~ to cut a vertical selection line to indicate which lines to move. (Same logic goes for when commenting lines in ~C-x C-;~)
+ The keybindings of Meta-up/down will override its functionalities in Org mode. In addition, when moving a region, it's best to use ~C-x <spc>~ to cut a vertical selection line to indicate which lines to move. (Same logic goes for when commenting lines in ~C-x C-;~)
 
-Meta-right/left transposes the current word with the right/left one.
+ Meta-right/left transposes the current word with the right/left one.
 #+BEGIN_SRC emacs-lisp
   (drag-stuff-global-mode 1)
   (drag-stuff-define-keys)  ;; Use Meta-up/down/left/right
