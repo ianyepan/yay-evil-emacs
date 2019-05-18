@@ -32,11 +32,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "RET")
                                           'dired-find-alternate-file)))
 #+END_SRC
-** Dired Sidebar
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-x D") 'ido-dired) ;; The actual dired-mode
-  (global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
-#+END_SRC
 * Emacs Keybindings tweaks
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-q") 'nil)       ; fill paragraph (for line breaks)
@@ -223,7 +218,7 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (global-set-key (kbd "M-x") 'smex)
 #+END_SRC
 * Smooth Scrolling
-Added the "...aggressively..." to prevent the cursor to jump around when user scrolls.
+Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 #+BEGIN_SRC emacs-lisp
   (require 'smooth-scrolling)
   (smooth-scrolling-mode 1)
@@ -282,7 +277,7 @@ Added the "...aggressively..." to prevent the cursor to jump around when user sc
 #+BEGIN_SRC emacs-lisp
   (minions-mode 1)
 #+END_SRC
-*** Improving / Cleaning up the interface.
+*** Improving / Cleaning up the UI.
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-splash-screen t)
   (setq ring-bell-function 'ignore)
@@ -295,10 +290,6 @@ Added the "...aggressively..." to prevent the cursor to jump around when user sc
   (add-hook 'prog-mode-hook 'highlight-operators-mode)
   (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
   (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
-
-  ;; Transparency
-  (set-frame-parameter (selected-frame) 'alpha '(85 85))
-  (add-to-list 'default-frame-alist '(alpha 85 85))
 #+END_SRC
 ** Making *scratch* always there!
 Default to org-mode for *scratch* buffer

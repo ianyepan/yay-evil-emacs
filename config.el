@@ -22,9 +22,6 @@
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "RET")
                                         'dired-find-alternate-file)))
 
-(global-set-key (kbd "C-x D") 'ido-dired) ;; The actual dired-mode
-(global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
-
 (global-set-key (kbd "M-q") 'nil)       ; fill paragraph (for line breaks)
 (global-set-key (kbd "C-x F") 'replace-string)
 (global-set-key (kbd "s-c") 'kill-ring-save)
@@ -222,10 +219,6 @@
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
-
-;; Transparency
-(set-frame-parameter (selected-frame) 'alpha '(85 85))
-(add-to-list 'default-frame-alist '(alpha 85 85))
 
 (setq initial-major-mode 'org-mode)
 (with-current-buffer
