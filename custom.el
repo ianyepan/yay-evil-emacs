@@ -68,11 +68,7 @@
  '(shr-max-image-proportion 0.5)
  '(sp-escape-quotes-after-insert nil)
  '(which-key-echo-keystrokes 0.25)
- '(which-key-idle-delay 0.5)
- '(writeroom-global-effects
-   (quote
-    (writeroom-set-alpha writeroom-set-menu-bar-lines writeroom-set-tool-bar-lines writeroom-set-bottom-divider-width)))
- '(writeroom-mode-line t))
+ '(which-key-idle-delay 0.5))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

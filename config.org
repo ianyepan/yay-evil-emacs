@@ -181,7 +181,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
           ("TODO" . (:background "#FFCDCD" :foreground "#801111" :box t))
           ("DOING" . (:background "#FDF381" :foreground "#4D3100" :box t))
           ("DONE" . (:background "#E0FDD5" :foreground "#1A4D00" :box t))))
-  (global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
 #+END_SRC
 * Python
 #+BEGIN_SRC emacs-lisp
@@ -288,8 +287,8 @@ Added the "...aggressively..." to prevent the cursor to jump around when user sc
   (setq inhibit-splash-screen t)
   (setq ring-bell-function 'ignore)
   (tool-bar-mode -1)
-  (scroll-bar-mode -1)
   (menu-bar-mode -1)
+  (scroll-bar-mode -1)
   (blink-cursor-mode t)
   (column-number-mode t)
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
@@ -327,10 +326,6 @@ Default to org-mode for *scratch* buffer
 ** Syntax highlight
 #+BEGIN_SRC emacs-lisp
   (global-font-lock-mode t)
-#+END_SRC
-** Change yes/no to y/n
-#+BEGIN_SRC emacs-lisp
-  (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 ** No Backup~ Files
 #+BEGIN_SRC emacs-lisp

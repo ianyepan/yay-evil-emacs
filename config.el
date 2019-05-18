@@ -139,7 +139,6 @@
         ("TODO" . (:background "#FFCDCD" :foreground "#801111" :box t))
         ("DOING" . (:background "#FDF381" :foreground "#4D3100" :box t))
         ("DONE" . (:background "#E0FDD5" :foreground "#1A4D00" :box t))))
-(global-set-key (kbd "C-c w") 'writeroom-mode) ;; Toggle writeroom
 
 (require 'elpy)
 (elpy-enable)
@@ -215,8 +214,8 @@
 (setq inhibit-splash-screen t)
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
 (menu-bar-mode -1)
+(scroll-bar-mode -1)
 (blink-cursor-mode t)
 (column-number-mode t)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
@@ -247,8 +246,6 @@
 (setq column-enforce-column 79)
 
 (global-font-lock-mode t)
-
-(fset 'yes-or-no-p 'y-or-n-p)
 
 (setq make-backup-files nil)
 
