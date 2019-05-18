@@ -16,7 +16,6 @@
  '(company-global-modes (quote (not eshell-mode)))
  '(company-idle-delay t)
  '(company-minimum-prefix-length 2)
- '(compilation-message-face (quote default))
  '(css-fontify-colors nil)
  '(cursor-type (quote box))
  '(custom-safe-themes
@@ -43,6 +42,8 @@
  '(package-selected-packages
    (quote
     (ns-auto-titlebar color-theme-sanityinc-solarized green-screen-theme monokai-theme color-theme-sanityinc-tomorrow reverse-theme spacemacs-theme github-modern-theme drag-stuff smartparens magit writeroom-mode whitespace-cleanup-mode which-key smooth-scrolling smex rainbow-mode prettier-js org-bullets multiple-cursors minions jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido eshell-git-prompt elpy company-jedi column-enforce-mode auto-indent-mode)))
+ '(pos-tip-background-color "#FFFACE")
+ '(pos-tip-foreground-color "#272822")
  '(prettier-js-args
    (quote
     ("--bracket-spacing" "true" "--jsx-bracket-same-line" "true" "--print-width" "80")))
