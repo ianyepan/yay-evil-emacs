@@ -42,7 +42,7 @@
  '(org-todo-keywords (quote ((sequence "TODO" "DOING" "DONE"))))
  '(package-selected-packages
    (quote
-    (ns-auto-titlebar color-theme-sanityinc-solarized green-screen-theme monokai-theme color-theme-sanityinc-tomorrow reverse-theme spacemacs-theme github-modern-theme htmlize drag-stuff smartparens undo-tree magit yasnippet-snippets writeroom-mode whitespace-cleanup-mode which-key vimrc-mode smooth-scrolling smex rainbow-mode rainbow-delimiters prettier-js org-bullets multiple-cursors minions markdown-mode jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido eshell-git-prompt elpy dired-sidebar company-jedi column-enforce-mode auto-indent-mode)))
+    (ns-auto-titlebar color-theme-sanityinc-solarized green-screen-theme monokai-theme color-theme-sanityinc-tomorrow reverse-theme spacemacs-theme github-modern-theme drag-stuff smartparens magit writeroom-mode whitespace-cleanup-mode which-key smooth-scrolling smex rainbow-mode prettier-js org-bullets multiple-cursors minions jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido eshell-git-prompt elpy company-jedi column-enforce-mode auto-indent-mode)))
  '(prettier-js-args
    (quote
     ("--bracket-spacing" "true" "--jsx-bracket-same-line" "true" "--print-width" "80")))

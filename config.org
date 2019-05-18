@@ -1,7 +1,7 @@
 #+Title: Ian Y.E. Pan's Emacs Configuration
 #+Author: Ian Y.E. Pan
 #+Date: 2019
-* Auto-Completion
+* Auto-Completion (temporarily disabled for now)
 Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disable company in eshell. Use ~C-n/p~ to select candidates in company menu.
 #+BEGIN_SRC emacs-lisp
   ;; (add-hook 'prog-mode-hook 'company-mode) ; invoke company-mode for coding
@@ -13,18 +13,9 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
     (define-key company-active-map (kbd "C-n") #'company-select-next)
     (define-key company-active-map (kbd "C-p") #'company-select-previous))
 #+END_SRC
-* Comparing files: Diff & Ediff
+* Comparing current buffer with saved version
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-c d") 'diff)
-  (global-set-key (kbd "C-c e") 'ediff)
   (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
-  (global-set-key (kbd "C-c E") 'ediff-current-file)
-  ;; (eval-after-load 'diff-mode
-    ;; '(progn
-       ;; (set-face-foreground 'diff-added "#355531")
-       ;; (set-face-background 'diff-added "#dcffdd")
-       ;; (set-face-foreground 'diff-removed "#553333")
-       ;; (set-face-background 'diff-removed "#ffdddc")))
 #+END_SRC
 * Dired
 #+BEGIN_SRC emacs-lisp
@@ -385,17 +376,8 @@ Use ~C-c t~ to toggle transparency
     (other-window 1))
   (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 #+END_SRC
-* Vimrc Mode
-#+BEGIN_SRC emacs-lisp
-  (require 'vimrc-mode)
-  (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode))
-#+END_SRC
 * Which-Key
 #+BEGIN_SRC emacs-lisp
   (require 'which-key)
   (which-key-mode t)
-#+END_SRC
-* Yasnippets
-#+BEGIN_SRC emacs-lisp
-  (yas-global-mode 1)
 #+END_SRC

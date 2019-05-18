@@ -7,16 +7,7 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-(global-set-key (kbd "C-c d") 'diff)
-(global-set-key (kbd "C-c e") 'ediff)
 (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
-(global-set-key (kbd "C-c E") 'ediff-current-file)
-;; (eval-after-load 'diff-mode
-  ;; '(progn
-     ;; (set-face-foreground 'diff-added "#355531")
-     ;; (set-face-background 'diff-added "#dcffdd")
-     ;; (set-face-foreground 'diff-removed "#553333")
-     ;; (set-face-background 'diff-removed "#ffdddc")))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "RET")
@@ -295,10 +286,5 @@
   (other-window 1))
 (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 
-(require 'vimrc-mode)
-(add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode))
-
 (require 'which-key)
 (which-key-mode t)
-
-(yas-global-mode 1)
