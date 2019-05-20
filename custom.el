@@ -31,7 +31,14 @@
     (:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(org-highlight-latex-and-related (quote (latex)))
- '(org-latex-classes n)
+ '(org-latex-classes
+   (quote
+    (("article" "\\documentclass[12pt, a4paper]{article}"
+      ("\\section{%s}" . "\\section*{%s}")
+      ("\\subsection{%s}" . "\\subsection*{%s}")
+      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+      ("\\paragraph{%s}" . "\\paragraph*{%s}")
+      ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
  '(org-latex-listings (quote minted))
  '(org-latex-pdf-process
    (quote
