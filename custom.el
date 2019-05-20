@@ -39,9 +39,7 @@
  '(org-todo-keywords (quote ((sequence "TODO" "DOING" "DONE"))))
  '(package-selected-packages
    (quote
-    (ns-auto-titlebar color-theme-sanityinc-solarized monokai-theme color-theme-sanityinc-tomorrow reverse-theme spacemacs-theme github-modern-theme drag-stuff magit writeroom-mode whitespace-cleanup-mode which-key smooth-scrolling smex rainbow-mode prettier-js org-bullets multiple-cursors minions jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido eshell-git-prompt elpy company-jedi column-enforce-mode auto-indent-mode)))
- '(pos-tip-background-color "#FFFACE")
- '(pos-tip-foreground-color "#272822")
+    (ns-auto-titlebar monokai-theme color-theme-sanityinc-tomorrow reverse-theme spacemacs-theme github-modern-theme drag-stuff magit whitespace-cleanup-mode which-key smooth-scrolling smex rainbow-mode prettier-js org-bullets multiple-cursors minions jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck flx-ido eshell-git-prompt elpy company-jedi column-enforce-mode auto-indent-mode)))
  '(prettier-js-args
    (quote
     ("--bracket-spacing" "true" "--jsx-bracket-same-line" "true" "--print-width" "80")))
