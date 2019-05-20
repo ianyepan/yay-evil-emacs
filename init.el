@@ -11,11 +11,11 @@
 (package-initialize)
 
 ;; (load-theme 'sanityinc-tomorrow-blue t)
-;; (load-theme 'monokai t)
+;; (load-theme 'reverse t)
 
 ;; Tron Legacy Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme `tronlegacy t)
+(load-theme 'tronlegacy t)
 
 ;; Load actual config file './config.org'
 (require 'org)

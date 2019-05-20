@@ -149,10 +149,6 @@
      (interactive "p") (kmacro-exec-ring-item '([47 escape 102 47] 0 "%d") arg)))
 (global-set-key (kbd "C-x C-k I") 'make-word-italics)
 
-;; (smartparens-global-mode 1)
-(setq show-paren-delay 0)
-(show-paren-mode 1)
-
 (require 'smex)
 (global-set-key (kbd "M-x") 'smex)
 
@@ -206,6 +202,7 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode t)
 (column-number-mode t)
+(setq-default indicate-empty-lines t)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
@@ -234,7 +231,9 @@
 (setq make-backup-files nil)
 
 (global-visual-line-mode t)
-(setq-default indicate-empty-lines t)
+
+(setq show-paren-delay 0)
+(show-paren-mode 1)
 
 (defun toggle-transparency ()
   (interactive)

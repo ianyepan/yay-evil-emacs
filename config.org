@@ -197,12 +197,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
        (interactive "p") (kmacro-exec-ring-item '([47 escape 102 47] 0 "%d") arg)))
   (global-set-key (kbd "C-x C-k I") 'make-word-italics)
 #+END_SRC
-* Smart Parentheses
-#+BEGIN_SRC emacs-lisp
-  ;; (smartparens-global-mode 1)
-  (setq show-paren-delay 0)
-  (show-paren-mode 1)
-#+END_SRC
 * Smex
 #+BEGIN_SRC emacs-lisp
   (require 'smex)
@@ -277,6 +271,7 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
   (scroll-bar-mode -1)
   (blink-cursor-mode t)
   (column-number-mode t)
+  (setq-default indicate-empty-lines t)
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'prog-mode-hook 'highlight-operators-mode)
   (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
@@ -313,10 +308,14 @@ Default to org-mode for *scratch* buffer
 #+BEGIN_SRC emacs-lisp
   (setq make-backup-files nil)
 #+END_SRC
-** Word-Wrapping & Indicating Empty Lines
+** Word-Wrapping
 #+BEGIN_SRC emacs-lisp
   (global-visual-line-mode t)
-  (setq-default indicate-empty-lines t)
+#+END_SRC
+** Highlight matching parentheses
+#+BEGIN_SRC emacs-lisp
+  (setq show-paren-delay 0)
+  (show-paren-mode 1)
 #+END_SRC
 * Transparent Emacs
 Use ~C-c t~ to toggle transparency
