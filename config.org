@@ -96,20 +96,10 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 #+END_SRC
 * JavaScript
 #+BEGIN_SRC emacs-lisp
-  ;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-jsx-mode))
-  ;; (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
   (require 'prettier-js)
   (setq prettier-js-args '("--bracket-spacing" "true"
                            "--jsx-bracket-same-line" "true"))
-#+END_SRC
-* Join Lines
-#+BEGIN_SRC emacs-lisp
-  (defun vim-join-line ()
-    "Join the current line with the line beneath it, the way Vim does it."
-    (interactive)
-    (delete-indentation 1))
-  (global-set-key (kbd "C-S-j") 'vim-join-line)
 #+END_SRC
 * LaTeX
 #+BEGIN_SRC emacs-lisp
@@ -159,7 +149,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (require 'ox-md)
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (global-set-key (kbd "C-c a") 'org-agenda)  ;; Use C-c a to active agenda
   (setq org-todo-keywords
         '((sequence "TODO" "DOING" "DONE")))
   (setq org-todo-keyword-faces
@@ -178,10 +167,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   (defun my/python-mode-hook ()
     (add-to-list 'company-backends 'company-jedi))  ;; company-jedi
   (add-hook 'python-mode-hook 'my/python-mode-hook)
-#+END_SRC
-* Rainbow Mode (CSS Colours)
-#+BEGIN_SRC emacs-lisp
-  ;; (add-hook 'prog-mode-hook 'rainbow-mode)
 #+END_SRC
 * Registers
 #+BEGIN_SRC emacs-lisp
@@ -216,7 +201,7 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
                 scroll-down-aggressively 0.01)
 #+END_SRC
 * Start-up
-** Set my Username
+** Set my username
 #+BEGIN_SRC emacs-lisp
   (setq user-full-name "Ian Y.E. Pan")
 #+END_SRC

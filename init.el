@@ -13,6 +13,10 @@
 ;; (load-theme 'sanityinc-tomorrow-blue t)
 ;; (load-theme 'reverse t)
 
+;; load EVIL
+(require 'evil)
+(evil-mode 1)
+
 ;; Tron Legacy Theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'tronlegacy t)

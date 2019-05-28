@@ -74,18 +74,10 @@
 (global-set-key (kbd "RET") 'newline-and-push-brace)
 (require 'auto-indent-mode)
 
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-jsx-mode))
-;; (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
 (require 'prettier-js)
 (setq prettier-js-args '("--bracket-spacing" "true"
                          "--jsx-bracket-same-line" "true"))
-
-(defun vim-join-line ()
-  "Join the current line with the line beneath it, the way Vim does it."
-  (interactive)
-  (delete-indentation 1))
-(global-set-key (kbd "C-S-j") 'vim-join-line)
 
 ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
 (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
@@ -119,7 +111,6 @@
 (require 'ox-md)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(global-set-key (kbd "C-c a") 'org-agenda)  ;; Use C-c a to active agenda
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "DONE")))
 (setq org-todo-keyword-faces
@@ -136,8 +127,6 @@
 (defun my/python-mode-hook ()
   (add-to-list 'company-backends 'company-jedi))  ;; company-jedi
 (add-hook 'python-mode-hook 'my/python-mode-hook)
-
-;; (add-hook 'prog-mode-hook 'rainbow-mode)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?o '(file . "~/.emacs.d/config.org"))
