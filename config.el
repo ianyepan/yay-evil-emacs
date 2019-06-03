@@ -71,17 +71,17 @@
 (global-set-key (kbd "RET") 'newline-and-push-brace)
 (require 'auto-indent-mode)
 
-;; ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
-;; (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
-;; (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
+;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
+(setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
+(setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
 
-;; ;; Colourful Org LaTeX Code Blocks
-;; (require 'ox-latex)
-;; (add-to-list 'org-latex-packages-alist '("" "minted"))
-;; (setq org-latex-listings 'minted)
-;; (setq org-latex-pdf-process
-;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-;; (setq org-latex-minted-options '(("linenos=true")))
+;; Colourful Org LaTeX Code Blocks
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+(setq org-latex-listings 'minted)
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+(setq org-latex-minted-options '(("linenos=true")))
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
