@@ -1,3 +1,8 @@
+(setq evil-want-C-u-scroll t)
+(require 'evil)
+(evil-mode 1)
+(evil-commentary-mode 1)
+
 (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
 
 (put 'dired-find-alternate-file 'disabled nil)
@@ -47,12 +52,12 @@
 (require 'ido-vertical-mode)
 (ido-vertical-mode 1)
 
-(setq-default tab-width 3)
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil) ;; Always use spaces, no tabs
 (setq js-indent-level 2)
 (setq c-default-style "bsd"             ; Allman style
-      c-basic-offset 3)                 ; 3-space indentation for c
-(add-hook 'python-mode-hook '(lambda () (setq python-indent 3))) ; 3-space-indentation for python
+      c-basic-offset 4)                 ; 3-space indentation for c
+(add-hook 'python-mode-hook '(lambda () (setq python-indent 4))) ; 3-space-indentation for python
 (defun newline-and-push-brace ()
   "`newline-and-indent', but bracket aware."
   (interactive)
@@ -85,35 +90,14 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-(require 'ox-md)
+(require 'ox-md) ;; for exporting org mode to markdown
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(setq org-todo-keywords
-      '((sequence "TODO" "DOING" "DONE")))
-(setq org-todo-keyword-faces
-      '(
-        ("TODO" . (:background "#FFCDCD" :foreground "#801111" :box t))
-        ("DOING" . (:background "#FDF381" :foreground "#4D3100" :box t))
-        ("DONE" . (:background "#E0FDD5" :foreground "#1A4D00" :box t))))
-
-(require 'elpy)
-(elpy-enable)
-(setq elpy-rpc-python-command "/usr/local/bin/python3")
-(setq python-shell-interpreter "/usr/local/bin/python3")
-(add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1)))
-(defun my/python-mode-hook ()
-  (add-to-list 'company-backends 'company-jedi))  ;; company-jedi
-(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?o '(file . "~/.emacs.d/config.org"))
 (set-register ?c '(file . "~/.emacs.d/custom.el"))
 (set-register ?r '(file . "~/.emacs.d/themes/tronlegacy-theme.el"))
-
-(fset 'make-word-italics
-   (lambda (&optional arg) "Keyboard macro."
-     (interactive "p") (kmacro-exec-ring-item '([47 escape 102 47] 0 "%d") arg)))
-(global-set-key (kbd "C-x C-k I") 'make-word-italics)
 
 (require 'smex)
 (global-set-key (kbd "M-x") 'smex)
@@ -131,8 +115,6 @@
 (setq user-full-name "Ian Y.E. Pan")
 
 (server-start)
-
-(delete-selection-mode 1)
 
 (setq frame-title-format		
       '((:eval (if (buffer-file-name)		
@@ -196,8 +178,6 @@
 
 (setq make-backup-files nil)
 
-(global-visual-line-mode t)
-
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
@@ -214,32 +194,6 @@
          '(85 . 85) '(100 . 100)))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 
-(defun toggle-window-split ()
-  (interactive)
-  (if (= (count-windows) 2)
-      (let* ((this-win-buffer (window-buffer))
-             (next-win-buffer (window-buffer (next-window)))
-             (this-win-edges (window-edges (selected-window)))
-             (next-win-edges (window-edges (next-window)))
-             (this-win-2nd (not (and (<= (car this-win-edges)
-                                         (car next-win-edges))
-                                     (<= (cadr this-win-edges)
-                                         (cadr next-win-edges)))))
-             (splitter
-              (if (= (car this-win-edges)
-                     (car (window-edges (next-window))))
-                  'split-window-horizontally
-                'split-window-vertically)))
-        (delete-other-windows)
-        (let ((first-win (selected-window)))
-          (funcall splitter)
-          (if this-win-2nd (other-window 1))
-          (set-window-buffer (selected-window) this-win-buffer)
-          (set-window-buffer (next-window) next-win-buffer)
-          (select-window first-win)
-          (if this-win-2nd (other-window 1))))))
-(global-set-key (kbd "C-x 4 5") 'toggle-window-split)
-
 (defun split-and-follow-horizontally ()
   (interactive)
   (split-window-below)
@@ -253,4 +207,3 @@
 
 (require 'which-key)
 (which-key-mode t)
-(setq which-key-idle-delay 0.5)

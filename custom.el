@@ -9,7 +9,6 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-blinks 0)
  '(column-enforce-column 79)
- '(css-fontify-colors nil)
  '(cursor-type (quote box))
  '(custom-safe-themes
    (quote
@@ -33,7 +32,7 @@
     ("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
  '(package-selected-packages
    (quote
-    (evil ns-auto-titlebar monokai-theme spacemacs-theme github-modern-theme magit whitespace-cleanup-mode which-key smooth-scrolling smex rainbow-mode org-bullets minions jedi ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck eshell-git-prompt elpy company-jedi column-enforce-mode auto-indent-mode)))
+    (evil-commentary evil ns-auto-titlebar spacemacs-theme magit whitespace-cleanup-mode which-key smooth-scrolling smex rainbow-mode org-bullets minions ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck eshell-git-prompt column-enforce-mode auto-indent-mode)))
  '(python-indent-guess-indent-offset nil)
  '(sp-escape-quotes-after-insert nil))
 (custom-set-faces

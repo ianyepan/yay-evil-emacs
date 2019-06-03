@@ -10,11 +10,6 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;; load EVIL
-(setq evil-want-C-u-scroll t)
-(require 'evil)
-(evil-mode 1)
-
 (load-theme 'spacemacs-dark t)
 
 ;; Tron Legacy Theme
