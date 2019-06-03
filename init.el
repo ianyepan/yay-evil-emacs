@@ -10,16 +10,16 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;; (load-theme 'sanityinc-tomorrow-blue t)
-;; (load-theme 'reverse t)
-
 ;; load EVIL
+(setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
 
+(load-theme 'spacemacs-dark t)
+
 ;; Tron Legacy Theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'tronlegacy t)
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;; (load-theme 'tronlegacy t)
 
 ;; Load actual config file './config.org'
 (require 'org)

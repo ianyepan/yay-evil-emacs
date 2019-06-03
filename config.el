@@ -1,12 +1,3 @@
-;; (add-hook 'prog-mode-hook 'company-mode) ; invoke company-mode for coding
-(setq company-global-modes '(not eshell-mode))
-(setq company-idle-delay t)
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
-
 (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
 
 (put 'dired-find-alternate-file 'disabled nil)
@@ -37,23 +28,24 @@
 ;; To let eshell use brew-installed commands
 (setenv "PATH" (concat "/usr/local/bin/" ":" (getenv "PATH")))
 (setq exec-path (append '("/usr/local/bin/") exec-path))
+
 ;; Eshell aliases
 (defalias 'ff 'find-file)
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
 
-;; Spell checker software Aspell (to replace ispell)
+;; Use aspell to replace ispell
 (setq ispell-program-name "/usr/local/bin/aspell")
 
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(require 'ido-vertical-mode)
+;; Core Ido
 (ido-mode 1)
-(ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
-(require 'flx-ido)
-(flx-ido-mode 1)
+(setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+;; Vertical (for better visibility)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
 
 (setq-default tab-width 3)
 (setq-default indent-tabs-mode nil) ;; Always use spaces, no tabs
@@ -74,11 +66,6 @@
 (global-set-key (kbd "RET") 'newline-and-push-brace)
 (require 'auto-indent-mode)
 
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-jsx-mode))
-(require 'prettier-js)
-(setq prettier-js-args '("--bracket-spacing" "true"
-                         "--jsx-bracket-same-line" "true"))
-
 ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
 (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
 (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
@@ -97,16 +84,6 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-(drag-stuff-global-mode 1)
-(drag-stuff-define-keys)  ;; Use Meta-up/down/left/right
-
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(define-key mc/keymap (kbd "<return>") nil)
 
 (require 'ox-md)
 (require 'org-bullets)
@@ -276,3 +253,4 @@
 
 (require 'which-key)
 (which-key-mode t)
+(setq which-key-idle-delay 0.5)

@@ -1,18 +1,6 @@
 #+Title: Ian Y.E. Pan's Emacs Configuration
 #+Author: Ian Y.E. Pan
 #+Date: 2019
-* Auto-Completion (temporarily disabled for now)
-Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disable company in eshell. Use ~C-n/p~ to select candidates in company menu.
-#+BEGIN_SRC emacs-lisp
-  ;; (add-hook 'prog-mode-hook 'company-mode) ; invoke company-mode for coding
-  (setq company-global-modes '(not eshell-mode))
-  (setq company-idle-delay t)
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "M-n") nil)
-    (define-key company-active-map (kbd "M-p") nil)
-    (define-key company-active-map (kbd "C-n") #'company-select-next)
-    (define-key company-active-map (kbd "C-p") #'company-select-previous))
-#+END_SRC
 * Comparing current buffer with saved version
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
@@ -51,6 +39,7 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
   ;; To let eshell use brew-installed commands
   (setenv "PATH" (concat "/usr/local/bin/" ":" (getenv "PATH")))
   (setq exec-path (append '("/usr/local/bin/") exec-path))
+
   ;; Eshell aliases
   (defalias 'ff 'find-file)
 #+END_SRC
@@ -58,20 +47,20 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 #+BEGIN_SRC emacs-lisp
   (add-hook 'after-init-hook 'global-flycheck-mode)
 
-  ;; Spell checker software Aspell (to replace ispell)
+  ;; Use aspell to replace ispell
   (setq ispell-program-name "/usr/local/bin/aspell")
 #+END_SRC
 * Ido
 #+BEGIN_SRC emacs-lisp
-  (setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
-  (require 'ido-vertical-mode)
+  ;; Core Ido
   (ido-mode 1)
-  (ido-vertical-mode 1)
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
-  (require 'flx-ido)
-  (flx-ido-mode 1)
+  (setq ido-everywhere t)
   (setq ido-enable-flex-matching t)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+  ;; Vertical (for better visibility)
+  (require 'ido-vertical-mode)
+  (ido-vertical-mode 1)
 #+END_SRC
 * Indentation
 #+BEGIN_SRC emacs-lisp
@@ -93,13 +82,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
 
   (global-set-key (kbd "RET") 'newline-and-push-brace)
   (require 'auto-indent-mode)
-#+END_SRC
-* JavaScript
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-jsx-mode))
-  (require 'prettier-js)
-  (setq prettier-js-args '("--bracket-spacing" "true"
-                           "--jsx-bracket-same-line" "true"))
 #+END_SRC
 * LaTeX
 #+BEGIN_SRC emacs-lisp
@@ -125,24 +107,6 @@ Use company-mode instead of auto-complete. Disable delay for menu pop-up. Disabl
     "Major mode for editing Markdown files" t)
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-#+END_SRC
-
-* Move Text with Meta (Drag-Stuff)
- The keybindings of Meta-up/down will override its functionalities in Org mode. In addition, when moving a region, it's best to use ~C-x <spc>~ to cut a vertical selection line to indicate which lines to move. (Same logic goes for when commenting lines in ~C-x C-;~)
-
- Meta-right/left transposes the current word with the right/left one.
-#+BEGIN_SRC emacs-lisp
-  (drag-stuff-global-mode 1)
-  (drag-stuff-define-keys)  ;; Use Meta-up/down/left/right
-#+END_SRC
-* Multiple-cursors
-#+BEGIN_SRC emacs-lisp
-  (require 'multiple-cursors)
-  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-  (define-key mc/keymap (kbd "<return>") nil)
 #+END_SRC
 * Org Mode
 #+BEGIN_SRC emacs-lisp
@@ -364,4 +328,5 @@ Use ~C-c t~ to toggle transparency
 #+BEGIN_SRC emacs-lisp
   (require 'which-key)
   (which-key-mode t)
+  (setq which-key-idle-delay 0.5)
 #+END_SRC
