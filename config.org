@@ -108,13 +108,6 @@
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
-* Markdown
-#+BEGIN_SRC emacs-lisp
-  (autoload 'markdown-mode "markdown-mode"
-    "Major mode for editing Markdown files" t)
-  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-#+END_SRC
 * Org Mode
 #+BEGIN_SRC emacs-lisp
   (require 'ox-md) ;; for exporting org mode to markdown
