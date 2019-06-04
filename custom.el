@@ -7,8 +7,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-blinks 0)
- '(column-enforce-column 79)
  '(cursor-type (quote box))
  '(custom-safe-themes
    (quote
@@ -32,9 +30,7 @@
     ("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
  '(package-selected-packages
    (quote
-    (evil-commentary evil ns-auto-titlebar spacemacs-theme magit whitespace-cleanup-mode which-key smooth-scrolling smex rainbow-mode org-bullets minions ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck eshell-git-prompt column-enforce-mode auto-indent-mode)))
- '(python-indent-guess-indent-offset nil)
- '(sp-escape-quotes-after-insert nil))
+    (evil-commentary evil ns-auto-titlebar spacemacs-theme magit whitespace-cleanup-mode which-key smooth-scrolling smex rainbow-mode org-bullets minions ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck eshell-git-prompt column-enforce-mode auto-indent-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

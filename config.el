@@ -144,6 +144,7 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (blink-cursor-mode t)
+(setq blink-cursor-blinks 0) ;; blink forever
 (column-number-mode t)
 (setq-default indicate-empty-lines t)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
