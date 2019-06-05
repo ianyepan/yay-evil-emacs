@@ -1,4 +1,4 @@
-# Version-2-Emacs-Config
+## Ian's Emacs Configuration
 
 **P.s. Version 1 is less customized and is deprecated in favour of a clean washup that resulted in this repo.**
 
