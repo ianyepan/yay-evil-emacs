@@ -7,7 +7,7 @@
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-selected-packages '(evil spacemacs-theme magit whitespace-cleanup-mode smooth-scrolling smex rainbow-mode org-bullets minions ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck column-enforce-mode auto-indent-mode))
+(setq package-selected-packages '(nord-theme evil spacemacs-theme magit whitespace-cleanup-mode smooth-scrolling smex rainbow-mode org-bullets minions ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -15,7 +15,7 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-(load-theme 'spacemacs-dark t)
+(load-theme 'nord t)
 
 ;; Tron Legacy Theme
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
