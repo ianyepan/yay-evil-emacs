@@ -1,41 +1,12 @@
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
-(evil-commentary-mode 1)
 
 (global-set-key (kbd "C-c D") 'diff-buffer-with-file)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "RET")
                                         'dired-find-alternate-file)))
-
-(global-set-key (kbd "M-q") 'nil)       ; fill paragraph (for line breaks)
-(global-set-key (kbd "C-x F") 'replace-string)
-(global-set-key (kbd "s-c") 'kill-ring-save)
-(global-set-key (kbd "C-x 5 F") 'toggle-frame-fullscreen)
-
-(defun eshell-new()
-  "Open a new instance of eshell, numbered by <N>."
-  (interactive)
-  (eshell 'N))
-
-(eshell-git-prompt-use-theme 'git-radar)
-
-;; The ``clear'' command
-(defun eshell/clear ()
-  "Clear the eshell buffer to the top."
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)))
-(global-set-key (kbd "C-8") 'eshell-previous-input)
-(global-set-key (kbd "C-9") 'eshell-next-input)
-
-;; To let eshell use brew-installed commands
-(setenv "PATH" (concat "/usr/local/bin/" ":" (getenv "PATH")))
-(setq exec-path (append '("/usr/local/bin/") exec-path))
-
-;; Eshell aliases
-(defalias 'ff 'find-file)
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
 
@@ -107,16 +78,7 @@
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
-(setq user-full-name "Ian Y.E. Pan")
-
-(server-start)
-
-(setq frame-title-format		
-      '((:eval (if (buffer-file-name)		
-                   (abbreviate-file-name (buffer-file-name))		
-                 "%b"))))		
-;; Title bar match theme
-(when (eq system-type 'darwin) (ns-auto-titlebar-mode))
+;; (server-start)
 
 ;; Set the padding between lines
 (defvar line-padding 0)                 ; change value from 0 - 3
@@ -145,32 +107,14 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode t)
 (setq blink-cursor-blinks 0) ;; blink forever
-(column-number-mode t)
 (setq-default indicate-empty-lines t)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
-(setq initial-major-mode 'org-mode)
-(with-current-buffer
-    (get-buffer-create "*scratch*") (org-mode)
-    (make-local-variable 'kill-buffer-query-functions)
-    (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer))
-(setq initial-scratch-message "# Welcome back to Emacs, Ian Y.E. Pan
-# Here's the scratch buffer for quick notes\n\n")
-(defun kill-scratch-buffer ()
-  (set-buffer (get-buffer-create "*scratch*"))
-  (remove-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
-  (kill-buffer (current-buffer))
-  (set-buffer (get-buffer-create "*scratch*")) (org-mode)
-  (make-local-variable 'kill-buffer-query-functions)
-  (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer) nil)
-
 (add-hook 'prog-mode-hook 'column-enforce-mode)
 (setq column-enforce-column 79)
-
-(global-font-lock-mode t)
 
 (setq make-backup-files nil)
 
@@ -200,6 +144,3 @@
   (split-window-right)
   (other-window 1))
 (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
-
-(require 'which-key)
-(which-key-mode t)
