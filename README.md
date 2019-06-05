@@ -17,6 +17,10 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 
 ## Packages that I use:
 
+#### (Optional depending on your habits)
+- evil
+- evil-commentary
+
 #### For better defaults and UI functionalities
 - auto-indent-mode
 - smex
