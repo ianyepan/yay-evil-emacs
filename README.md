@@ -8,7 +8,9 @@ This Emacs config starts up **super fast** with an average init time of 1.1 seco
 ### Installation
 Back up your `~/.emacs.d/` first (if you have one): `mv ~/.emacs.d/ ~/.emacs.d.bak/`
 
-Git clone my configuration to your new `~/.emacs.d/` : `git clone https://github.com/ianpan870102/.emacs.d.git ~/.emacs.d/`
+Git clone my configuration to your new `~/.emacs.d/` :
+
+```git clone https://github.com/ianpan870102/.emacs.d.git ~/.emacs.d/```
 
 ### "Rolling" Release
 I will constantly push new commits since *a real Emacser* is never completely satisfied with his/her setup.
