@@ -7,6 +7,11 @@
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(setq package-selected-packages '(evil spacemacs-theme magit whitespace-cleanup-mode smooth-scrolling smex rainbow-mode org-bullets minions ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck column-enforce-mode auto-indent-mode))
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+(package-install-selected-packages)
 (setq package-enable-at-startup nil)
 (package-initialize)
 

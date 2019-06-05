@@ -5,7 +5,7 @@
 ### Intro
 Thanks for dropping by! This is my personal Emacs configuration (I'm using GNU Emacs 26.2), tailored to suit my needs. I've documented (as detailed as possible) what each function does in my `config.org` file.
 
-This Emacs config starts up super fast with an average init time of 1.5 seconds
+This Emacs config starts up super fast with an average init time of 1.1 seconds
 
 ### "Rolling" Release
 I will constantly push new commits since *a real Emacser* is never completely satisfied with his/her setup.
@@ -26,7 +26,6 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - smex
 - ido-vertical-mode
 - smooth-scrolling
-- which-key
 - column-enforce-mode
 - flycheck
 - org-bullets
@@ -34,7 +33,6 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - highlight-operators
 - highlight-numbers
 - highlight-escape-sequences
-- ns-auto-titlebar
 - whitespace-cleanup-mode
 
 #### Theme(s) I adore
@@ -45,4 +43,3 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 
 #### Git integration
 - magit
-- eshell-git-prompt
