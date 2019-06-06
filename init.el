@@ -5,7 +5,6 @@
 ;;; Code:
 (require 'package)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (setq package-selected-packages '(nord-theme evil spacemacs-theme magit whitespace-cleanup-mode smooth-scrolling smex rainbow-mode org-bullets minions ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
 (package-initialize)

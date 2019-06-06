@@ -60,6 +60,7 @@
 * LaTeX
 #+BEGIN_SRC emacs-lisp
   ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
+  ;; export PATH="$PATH:/Library/TeX/texbin"
   (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
   (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
 
@@ -70,6 +71,19 @@
   (setq org-latex-pdf-process
         '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
   (setq org-latex-minted-options '(("linenos=true")))
+
+  (setq org-highlight-latex-and-related (quote (latex)))
+  (setq org-latex-classes
+        (quote
+         (("article" "\\documentclass[12pt, a4paper]{article}"
+           ("\\section{%s}" . "\\section*{%s}")
+           ("\\subsection{%s}" . "\\subsection*{%s}")
+           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+           ("\\paragraph{%s}" . "\\paragraph*{%s}")
+           ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
+  (setq org-latex-pdf-process
+        (quote
+         ("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
 #+END_SRC
 * Magit
 #+BEGIN_SRC emacs-lisp
