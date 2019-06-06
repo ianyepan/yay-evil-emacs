@@ -1,6 +1,7 @@
 (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
 (require 'evil)
 (evil-mode 1)
+(evil-ex-define-cmd "q" 'kill-this-buffer)
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (setq ispell-program-name "/usr/local/bin/aspell")  ; use aspell instead of ispell
