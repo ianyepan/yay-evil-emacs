@@ -50,3 +50,12 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - highlight-operators
 - highlight-numbers
 - highlight-escape-sequences
+
+## Appendix I: Themes I adore
+- Spacemacs Dark & Light: https://github.com/nashamri/spacemacs-theme
+- Gruvbox Dark: https://github.com/Greduan/emacs-theme-gruvbox
+- Nord: https://github.com/arcticicestudio/nord-emacs
+- Solarized Dark: https://github.com/bbatsov/solarized-emacs
+- GitHub Default Theme
+- Emacs Reverse Video Theme (emacs -r): https://github.com/syohex/emacs-reverse-theme
+- Monochrome: https://github.com/fxn/monochrome-theme.el
