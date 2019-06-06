@@ -112,8 +112,6 @@
 
 (add-hook 'buffer-list-update-hook 'add-line-padding)
 
-(minions-mode 1)
-
 (setq inhibit-splash-screen t)
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)

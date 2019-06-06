@@ -146,10 +146,6 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 
   (add-hook 'buffer-list-update-hook 'add-line-padding)
 #+END_SRC
-*** Mode-line tweaks
-#+BEGIN_SRC emacs-lisp
-  (minions-mode 1)
-#+END_SRC
 *** Improving / Cleaning up the UI.
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-splash-screen t)

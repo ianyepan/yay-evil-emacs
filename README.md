@@ -1,13 +1,14 @@
 ## Ian's Emacs Configuration
 
-
 ### Thanks for dropping by!
 This is my personal Emacs configuration (on GNU Emacs 26.2). It's unopinionated and was created for general use in mind. I've documented, as detailed as possible, what **each code snippet does** in my `config.org` file.
 
-This Emacs config starts up **super fast** with an average init time of 1.1 seconds.
+This Emacs config starts up **super fast** with an average init time of 1.1 second.
 
 ### Installation
-Back up your `~/.emacs.d/` first (if you have one): `mv ~/.emacs.d/ ~/.emacs.d.bak/`
+Back up your `~/.emacs.d/` first (if you have one):
+
+```mv ~/.emacs.d/ ~/.emacs.d.bak/```
 
 Git clone my configuration to your new `~/.emacs.d/` :
 
@@ -16,14 +17,13 @@ Git clone my configuration to your new `~/.emacs.d/` :
 ### "Rolling" Release
 I will constantly push new commits since *a real Emacser* is never completely satisfied with his/her setup.
 
-### The file structure in a few words:
+### How the config structure works
 
-My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `custom.el`
-(I configured the path to which the settings changed by Custom will all be extracted and written.)
+My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `custom.el`.
 
 ## Packages that I use:
 
-#### (Optional depending on your habits)
+#### Vim Editing habits (Optional depending on your preferences)
 - evil
 
 #### For better defaults
@@ -33,7 +33,6 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - smooth-scrolling
 - column-enforce-mode
 - flycheck
-- minions
 - whitespace-cleanup-mode
 
 #### Lightweight syntax highlight improvement for all languages
