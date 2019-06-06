@@ -6,7 +6,13 @@
   (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
   (require 'evil)
   (evil-mode 1)
-  (evil-ex-define-cmd "q" 'kill-this-buffer)
+  (evil-ex-define-cmd "q" 'kill-this-buffer) ; prevent accidentally killing the frame
+
+  (defun ian/save-and-kill-this-buffer ()
+    (interactive)
+    (save-buffer)
+    (kill-this-buffer))
+  (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer)
 #+END_SRC
 * Flycheck and Spellcheck
 #+BEGIN_SRC emacs-lisp
@@ -114,6 +120,11 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
   ;; (server-start)
 #+END_SRC
 ** Better looks and defaults
+*** Auto-pairing brackets etc.
+#+BEGIN_SRC emacs-lisp
+  (require 'smartparens-config)
+  (add-hook 'prog-mode-hook 'smartparens-mode)
+#+END_SRC
 *** Line height (for better readability)
 #+BEGIN_SRC emacs-lisp
   ;; Set the padding between lines

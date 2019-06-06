@@ -1,7 +1,13 @@
 (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
 (require 'evil)
 (evil-mode 1)
-(evil-ex-define-cmd "q" 'kill-this-buffer)
+(evil-ex-define-cmd "q" 'kill-this-buffer) ; prevent accidentally killing the frame
+
+(defun ian/save-and-kill-this-buffer ()
+  (interactive)
+  (save-buffer)
+  (kill-this-buffer))
+(evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer)
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (setq ispell-program-name "/usr/local/bin/aspell")  ; use aspell instead of ispell
@@ -85,6 +91,9 @@
               scroll-down-aggressively 0.01)
 
 ;; (server-start)
+
+(require 'smartparens-config)
+(add-hook 'prog-mode-hook 'smartparens-mode)
 
 ;; Set the padding between lines
 (defvar line-padding 0)                 ; change value from 0 - 3
