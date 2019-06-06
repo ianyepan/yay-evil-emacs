@@ -26,29 +26,32 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 #### Vim Editing habits (Optional depending on your preferences)
 - evil
 
-#### For better defaults
+#### Git integration
+- magit
+
+#### Better Emacs defaults
 - auto-indent-mode
 - smex
 - ido-vertical-mode
 - smooth-scrolling
-- column-enforce-mode
-- flycheck
 - whitespace-cleanup-mode
+
+#### Org mode
+- org-bullets
+
+#### Web development
+- rainbow-mode
+
+#### Friendly warnings
+- flycheck
+- column-enforce-mode
 
 #### Lightweight syntax highlight improvement for all languages
 - highlight-operators
 - highlight-numbers
 - highlight-escape-sequences
 
-#### Org mode
-- org-bullets
-
 #### Themes I adore
 - nord-theme
 - spacemacs-theme
 
-#### Web development
-- rainbow-mode
-
-#### Git integration
-- magit

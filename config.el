@@ -1,23 +1,15 @@
-(setq evil-want-C-u-scroll t)
+(setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
 (require 'evil)
 (evil-mode 1)
 
-(global-set-key (kbd "C-c D") 'diff-buffer-with-file)
-
-(put 'dired-find-alternate-file 'disabled nil)
-(add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "RET")
-                                        'dired-find-alternate-file)))
-
 (add-hook 'after-init-hook 'global-flycheck-mode)
-
-;; Use aspell to replace ispell
-(setq ispell-program-name "/usr/local/bin/aspell")
+(setq ispell-program-name "/usr/local/bin/aspell")  ; use aspell instead of ispell
 
 ;; Core Ido
 (ido-mode 1)
 (setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
 ;; Vertical (for better visibility)
 (require 'ido-vertical-mode)
@@ -43,7 +35,7 @@
 (require 'auto-indent-mode)
 
 ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
-;; In .zshrc: export PATH="$PATH:/Library/TeX/texbin"
+;; export PATH="$PATH:/Library/TeX/texbin"
 (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
 (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
 
