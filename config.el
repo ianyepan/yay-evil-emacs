@@ -69,7 +69,6 @@
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?o '(file . "~/.emacs.d/config.org"))
 (set-register ?c '(file . "~/.emacs.d/custom.el"))
-(set-register ?r '(file . "~/.emacs.d/themes/tronlegacy-theme.el"))
 
 (require 'smex)
 (global-set-key (kbd "M-x") 'smex)
