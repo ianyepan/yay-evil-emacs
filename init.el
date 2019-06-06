@@ -15,7 +15,7 @@
 (package-initialize)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'spacemacs-dark t)
+(load-theme 'reverse t)
 
 ;; Load main config file "./config.org"
 (require 'org)

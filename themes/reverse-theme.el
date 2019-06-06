@@ -48,7 +48,7 @@
  '(font-lock-preprocessor-face ((t (:foreground "LightSteelBlue"))))
  '(font-lock-regexp-grouping-backslash ((t (:weight bold))))
  '(font-lock-regexp-grouping-construct ((t (:weight bold))))
- '(font-lock-string-face ((t (:foreground "tomato"))))
+ '(font-lock-string-face ((t (:foreground "#ffa07a"))))
  '(font-lock-type-face ((t (:foreground "PaleGreen"))))
  '(font-lock-variable-name-face ((t (:foreground "LightGoldenrod"))))
  '(font-lock-warning-face ((t (:weight bold :foreground "Pink"))))
