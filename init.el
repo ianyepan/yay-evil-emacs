@@ -17,11 +17,7 @@
 (load-theme 'wombat t)
 (set-cursor-color "#cccccc")
 
-;; Tron Legacy Theme
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;; (load-theme 'tronlegacy t)
-
-;; Load actual config file './config.org'
+;; Load main config file "./config.org"
 (require 'org)
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
 
