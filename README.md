@@ -50,8 +50,3 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - highlight-operators
 - highlight-numbers
 - highlight-escape-sequences
-
-#### Themes I adore
-- nord-theme
-- spacemacs-theme
-
