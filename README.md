@@ -1,5 +1,6 @@
 ## Ian's Emacs Configuration
 
+
 ### Thanks for dropping by!
 This is my personal Emacs configuration (on GNU Emacs 26.2). It's unopinionated and was created for general use in mind. I've documented, as detailed as possible, what **each code snippet does** in my `config.org` file.
 
