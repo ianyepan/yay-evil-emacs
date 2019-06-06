@@ -14,8 +14,8 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-(load-theme 'wombat t)
-(set-cursor-color "#cccccc")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'reverse t)
 
 ;; Load main config file "./config.org"
 (require 'org)
