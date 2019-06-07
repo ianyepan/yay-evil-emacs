@@ -151,25 +151,6 @@
    (mode-line-highlight                          :foreground fg :box nil :weight bold)
    (mode-line-inactive                           :foreground fg-2 :background bg+2)
 
-;;; Third-party
-
-;;;; anzu-mode
-   ;;    (anzu-mode-line                               :foreground yellow)
-
-;;;; company-mode
-   ;; TODO: These don't feel quite right
-   (company-tooltip                              :background bg+2 :inherit default)
-   (company-scrollbar-bg                         :background bg+1)
-   (company-scrollbar-fg                         :background fg-1)
-   (company-tooltip-annotation                   :foreground red)
-   (company-tooltip-common                       :foreground yellow)
-   (company-tooltip-selection                    :background bg+1)
-   (company-preview-common                       :foreground fg-1 :background blue)
-
-   ;; ;;;; diff-hl-mode
-   ;;    (diff-hl-change                               :background blue  :foreground blue+1)
-   ;;    (diff-hl-delete                               :background red   :foreground red+1)
-   ;;    (diff-hl-insert                               :background green :foreground green+1)
 
 ;;;; diff-mode
    (diff-added                                   :foreground green)
@@ -205,7 +186,6 @@
 ;;;; show-paren-mode
    (show-paren-match                             :foreground fg :background fg-3)
    (show-paren-mismatch                          :background red :inverse-video t)
-
    ))
 
 ;; Anything leftover that doesn't fall neatly into a face goes here.
