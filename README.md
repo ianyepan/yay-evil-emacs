@@ -60,3 +60,10 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - GitHub Default Theme
 - Emacs Reverse Video Theme (emacs -r): https://github.com/syohex/emacs-reverse-theme
 - Monochrome: https://github.com/fxn/monochrome-theme.el
+
+## Appendix II: Fonts I adore
+- Monaco
+- Hack / Menlo / Droid Sans Mono family
+- Source Code Pro
+- Andale Mono
+- Input Mono
