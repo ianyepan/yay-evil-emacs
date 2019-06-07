@@ -63,7 +63,7 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 
 ## Appendix II: Fonts I adore
 - Monaco
-- Hack / Menlo / Droid Sans Mono family
 - Source Code Pro
+- Hack / Menlo / Droid Sans Mono family
 - Andale Mono
 - Input Mono
