@@ -4,17 +4,18 @@
 ;;
 ;; Original author: Xavier Noria <fxn@hashref.com>
 ;; Modified by: Ian Y.E. Pan 2019
-
+;;; Commentary:
+;;; Code:
 (deftheme monochrome
   "Gray on black for your focused hacking sessions.")
 
 (let ((class '((class color) (min-colors 10)))
-      (black "black")
+      (black "#202020")
       (white "white")
       (lgray "light gray")
       (mgray "#444444")
       (dgray "dark gray")
-      (sgray "light slate gray"))
+      (sgray "#99a7bd"))
 
   (custom-theme-set-faces
    'monochrome
@@ -49,14 +50,14 @@
 
    ;; Font lock faces
    `(font-lock-builtin-face ((,class (:foreground ,lgray))))
-   `(font-lock-comment-face ((,class (:slant italic :foreground ,dgray))))
+   `(font-lock-comment-face ((,class (:slant italic :foreground "#9c99bd"))))
    `(font-lock-constant-face ((,class (:weight bold :foreground ,lgray))))
    `(font-lock-function-name-face ((,class (:foreground ,white))))
    `(font-lock-keyword-face ((,class (:weight bold :foreground ,white))))
    `(font-lock-string-face ((,class (:foreground ,sgray))))
-   `(font-lock-type-face ((,class (:weight bold :foreground ,lgray))))
-   `(font-lock-variable-name-face ((,class (:weight bold :foreground ,sgray))))
-   `(font-lock-warning-face ((,class (:foreground "orange"))))
+   `(font-lock-type-face ((,class (:weight normal :foreground ,white))))
+   `(font-lock-variable-name-face ((,class (:weight normal :foreground ,sgray))))
+   `(font-lock-warning-face ((,class (:weight bold :slant italic :foreground ,white))))
 
    ;; Button and link faces
    `(link ((,class (:underline t :foreground ,lgray))))
@@ -197,18 +198,5 @@
   (custom-theme-set-variables
    'monochrome
    `(ansi-color-names-vector [,black ,lgray ,dgray ,sgray])))
-
-;; Autoload for MELPA
-
-;;;###autoload
-(when (and (boundp 'custom-theme-load-path) load-file-name)
-  (add-to-list 'custom-theme-load-path
-               (file-name-as-directory (file-name-directory load-file-name))))
-
 (provide-theme 'monochrome)
-
-;; Local Variables:
-;; no-byte-compile: t
-;; End:
-
 ;;; monochrome-theme.el ends here

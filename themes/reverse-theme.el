@@ -36,7 +36,7 @@
 (custom-theme-set-faces
  'reverse
  '(button ((t (:underline t :foreground "cyan1"))))
- '(default ((t (:background "black" :foreground "white"))))
+ '(default ((t (:background "#161616" :foreground "white"))))
  '(cursor ((t (:foreground "white"))))
  '(region ((t (:background "blue3"))))
  '(font-lock-builtin-face ((t (:foreground "LightSteelBlue"))))
@@ -86,18 +86,17 @@
  '(match ((t (:background "RoyalBlue3"))))
  '(menu ((t (nil))))
 
- '(mode-line ((t (:background "#333333" :foreground "#bbbbbc"))))
- '(mode-line-buffer-id ((t (:weight bold :foreground "orange"))))
+ '(mode-line ((t (:background "#cccccc" :foreground "black"))))
+ '(mode-line-buffer-id ((t (:weight bold :foreground "black"))))
  '(mode-line-emphasis ((t (:weight bold))))
  '(mode-line-highlight ((t (:box (:line-width 2 :color "grey40"
                                               :style released-button)))))
- '(mode-line-inactive ((t (:background "grey30" :foreground "grey80"
-                                       :box (:line-width -1 :color "grey40" :style nil)
-                                       :weight light))))
- '(diff-added-face ((t (:background nil :foreground "green" :weight normal))))
+ '(mode-line-inactive ((t (:background "#999999" :foreground "black"))))
+
+ '(diff-added-face ((t (:background nil :foreground "PaleGreen" :weight normal))))
  '(diff-removed-face ((t (:background nil :foreground "firebrick1" :weight normal))))
  '(diff-file-header-face ((t (:background nil :weight extra-bold))))
- '(diff-refine-added ((t (:background nil :underline "green"))))
+ '(diff-refine-added ((t (:background nil :underline "PaleGreen"))))
  '(diff-refine-removed ((t (:background nil :underline "red"))))
  '(diff-refine-change ((t (:background nil))))
  '(diff-header-face ((t (:background nil :weight extra-bold))))
@@ -118,7 +117,7 @@
  '(helm-gtags-lineno ((t (:foreground "IndianRed1" :underline nil))))
 
  '(highlight-symbol-face ((t (:foreground "black" :background "white"))))
- '(flycheck-info ((t (:style wave :color "green" :underline t))))
+ '(flycheck-info ((t (:style wave :color "PaleGreen" :underline t))))
  '(flycheck-error ((t (:foreground "yellow" :weight bold :background "red"))))
  '(flycheck-warning ((t (:weight bold :underline "darkorange" :foreground nil :background nil))))
  '(flycheck-error-list-highlight ((t (:background "grey15"))))
@@ -132,7 +131,7 @@
  '(org-level-2 ((t ( :foreground "yellow" :weight semi-bold))))
  '(org-level-3 ((t ( :foreground "grey80"))))
 
- '(guide-key/highlight-command-face ((t (:foreground "green"))))
+ '(guide-key/highlight-command-face ((t (:foreground "PaleGreen"))))
  '(guide-key/key-face ((t (:foreground "white"))))
  '(guide-key/prefix-command-face ((t (:inherit font-lock-keyword-face))))
 
@@ -149,7 +148,7 @@
 
  '(emms-playlist-track-face ((t (:foreground "cyan"))))
 
- '(jedi:highlight-function-argument ((t (:foreground "green"))))
+ '(jedi:highlight-function-argument ((t (:foreground "PaleGreen"))))
 
  '(mouse ((t (nil))))
  '(next-error ((t (:background "blue3"))))
