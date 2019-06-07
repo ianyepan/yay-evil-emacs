@@ -40,6 +40,9 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 #### Org mode
 - org-bullets
 
+#### File management
+- ranger
+
 #### Web development
 - rainbow-mode
 
