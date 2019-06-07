@@ -9,6 +9,24 @@
   (kill-this-buffer))
 (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer)
 
+(add-hook 'prog-mode-hook 'company-mode)
+(setq company-minimum-prefix-length 1)
+(setq company-idle-delay 0)
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+
+(require 'color)
+(let ((bg (face-attribute 'default :background))
+      (ac (face-attribute 'match :foreground)))
+  (custom-set-faces
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 15)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 5)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 30)))))
+   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+   `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 15)))))))
+
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (setq ispell-program-name "/usr/local/bin/aspell")  ; use aspell instead of ispell
 
