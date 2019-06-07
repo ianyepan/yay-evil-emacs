@@ -7,11 +7,8 @@
 ;; Maintainer: Kaleb Elwert <kaleb@coded.io>
 ;; Version: 0.1
 ;; URL: https://github.com/belak/emacs-monokai-pro-theme
-
 ;;; Commentary:
-
 ;; This theme is a simple theme based on the monokai-pro colors.
-
 ;;; Code:
 
 (defvar monokai-pro-theme-colors
