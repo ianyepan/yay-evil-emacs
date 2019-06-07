@@ -10,7 +10,7 @@
   "Gray on black for your focused hacking sessions.")
 
 (let ((class '((class color) (min-colors 10)))
-      (black "#202020")
+      (black "#161616")
       (white "white")
       (lgray "light gray")
       (mgray "#444444")
@@ -50,7 +50,7 @@
 
    ;; Font lock faces
    `(font-lock-builtin-face ((,class (:foreground ,lgray))))
-   `(font-lock-comment-face ((,class (:slant italic :foreground "#9c99bd"))))
+   `(font-lock-comment-face ((,class (:slant italic :foreground "#777777"))))
    `(font-lock-constant-face ((,class (:weight bold :foreground ,lgray))))
    `(font-lock-function-name-face ((,class (:foreground ,white))))
    `(font-lock-keyword-face ((,class (:weight bold :foreground ,white))))
