@@ -60,10 +60,11 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - GitHub Default Theme
 - Emacs Reverse Video Theme (emacs -r): https://github.com/syohex/emacs-reverse-theme
 - Monochrome: https://github.com/fxn/monochrome-theme.el
+- Monokai Pro (not the original Monokai)
 
 ## Appendix II: Fonts I adore
-- Monaco
-- Source Code Pro
-- Hack / Menlo / Droid Sans Mono family
-- Andale Mono
-- Input Mono
+- Monaco (curvy and easy to read)
+- Source Code Pro (playful and modern-looking)
+- Hack / Menlo / Droid Sans Mono family (default on lots of systems)
+- Andale Mono (tall, narrow, elegant characters)
+- Input Mono (customizable, modern and geeky)
