@@ -8,7 +8,7 @@
 (require 'package)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-selected-packages '(company smartparens spacemacs-theme column-enforce-mode evil magit whitespace-cleanup-mode smooth-scrolling smex rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
+(setq package-selected-packages '(company smartparens column-enforce-mode evil magit whitespace-cleanup-mode smooth-scrolling smex rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -18,7 +18,7 @@
 
 ;; Load theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'monochrome t)
+(load-theme 'reverse t)
 
 ;; Load main config file "./config.org"
 (require 'org)
