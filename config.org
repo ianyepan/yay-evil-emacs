@@ -27,12 +27,12 @@
   (let ((bg (face-attribute 'default :background))
         (ac (face-attribute 'match :foreground)))
     (custom-set-faces
-     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 15)))))
-     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 5)))))
-     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 30)))))
+     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 20)))))
+     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 20)))))
+     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 35)))))
      `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
      `(company-tooltip-common ((t (:inherit font-lock-constant-face))))
-     `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 15)))))))
+     `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 25)))))))
 #+END_SRC
 * Flycheck and Spellcheck
 #+BEGIN_SRC emacs-lisp
@@ -59,7 +59,7 @@
   (setq c-default-style "bsd"             ; Allman style
         c-basic-offset 4)                 ; 3-space indentation for c
   (add-hook 'python-mode-hook '(lambda () (setq python-indent 4))) ; 3-space-indentation for python
-  (defun newline-and-push-brace ()
+  (defun ian/newline-and-push-brace ()
     "`newline-and-indent', but bracket aware."
     (interactive)
     (insert "\n")
@@ -69,7 +69,7 @@
       (forward-line -1))
     (indent-according-to-mode))
 
-  (global-set-key (kbd "RET") 'newline-and-push-brace)
+  (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
   (require 'auto-indent-mode)
 #+END_SRC
 * LaTeX
@@ -99,6 +99,13 @@
   (setq org-latex-pdf-process
         (quote
          ("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
+#+END_SRC
+* Load init file anywhere
+#+BEGIN_SRC emacs-lisp
+  (defun ian/load-init()
+    "Reload .emacs.d/init.el"
+    (interactive)
+    (load-file "~/.emacs.d/init.el"))
 #+END_SRC
 * Magit
 #+BEGIN_SRC emacs-lisp
@@ -135,10 +142,6 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
                 scroll-down-aggressively 0.01)
 #+END_SRC
 * Start-up
-** Always start the server (emacsclient)
-#+BEGIN_SRC emacs-lisp
-  ;; (server-start)
-#+END_SRC
 ** Better looks and defaults
 *** Auto-pairing brackets etc.
 #+BEGIN_SRC emacs-lisp
@@ -149,7 +152,7 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 #+BEGIN_SRC emacs-lisp
   ;; Set the padding between lines
   (defvar line-padding 0)                 ; change value from 0 - 3
-  (defun add-line-padding ()
+  (defun ian/add-line-padding ()
     "Add extra padding between lines"
     (let ((overlays (overlays-at (point-min))))
       (while overlays
@@ -163,7 +166,7 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
       (overlay-put padding-overlay 'line-height (+ 1 (* .1 line-padding))))
     (setq mark-active nil))
 
-  (add-hook 'buffer-list-update-hook 'add-line-padding)
+  (add-hook 'buffer-list-update-hook 'ian/add-line-padding)
 #+END_SRC
 *** Improving / Cleaning up the UI.
 #+BEGIN_SRC emacs-lisp
@@ -197,7 +200,7 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 * Transparent Emacs
 Use ~C-c t~ to toggle transparency
 #+BEGIN_SRC emacs-lisp
-  (defun toggle-transparency ()
+  (defun ian/toggle-transparency ()
     (interactive)
     (let ((alpha (frame-parameter nil 'alpha)))
       (set-frame-parameter
@@ -208,19 +211,19 @@ Use ~C-c t~ to toggle transparency
                       ((numberp (cadr alpha)) (cadr alpha)))
                 100)
            '(85 . 85) '(100 . 100)))))
-  (global-set-key (kbd "C-c t") 'toggle-transparency)
+  (global-set-key (kbd "C-c t") 'ian/toggle-transparency)
 #+END_SRC
 * Views and Windows
 ** Split window and follow
 #+BEGIN_SRC emacs-lisp
-  (defun split-and-follow-horizontally ()
+  (defun ian/split-and-follow-horizontally ()
     (interactive)
     (split-window-below)
     (other-window 1))
-  (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
-  (defun split-and-follow-vertically ()
+  (global-set-key (kbd "C-x 2") 'ian/split-and-follow-horizontally)
+  (defun ian/split-and-follow-vertically ()
     (interactive)
     (split-window-right)
     (other-window 1))
-  (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+  (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
 #+END_SRC

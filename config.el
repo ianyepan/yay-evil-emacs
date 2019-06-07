@@ -20,12 +20,12 @@
 (let ((bg (face-attribute 'default :background))
       (ac (face-attribute 'match :foreground)))
   (custom-set-faces
-   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 15)))))
-   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 5)))))
-   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 30)))))
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 20)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 20)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 35)))))
    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))
-   `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 15)))))))
+   `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 25)))))))
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (setq ispell-program-name "/usr/local/bin/aspell")  ; use aspell instead of ispell
@@ -46,7 +46,7 @@
 (setq c-default-style "bsd"             ; Allman style
       c-basic-offset 4)                 ; 3-space indentation for c
 (add-hook 'python-mode-hook '(lambda () (setq python-indent 4))) ; 3-space-indentation for python
-(defun newline-and-push-brace ()
+(defun ian/newline-and-push-brace ()
   "`newline-and-indent', but bracket aware."
   (interactive)
   (insert "\n")
@@ -56,7 +56,7 @@
     (forward-line -1))
   (indent-according-to-mode))
 
-(global-set-key (kbd "RET") 'newline-and-push-brace)
+(global-set-key (kbd "RET") 'ian/newline-and-push-brace)
 (require 'auto-indent-mode)
 
 ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
@@ -85,6 +85,11 @@
       (quote
        ("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
 
+(defun ian/load-init()
+  "Reload .emacs.d/init.el"
+  (interactive)
+  (load-file "~/.emacs.d/init.el"))
+
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (require 'ox-md) ;; for exporting org mode to markdown
@@ -108,14 +113,12 @@
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
-;; (server-start)
-
 (require 'smartparens-config)
 (add-hook 'prog-mode-hook 'smartparens-mode)
 
 ;; Set the padding between lines
 (defvar line-padding 0)                 ; change value from 0 - 3
-(defun add-line-padding ()
+(defun ian/add-line-padding ()
   "Add extra padding between lines"
   (let ((overlays (overlays-at (point-min))))
     (while overlays
@@ -129,7 +132,7 @@
     (overlay-put padding-overlay 'line-height (+ 1 (* .1 line-padding))))
   (setq mark-active nil))
 
-(add-hook 'buffer-list-update-hook 'add-line-padding)
+(add-hook 'buffer-list-update-hook 'ian/add-line-padding)
 
 (setq inhibit-splash-screen t)
 (setq ring-bell-function 'ignore)
@@ -152,7 +155,7 @@
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
-(defun toggle-transparency ()
+(defun ian/toggle-transparency ()
   (interactive)
   (let ((alpha (frame-parameter nil 'alpha)))
     (set-frame-parameter
@@ -163,15 +166,15 @@
                     ((numberp (cadr alpha)) (cadr alpha)))
               100)
          '(85 . 85) '(100 . 100)))))
-(global-set-key (kbd "C-c t") 'toggle-transparency)
+(global-set-key (kbd "C-c t") 'ian/toggle-transparency)
 
-(defun split-and-follow-horizontally ()
+(defun ian/split-and-follow-horizontally ()
   (interactive)
   (split-window-below)
   (other-window 1))
-(global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
-(defun split-and-follow-vertically ()
+(global-set-key (kbd "C-x 2") 'ian/split-and-follow-horizontally)
+(defun ian/split-and-follow-vertically ()
   (interactive)
   (split-window-right)
   (other-window 1))
-(global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+(global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)

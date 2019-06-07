@@ -2,9 +2,11 @@
 
 ;; Copyright (C) 2014 by Syohei YOSHIDA
 
-;; Author: Syohei YOSHIDA <syohex@gmail.com>
+;; Original author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-reverse-theme
 ;; Version: 0.03
+
+;; Modified by: Ian Y.E. Pan 2019
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -128,7 +130,7 @@
  '(org-warning ((t ( :foreground "hotpink"))))
  '(org-level-1 ((t ( :foreground "LightSkyBlue" :weight bold))))
  '(org-level-2 ((t ( :foreground "yellow" :weight semi-bold))))
- '(org-level-4 ((t ( :foreground "grey80"))))
+ '(org-level-3 ((t ( :foreground "grey80"))))
 
  '(guide-key/highlight-command-face ((t (:foreground "green"))))
  '(guide-key/key-face ((t (:foreground "white"))))
