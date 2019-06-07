@@ -45,7 +45,6 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 
 #### Friendly warnings
 - flycheck
-- column-enforce-mode
 
 #### Lightweight syntax highlight improvement for all languages
 - highlight-operators

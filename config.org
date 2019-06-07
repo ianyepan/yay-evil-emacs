@@ -183,11 +183,6 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
   (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
   (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 #+END_SRC
-** Column-80 Rule
-#+BEGIN_SRC emacs-lisp
-(add-hook 'prog-mode-hook 'column-enforce-mode)
-(setq column-enforce-column 80)
-#+END_SRC
 ** No Backup~ Files
 #+BEGIN_SRC emacs-lisp
   (setq make-backup-files nil)

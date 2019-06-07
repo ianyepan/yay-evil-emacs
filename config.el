@@ -147,9 +147,6 @@
 (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
-(add-hook 'prog-mode-hook 'column-enforce-mode)
-(setq column-enforce-column 80)
-
 (setq make-backup-files nil)
 
 (setq show-paren-delay 0)
