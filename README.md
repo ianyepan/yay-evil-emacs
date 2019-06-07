@@ -3,7 +3,7 @@
 ### Thanks for dropping by!
 This is my personal Emacs configuration (on GNU Emacs 26.2). It's unopinionated and was created for general use in mind. I've documented, as detailed as possible, what **each code snippet does** in my `config.org` file.
 
-This Emacs config starts up **super fast** with an average init time of 1.1 second.
+This Emacs config starts up **super fast** with an average init time of 0.8 to 1.1 seconds.
 
 ### Installation
 Back up your `~/.emacs.d/` first (if you have one):
