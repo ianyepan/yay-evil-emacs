@@ -27,6 +27,7 @@
    `(fringe ((,class (:foreground ,lgray :background ,black))))
    `(highlight ((,class (:foreground ,lgray :background ,sgray))))
    `(region ((,class (:foreground ,lgray :background ,mgray))))
+   `(hl-line ((,class (:background  "#333438"))))
    `(secondary-selection ((,class (:foreground: ,lgray :background ,sgray))))
    `(isearch ((,class (:foreground ,white :background ,sgray))))
    `(lazy-highlight ((,class (:foreground ,white :background ,sgray))))
