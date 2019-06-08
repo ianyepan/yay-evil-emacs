@@ -144,6 +144,7 @@
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
+(add-hook 'prog-mode-hook 'hl-line-mode)
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
 (setq make-backup-files nil)
