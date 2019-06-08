@@ -70,3 +70,7 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - Source Code Pro (playful and modern-looking)
 - Hack / Menlo / Droid Sans Mono family (default on lots of systems)
 - Andale Mono (tall, narrow, elegant characters)
+
+## FAQ:
+#### Why does my font look wrong?
+- You might not have the required fonts installed, feel free to install them or change the font settings to your own liking in `custom.el`
