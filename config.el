@@ -113,8 +113,7 @@
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
-(require 'smartparens-config)
-(add-hook 'prog-mode-hook 'smartparens-mode)
+(add-hook 'prog-mode-hook 'electric-pair-mode)
 
 ;; Set the padding between lines
 (defvar line-padding 0)                 ; change value from 0 - 3

@@ -145,8 +145,7 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 ** Better looks and defaults
 *** Auto-pairing brackets etc.
 #+BEGIN_SRC emacs-lisp
-  (require 'smartparens-config)
-  (add-hook 'prog-mode-hook 'smartparens-mode)
+  (add-hook 'prog-mode-hook 'electric-pair-mode)
 #+END_SRC
 *** Line height (for better readability)
 #+BEGIN_SRC emacs-lisp
