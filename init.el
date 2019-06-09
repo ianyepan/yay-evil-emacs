@@ -18,7 +18,7 @@
 
 ;; Load theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'monochrome t)
+(load-theme 'wilmersdorf t)
 
 ;; Load main config file "./config.org"
 (require 'org)

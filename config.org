@@ -2,7 +2,7 @@
 #+Author: Ian Y.E. Pan
 #+Date: 2019
 * Evil Mode
-I find Vim bindings to be the most efficient (especially for programming) way of editing text. I also changed the default ':q' to be killing current buffer instead of killing the frame.
+I personally find Vim bindings to be the most efficient (especially for programming) way of editing text. I also changed the default ':q' to be killing current buffer instead of killing the frame.
 #+BEGIN_SRC emacs-lisp
   (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
   (require 'evil)
