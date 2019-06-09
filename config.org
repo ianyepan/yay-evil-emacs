@@ -2,6 +2,7 @@
 #+Author: Ian Y.E. Pan
 #+Date: 2019
 * Evil Mode
+I find Vim bindings to be the most efficient (especially for programming) way of editing text. I also changed the default ':q' to be killing current buffer instead of killing the frame.
 #+BEGIN_SRC emacs-lisp
   (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
   (require 'evil)
@@ -15,6 +16,7 @@
   (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer)
 #+END_SRC
 * Company Autocompletion
+Use company for autocompletion and some dropdown menu colour tweaks based on the current colourscheme
 #+BEGIN_SRC emacs-lisp
   (add-hook 'prog-mode-hook 'company-mode)
   (setq company-minimum-prefix-length 1)
@@ -35,11 +37,13 @@
      `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 25)))))))
 #+END_SRC
 * Flycheck and Spellcheck
+Use aspell instead of ispell for checking spelling mistakes
 #+BEGIN_SRC emacs-lisp
   (add-hook 'after-init-hook 'global-flycheck-mode)
-  (setq ispell-program-name "/usr/local/bin/aspell")  ; use aspell instead of ispell
+  (setq ispell-program-name "/usr/local/bin/aspell")
 #+END_SRC
 * Ido
+Ido (with ido-vertical package) for selecting buffer/file with great efficiency.
 #+BEGIN_SRC emacs-lisp
   ;; Core Ido
   (ido-mode 1)
@@ -52,9 +56,10 @@
   (ido-vertical-mode 1)
 #+END_SRC
 * Indentation
+Use 4-space indentation (no tabs), except for JavaScript (use 2 spaces)
 #+BEGIN_SRC emacs-lisp
   (setq-default tab-width 4)
-  (setq-default indent-tabs-mode nil) ;; Always use spaces, no tabs
+  (setq-default indent-tabs-mode nil)
   (setq js-indent-level 2)
   (setq c-default-style "bsd"             ; Allman style
         c-basic-offset 4)                 ; 3-space indentation for c
@@ -68,11 +73,12 @@
       (indent-according-to-mode)
       (forward-line -1))
     (indent-according-to-mode))
-
   (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
+
   (require 'auto-indent-mode)
 #+END_SRC
 * LaTeX
+Compiling LaTeX from Org Mode. The 'minted' package adds colours to the source code blocks.
 #+BEGIN_SRC emacs-lisp
   ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
   ;; export PATH="$PATH:/Library/TeX/texbin"
@@ -96,11 +102,9 @@
            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
            ("\\paragraph{%s}" . "\\paragraph*{%s}")
            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
-  (setq org-latex-pdf-process
-        (quote
-         ("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
 #+END_SRC
 * Load init file anywhere
+A quick command to reload the configuration file(s).
 #+BEGIN_SRC emacs-lisp
   (defun ian/load-init()
     "Reload .emacs.d/init.el"
@@ -108,28 +112,32 @@
     (load-file "~/.emacs.d/init.el"))
 #+END_SRC
 * Magit
+Magit -- need I say more? The best git interface ever.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
 * Org Mode
+Some minimal org mode tweaks.
 #+BEGIN_SRC emacs-lisp
   (require 'ox-md) ;; for exporting org mode to markdown
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+END_SRC
 * Registers
+Set up registers for jumping to frequently-used files quickly.
 #+BEGIN_SRC emacs-lisp
   (set-register ?e '(file . "~/.emacs.d/init.el"))
   (set-register ?o '(file . "~/.emacs.d/config.org"))
   (set-register ?c '(file . "~/.emacs.d/custom.el"))
 #+END_SRC
 * Smex
+Emacs commands fuzzy finder.
 #+BEGIN_SRC emacs-lisp
   (require 'smex)
   (global-set-key (kbd "M-x") 'smex)
 #+END_SRC
 * Smooth Scrolling
-Added "-aggressively" to prevent the cursor to jump around when user scrolls.
+Override Emacs' default scrolling design: jumping half-page. Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 #+BEGIN_SRC emacs-lisp
   (require 'smooth-scrolling)
   (smooth-scrolling-mode 1)
@@ -144,6 +152,7 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 * Start-up
 ** Better looks and defaults
 *** Auto-pairing brackets etc.
+Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer needed an extra package for this.
 #+BEGIN_SRC emacs-lisp
   (add-hook 'prog-mode-hook 'electric-pair-mode)
 #+END_SRC
@@ -184,16 +193,17 @@ Added "-aggressively" to prevent the cursor to jump around when user scrolls.
   (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 #+END_SRC
 ** No Backup~ Files
+For some it may be useful. But I just disable it because I rarely needed those backup files scattering about in directories.
 #+BEGIN_SRC emacs-lisp
   (setq make-backup-files nil)
 #+END_SRC
-** Highlight matching parentheses
+** Highlight matching parentheses (without delay)
 #+BEGIN_SRC emacs-lisp
   (setq show-paren-delay 0)
   (show-paren-mode 1)
 #+END_SRC
 * Transparent Emacs
-Use ~C-c t~ to toggle transparency
+Sometimes I wanna look cool and show off my wallpaper through my editor. Use ~C-c t~ to toggle transparency.
 #+BEGIN_SRC emacs-lisp
   (defun ian/toggle-transparency ()
     (interactive)
@@ -209,7 +219,7 @@ Use ~C-c t~ to toggle transparency
   (global-set-key (kbd "C-c t") 'ian/toggle-transparency)
 #+END_SRC
 * Views and Windows
-** Split window and follow
+Split right and split below.
 #+BEGIN_SRC emacs-lisp
   (defun ian/split-and-follow-horizontally ()
     (interactive)

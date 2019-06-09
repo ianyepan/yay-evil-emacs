@@ -28,7 +28,7 @@
    `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 25)))))))
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
-(setq ispell-program-name "/usr/local/bin/aspell")  ; use aspell instead of ispell
+(setq ispell-program-name "/usr/local/bin/aspell")
 
 ;; Core Ido
 (ido-mode 1)
@@ -41,7 +41,7 @@
 (ido-vertical-mode 1)
 
 (setq-default tab-width 4)
-(setq-default indent-tabs-mode nil) ;; Always use spaces, no tabs
+(setq-default indent-tabs-mode nil)
 (setq js-indent-level 2)
 (setq c-default-style "bsd"             ; Allman style
       c-basic-offset 4)                 ; 3-space indentation for c
@@ -55,8 +55,8 @@
     (indent-according-to-mode)
     (forward-line -1))
   (indent-according-to-mode))
-
 (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
+
 (require 'auto-indent-mode)
 
 ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
@@ -81,9 +81,6 @@
          ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
          ("\\paragraph{%s}" . "\\paragraph*{%s}")
          ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
-(setq org-latex-pdf-process
-      (quote
-       ("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
 
 (defun ian/load-init()
   "Reload .emacs.d/init.el"
