@@ -25,7 +25,7 @@
 
 (deftheme wilmersdorf)
 (let ((class '((class color) (min-colors 89)))
-      (fg1 "#c5c5da")
+      (fg1 "#b6c6e6")
       (fg2 "#ababab")
       (fg3 "#929292")
       (fg4 "#888395")
