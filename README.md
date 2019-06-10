@@ -32,7 +32,6 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 #### Better Emacs defaults
 - auto-indent-mode
 - company (autocompletion)
-- smex (command suggestion list)
 - ido-vertical-mode
 - smooth-scrolling
 - whitespace-cleanup-mode

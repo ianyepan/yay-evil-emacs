@@ -97,9 +97,6 @@
 (set-register ?o '(file . "~/.emacs.d/config.org"))
 (set-register ?c '(file . "~/.emacs.d/custom.el"))
 
-(require 'smex)
-(global-set-key (kbd "M-x") 'smex)
-
 (require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
 (setq scroll-margin 1

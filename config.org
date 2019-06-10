@@ -130,12 +130,6 @@ Set up registers for jumping to frequently-used files quickly.
   (set-register ?o '(file . "~/.emacs.d/config.org"))
   (set-register ?c '(file . "~/.emacs.d/custom.el"))
 #+END_SRC
-* Smex
-Emacs commands fuzzy finder.
-#+BEGIN_SRC emacs-lisp
-  (require 'smex)
-  (global-set-key (kbd "M-x") 'smex)
-#+END_SRC
 * Smooth Scrolling
 Override Emacs' default scrolling design: jumping half-page. Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 #+BEGIN_SRC emacs-lisp
