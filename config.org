@@ -170,7 +170,6 @@ Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer 
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'prog-mode-hook 'highlight-operators-mode)
   (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
-  (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 #+END_SRC
 ** No Backup~ Files
