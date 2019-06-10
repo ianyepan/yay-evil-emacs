@@ -68,7 +68,7 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - Monaco (curvy, easy to read)
 - Input Mono (most compliment; customizable, modern-looking and geeky)
 - Source Code Pro (playful and modern-looking)
-- Hack / Menlo / Droid Sans Mono family (default on lots of systems)
+- Hack / Menlo / DejaVu Sans Mono family (default on lots of systems)
 - Andale Mono (tall, narrow, elegant characters)
 
 ## FAQ:
