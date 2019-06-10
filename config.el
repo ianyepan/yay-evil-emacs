@@ -120,6 +120,7 @@
 (blink-cursor-mode t)
 (setq blink-cursor-blinks 0) ;; blink forever
 (setq-default indicate-empty-lines t)
+(setq-default line-spacing 3)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
