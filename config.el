@@ -112,24 +112,6 @@
 
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 
-;; Set the padding between lines
-(defvar line-padding 0)                 ; change value from 0 - 3
-(defun ian/add-line-padding ()
-  "Add extra padding between lines"
-  (let ((overlays (overlays-at (point-min))))
-    (while overlays
-      (let ((overlay (car overlays)))
-        (if (overlay-get overlay 'is-padding-overlay)
-            (delete-overlay overlay)))
-      (setq overlays (cdr overlays))))
-  (let ((padding-overlay (make-overlay (point-min) (point-max))))
-    (overlay-put padding-overlay 'is-padding-overlay t)
-    (overlay-put padding-overlay 'line-spacing (* .1 line-padding))
-    (overlay-put padding-overlay 'line-height (+ 1 (* .1 line-padding))))
-  (setq mark-active nil))
-
-(add-hook 'buffer-list-update-hook 'ian/add-line-padding)
-
 (setq inhibit-splash-screen t)
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
