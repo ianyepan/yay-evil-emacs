@@ -34,7 +34,6 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - company (autocompletion)
 - ido-vertical-mode
 - smooth-scrolling
-- whitespace-cleanup-mode
 
 #### Org mode
 - org-bullets

@@ -119,7 +119,6 @@
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 (add-hook 'prog-mode-hook 'highlight-operators-mode)
 (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
-(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
 (setq make-backup-files nil)
 
@@ -149,3 +148,5 @@
   (split-window-right)
   (other-window 1))
 (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
+
+(add-hook 'before-save-hook 'whitespace-cleanup)

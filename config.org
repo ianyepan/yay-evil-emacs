@@ -162,7 +162,6 @@ Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer 
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'prog-mode-hook 'highlight-operators-mode)
   (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
-  (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 #+END_SRC
 ** No Backup~ Files
 For some it may be useful. But I just disable it because I rarely needed those backup files scattering about in directories.
@@ -203,4 +202,8 @@ Split right and split below.
     (split-window-right)
     (other-window 1))
   (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
+#+END_SRC
+* Whitespace cleanup upon saving
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'before-save-hook 'whitespace-cleanup)
 #+END_SRC
