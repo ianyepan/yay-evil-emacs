@@ -43,9 +43,7 @@
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq js-indent-level 2)
-(setq c-default-style "bsd"             ; Allman style
-      c-basic-offset 4)                 ; 3-space indentation for c
-(add-hook 'python-mode-hook '(lambda () (setq python-indent 4))) ; 3-space-indentation for python
+
 (defun ian/newline-and-push-brace ()
   "`newline-and-indent', but bracket aware."
   (interactive)
