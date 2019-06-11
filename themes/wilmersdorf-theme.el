@@ -87,7 +87,7 @@
    `(org-footnote  ((,class (:underline t :foreground ,fg4))))
    `(org-link ((,class (:underline t :foreground ,type ))))
    `(org-special-keyword ((,class (:foreground ,func))))
-   `(org-block ((,class (:foreground ,fg2))))
+   `(org-block ((,class (:foreground ,fg2 :background "#1a1e2a"))))
    `(org-quote ((,class (:inherit org-block :slant italic))))
    `(org-verse ((,class (:inherit org-block :slant italic))))
    `(org-todo ((,class (:box (:line-width 1 :color ,fg3) :foreground ,keyword :bold t))))
