@@ -43,6 +43,11 @@
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq js-indent-level 2)
+(setq c-default-style
+      '((java-mode . "java")
+        (awk-mode . "awk")
+        (other . "k&r")))
+(setq-default c-basic-offset 4)
 
 (defun ian/newline-and-push-brace ()
   "`newline-and-indent', but bracket aware."
@@ -55,6 +60,7 @@
   (indent-according-to-mode))
 (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
 
+;; package for auto indentation
 (require 'auto-indent-mode)
 
 ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
@@ -148,5 +154,10 @@
   (split-window-right)
   (other-window 1))
 (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
+
+(require 'which-key)
+(which-key-mode t)
+(setq which-key-idle-delay 0.5)
+(setq which-key-idle-secondary-delay 0.5)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
