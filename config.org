@@ -151,7 +151,7 @@ Override Emacs' default scrolling design: jumping half-page. Added "-aggressivel
 * Start-up
 ** Better looks and defaults
 *** Auto-pairing brackets etc.
-Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer needed an extra package for this.
+Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer need an extra package for this.
 #+BEGIN_SRC emacs-lisp
   (add-hook 'prog-mode-hook 'electric-pair-mode)
 #+END_SRC
@@ -166,12 +166,13 @@ Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer 
   (setq blink-cursor-blinks 0) ;; blink forever
   (setq-default indicate-empty-lines t)
   (setq-default line-spacing 3)
+  (setq frame-title-format '("Emacs"))
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'prog-mode-hook 'highlight-operators-mode)
   (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
 #+END_SRC
 ** No Backup~ Files
-For some it may be useful. But I just disable it because I rarely needed those backup files scattering about in directories.
+For some people it may be useful. But I just disable it because I rarely needed those backup files scattering about in directories.
 #+BEGIN_SRC emacs-lisp
   (setq make-backup-files nil)
 #+END_SRC
