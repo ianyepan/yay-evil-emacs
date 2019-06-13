@@ -5,7 +5,6 @@
 I personally find Vim bindings to be the most efficient (especially for programming) way of editing text. I also changed the default ':q' to be killing current buffer instead of killing the frame.
 #+BEGIN_SRC emacs-lisp
   (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
-  (require 'evil)
   (evil-mode 1)
   (evil-ex-define-cmd "q" 'kill-this-buffer) ; prevent accidentally killing the frame
 
@@ -52,7 +51,6 @@ Ido (with ido-vertical package) for selecting buffer/file with great efficiency.
   (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
   ;; Vertical (for better visibility)
-  (require 'ido-vertical-mode)
   (ido-vertical-mode 1)
 #+END_SRC
 * Indentation
@@ -77,9 +75,6 @@ Use 4-space indentation (no tabs), except for JavaScript (use 2 spaces)
       (forward-line -1))
     (indent-according-to-mode))
   (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
-
-  ;; package for auto indentation
-  (require 'auto-indent-mode)
 #+END_SRC
 * LaTeX
 Compiling LaTeX from Org Mode. The 'minted' package adds colours to the source code blocks.
@@ -90,7 +85,6 @@ Compiling LaTeX from Org Mode. The 'minted' package adds colours to the source c
   (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
 
   ;; Colourful Org LaTeX Code Blocks
-  (require 'ox-latex)
   (add-to-list 'org-latex-packages-alist '("" "minted"))
   (setq org-latex-listings 'minted)
   (setq org-latex-pdf-process
@@ -123,8 +117,6 @@ Magit -- need I say more? The best git interface ever.
 * Org Mode
 Some minimal org mode tweaks.
 #+BEGIN_SRC emacs-lisp
-  (require 'ox-md) ;; for exporting org mode to markdown
-  (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (add-hook 'org-mode-hook 'visual-line-mode)
 #+END_SRC
@@ -138,7 +130,6 @@ Set up registers for jumping to frequently-used files quickly.
 * Smooth Scrolling
 Override Emacs' default scrolling design: jumping half-page. Added "-aggressively" to prevent the cursor to jump around when user scrolls.
 #+BEGIN_SRC emacs-lisp
-  (require 'smooth-scrolling)
   (smooth-scrolling-mode 1)
   (setq scroll-margin 1
         smooth-scroll-margin 1
@@ -218,7 +209,6 @@ Split right and split below.
 #+END_SRC
 * Which Key
 #+BEGIN_SRC emacs-lisp
-  (require 'which-key)
   (which-key-mode t)
   (setq which-key-idle-delay 0.5)
   (setq which-key-idle-secondary-delay 0.5)

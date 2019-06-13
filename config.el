@@ -1,5 +1,4 @@
 (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
-(require 'evil)
 (evil-mode 1)
 (evil-ex-define-cmd "q" 'kill-this-buffer) ; prevent accidentally killing the frame
 
@@ -37,7 +36,6 @@
 (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
 ;; Vertical (for better visibility)
-(require 'ido-vertical-mode)
 (ido-vertical-mode 1)
 
 (setq-default tab-width 4)
@@ -60,16 +58,12 @@
   (indent-according-to-mode))
 (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
 
-;; package for auto indentation
-(require 'auto-indent-mode)
-
 ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
 ;; export PATH="$PATH:/Library/TeX/texbin"
 (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
 (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
 
 ;; Colourful Org LaTeX Code Blocks
-(require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
 (setq org-latex-pdf-process
@@ -93,8 +87,6 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
-(require 'ox-md) ;; for exporting org mode to markdown
-(require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'org-mode-hook 'visual-line-mode)
 
@@ -102,7 +94,6 @@
 (set-register ?o '(file . "~/.emacs.d/config.org"))
 (set-register ?c '(file . "~/.emacs.d/custom.el"))
 
-(require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
 (setq scroll-margin 1
       smooth-scroll-margin 1
@@ -160,7 +151,6 @@
   (other-window 1))
 (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
 
-(require 'which-key)
 (which-key-mode t)
 (setq which-key-idle-delay 0.5)
 (setq which-key-idle-secondary-delay 0.5)
