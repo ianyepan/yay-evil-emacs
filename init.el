@@ -8,8 +8,8 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (setq package-selected-packages '(org which-key ranger company evil magit smooth-scrolling rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
-(setq package-enable-at-startup nil)
 (package-initialize)
+(setq package-enable-at-startup nil)
 (unless package-archive-contents
   (package-refresh-contents))
 (package-install-selected-packages)
