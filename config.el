@@ -96,6 +96,7 @@
 (require 'ox-md) ;; for exporting org mode to markdown
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(add-hook 'org-mode-hook 'visual-line-mode)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?o '(file . "~/.emacs.d/config.org"))
@@ -130,6 +131,9 @@
 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+
+(setq initial-scratch-message nil)
+(setq initial-major-mode 'org-mode)
 
 (defun ian/toggle-transparency ()
   (interactive)

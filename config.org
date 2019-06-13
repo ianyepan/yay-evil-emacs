@@ -126,6 +126,7 @@ Some minimal org mode tweaks.
   (require 'ox-md) ;; for exporting org mode to markdown
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (add-hook 'org-mode-hook 'visual-line-mode)
 #+END_SRC
 * Registers
 Set up registers for jumping to frequently-used files quickly.
@@ -178,6 +179,11 @@ For some it may be useful. But I just disable it because I rarely needed those b
 #+BEGIN_SRC emacs-lisp
   (setq show-paren-delay 0)
   (show-paren-mode 1)
+#+END_SRC
+** Set 'scratch' buffer's major mode and welcome message
+#+BEGIN_SRC emacs-lisp
+  (setq initial-scratch-message nil)
+  (setq initial-major-mode 'org-mode)
 #+END_SRC
 * Transparent Emacs
 Sometimes I wanna look cool and show off my wallpaper through my editor. Use ~C-c t~ to toggle transparency.
