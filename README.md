@@ -36,6 +36,7 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - smooth-scrolling
 
 #### Org mode
+- org (use most recent version instead of the built-in one)
 - org-bullets
 
 #### File management
