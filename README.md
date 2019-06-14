@@ -58,10 +58,10 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - Gruvbox Dark: https://github.com/Greduan/emacs-theme-gruvbox
 - Nord: https://github.com/arcticicestudio/nord-emacs
 - Solarized Dark: https://github.com/bbatsov/solarized-emacs
-- GitHub Default Theme
+- GitHub Default Theme: https://github.com/philiparvidsson/GitHub-Modern-Theme-for-Emacs
 - Emacs Reverse Video Theme (emacs -r): https://github.com/syohex/emacs-reverse-theme
 - Monochrome: https://github.com/fxn/monochrome-theme.el
-- Monokai Pro (not the original Monokai)
+- Monokai Pro (not the original Monokai): https://github.com/belak/emacs-monokai-pro-theme
 
 ## Appendix II: Fonts I adore
 - Monaco (curvy, easy to read)
@@ -73,3 +73,11 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 ## FAQ:
 #### Why does my font look wrong?
 - You might not have the required fonts installed, feel free to install them or change the font settings to your own liking in `custom.el`
+
+#### How can I install my own packages that I want?
+You should be able to install packages the normal way (`M-x list-packages RET` and `d x` on the desired package row). If you plan to sync your config files across machines and wish to be prompted for installation if the required packages are missing, you can add the package's name to `init.el` file's `package-select-packages` variable.
+
+#### How can I remove packages that I don't need?
+For this you need two steps:
+- First, type `M-x list-packages RET` in Emacs bindings (or `:list-packages RET` in Evil Normal state) and delete the unwanted package by placing your cursor on the row and press `d` followed by an `x`.
+- Next, in the `init.el` file, you'll want to remove the package's name from the `package-select-packages` list to disable the installing prompt when you start Emacs next time.
