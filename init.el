@@ -4,11 +4,10 @@
 ;;; A personalized configuration file tailored to suit my needs
 ;;; Code:
 
-;; Make sure selected packages are all there
-(require 'package)
+(require 'package) ;; load package manager
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-selected-packages '(yasnippet yasnippet-snippets org which-key ranger company evil magit smooth-scrolling rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
-(package-initialize)
+(setq package-selected-packages '(dashboard yasnippet yasnippet-snippets org which-key ranger company evil magit smooth-scrolling rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
+(package-initialize) ;; load and activate packages
 (setq package-enable-at-startup nil)
 (unless package-archive-contents
   (package-refresh-contents))

@@ -107,6 +107,15 @@
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
+(dashboard-setup-startup-hook)
+(setq dashboard-startup-banner 'logo)
+(setq dashboard-banner-logo-title "Welcome to Emacs. Happy Hacking!")
+(setq dashboard-items nil)
+
+(set-frame-font "Menlo-14" nil t)
+
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 
 (setq inhibit-splash-screen t)

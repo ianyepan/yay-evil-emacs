@@ -149,7 +149,22 @@
                 scroll-down-aggressively 0.01)
   #+END_SRC
 * Start-up
+** Maximize frame by default
+   #+BEGIN_SRC emacs-lisp
+     (setq initial-frame-alist (quote ((fullscreen . maximized))))
+   #+END_SRC
+** Banner welcome page
+   #+BEGIN_SRC emacs-lisp
+     (dashboard-setup-startup-hook)
+     (setq dashboard-startup-banner 'logo)
+     (setq dashboard-banner-logo-title "Welcome to Emacs. Happy Hacking!")
+     (setq dashboard-items nil)
+   #+END_SRC
 ** Better looks and defaults
+*** Setting default font
+    #+BEGIN_SRC emacs-lisp
+      (set-frame-font "Menlo-14" nil t)
+    #+END_SRC
 *** Auto-pairing brackets etc.
     Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer need an extra package for this.
     #+BEGIN_SRC emacs-lisp
