@@ -139,19 +139,6 @@
 (setq initial-scratch-message nil)
 (setq initial-major-mode 'org-mode)
 
-(defun ian/toggle-transparency ()
-  (interactive)
-  (let ((alpha (frame-parameter nil 'alpha)))
-    (set-frame-parameter
-     nil 'alpha
-     (if (eql (cond ((numberp alpha) alpha)
-                    ((numberp (cdr alpha)) (cdr alpha))
-                    ;; Also handle undocumented (<active> <inactive>) form.
-                    ((numberp (cadr alpha)) (cadr alpha)))
-              100)
-         '(85 . 85) '(100 . 100)))))
-(global-set-key (kbd "C-c t") 'ian/toggle-transparency)
-
 (defun ian/split-and-follow-horizontally ()
   (interactive)
   (split-window-below)
@@ -164,7 +151,7 @@
 (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
 
 (which-key-mode t)
-(setq which-key-idle-delay 0.5)
-(setq which-key-idle-secondary-delay 0.5)
+(setq which-key-idle-delay 0.4)
+(setq which-key-idle-secondary-delay 0.4)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
