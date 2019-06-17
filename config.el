@@ -15,17 +15,6 @@
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
-(require 'color)
-(let ((bg (face-attribute 'default :background))
-      (ac (face-attribute 'match :foreground)))
-  (custom-set-faces
-   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 15)))))
-   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 15)))))
-   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 30)))))
-   `(company-tooltip-selection ((t (:inherit font-lock-keyword-face))))
-   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))
-   `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 25)))))))
-
 (yas-global-mode 1)
 
 (advice-add 'company-complete-common
