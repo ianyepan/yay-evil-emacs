@@ -21,9 +21,8 @@
 (require 'org)
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
 
-;; Load custom set faces and variables
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+;; Dump custom-set-variables to a garbage file and don't load it
+(setq custom-file "~/.emacs.d/package-selected-packages.el")
 
 (provide 'init)
 ;;; init.el ends here

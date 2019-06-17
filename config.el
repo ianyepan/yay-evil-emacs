@@ -96,7 +96,6 @@
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?o '(file . "~/.emacs.d/config.org"))
-(set-register ?c '(file . "~/.emacs.d/custom.el"))
 
 (smooth-scrolling-mode 1)
 (setq scroll-margin 1

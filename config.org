@@ -132,9 +132,8 @@
 * Registers
   Set up registers for jumping to frequently-used files quickly.
   #+BEGIN_SRC emacs-lisp
-  (set-register ?e '(file . "~/.emacs.d/init.el"))
-  (set-register ?o '(file . "~/.emacs.d/config.org"))
-  (set-register ?c '(file . "~/.emacs.d/custom.el"))
+    (set-register ?e '(file . "~/.emacs.d/init.el"))
+    (set-register ?o '(file . "~/.emacs.d/config.org"))
   #+END_SRC
 * Smooth Scrolling
   Override Emacs' default scrolling design: jumping half-page. Added "-aggressively" to prevent the cursor to jump around when user scrolls.
