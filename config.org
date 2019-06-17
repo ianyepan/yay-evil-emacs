@@ -2,48 +2,64 @@
 #+Author: Ian Y.E. Pan
 #+Date: 2019
 * Evil Mode
-I personally find Vim bindings to be the most efficient (especially for programming) way of editing text. I also changed the default ':q' to be killing current buffer instead of killing the frame.
-#+BEGIN_SRC emacs-lisp
-  (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
-  (evil-mode 1)
-  (evil-ex-define-cmd "q" 'kill-this-buffer) ; prevent accidentally killing the frame
+  I personally find Vim bindings to be the most efficient (especially for programming) way of editing text. I also changed the default ':q' to be killing current buffer instead of killing the frame.
+  #+BEGIN_SRC emacs-lisp
+    (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
+    (evil-mode 1)
+    (evil-ex-define-cmd "q" 'kill-this-buffer) ; prevent accidentally killing the frame
 
-  (defun ian/save-and-kill-this-buffer ()
-    (interactive)
-    (save-buffer)
-    (kill-this-buffer))
-  (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer)
-#+END_SRC
-* Company Autocompletion
-Use company for autocompletion and some dropdown menu colour tweaks based on the current colourscheme
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'company-mode)
-  (setq company-minimum-prefix-length 1)
-  (setq company-idle-delay 0)
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "C-n") 'company-select-next)
-    (define-key company-active-map (kbd "C-p") 'company-select-previous))
+    (defun ian/save-and-kill-this-buffer ()
+      (interactive)
+      (save-buffer)
+      (kill-this-buffer))
+    (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer)
+  #+END_SRC
+* Company Autocompletion & Yasnippets
+  Use company for autocompletion and some dropdown menu colour tweaks based on the current colourscheme
+  #+BEGIN_SRC emacs-lisp
+    (add-hook 'prog-mode-hook 'company-mode)
+    (setq company-minimum-prefix-length 1)
+    (setq company-idle-delay 0)
+    (with-eval-after-load 'company
+      (define-key company-active-map (kbd "C-n") 'company-select-next)
+      (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
-  (require 'color)
-  (let ((bg (face-attribute 'default :background))
-        (ac (face-attribute 'match :foreground)))
-    (custom-set-faces
-     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 15)))))
-     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 15)))))
-     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 30)))))
-     `(company-tooltip-selection ((t (:inherit font-lock-keyword-face))))
-     `(company-tooltip-common ((t (:inherit font-lock-constant-face))))
-     `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 25)))))))
-#+END_SRC
+    (require 'color)
+    (let ((bg (face-attribute 'default :background))
+          (ac (face-attribute 'match :foreground)))
+      (custom-set-faces
+       `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 15)))))
+       `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 15)))))
+       `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 30)))))
+       `(company-tooltip-selection ((t (:inherit font-lock-keyword-face))))
+       `(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+       `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 25)))))))
+  #+END_SRC
+
+  Activate yasnippets and tweak TAB behaviour so it doesn't clash with company-mode
+  #+begin_src emacs-lisp
+  (yas-global-mode 1)
+
+  (advice-add 'company-complete-common
+              :before
+              (lambda ()
+                (setq my-company-point (point))))
+
+  (advice-add 'company-complete-common
+              :after
+              (lambda ()
+                (when (equal my-company-point (point))
+                  (yas-expand))))
+  #+end_src
 * Flycheck and Spellcheck
-Use aspell instead of ispell for checking spelling mistakes
-#+BEGIN_SRC emacs-lisp
+  Use aspell instead of ispell for checking spelling mistakes
+  #+BEGIN_SRC emacs-lisp
   (add-hook 'after-init-hook 'global-flycheck-mode)
   (setq ispell-program-name "/usr/local/bin/aspell")
-#+END_SRC
+  #+END_SRC
 * Ido
-Ido (with ido-vertical package) for selecting buffer/file with great efficiency.
-#+BEGIN_SRC emacs-lisp
+  Ido (with ido-vertical package) for selecting buffer/file with great efficiency.
+  #+BEGIN_SRC emacs-lisp
   ;; Core Ido
   (ido-mode 1)
   (setq ido-everywhere t)
@@ -52,10 +68,10 @@ Ido (with ido-vertical package) for selecting buffer/file with great efficiency.
 
   ;; Vertical (for better visibility)
   (ido-vertical-mode 1)
-#+END_SRC
+  #+END_SRC
 * Indentation
-Use 4-space indentation (no tabs), except for JavaScript (use 2 spaces)
-#+BEGIN_SRC emacs-lisp
+  Use 4-space indentation (no tabs), except for JavaScript (use 2 spaces)
+  #+BEGIN_SRC emacs-lisp
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
   (setq js-indent-level 2)
@@ -75,10 +91,10 @@ Use 4-space indentation (no tabs), except for JavaScript (use 2 spaces)
       (forward-line -1))
     (indent-according-to-mode))
   (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
-#+END_SRC
+  #+END_SRC
 * LaTeX
-Compiling LaTeX from Org Mode. The 'minted' package adds colours to the source code blocks.
-#+BEGIN_SRC emacs-lisp
+  Compiling LaTeX from Org Mode. The 'minted' package adds colours to the source code blocks.
+  #+BEGIN_SRC emacs-lisp
   ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
   ;; export PATH="$PATH:/Library/TeX/texbin"
   (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
@@ -100,36 +116,40 @@ Compiling LaTeX from Org Mode. The 'minted' package adds colours to the source c
            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
            ("\\paragraph{%s}" . "\\paragraph*{%s}")
            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
-#+END_SRC
+  #+END_SRC
 * Load init file anywhere
-A quick command to reload the configuration file(s).
-#+BEGIN_SRC emacs-lisp
+  A quick command to reload the configuration file(s).
+  #+BEGIN_SRC emacs-lisp
   (defun ian/load-init()
     "Reload .emacs.d/init.el"
     (interactive)
     (load-file "~/.emacs.d/init.el"))
-#+END_SRC
+  #+END_SRC
 * Magit
-Magit -- need I say more? The best git interface ever.
-#+BEGIN_SRC emacs-lisp
+  Magit -- need I say more? The best git interface ever.
+  #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x g") 'magit-status)
-#+END_SRC
+  #+END_SRC
 * Org Mode
-Some minimal org mode tweaks.
-#+BEGIN_SRC emacs-lisp
+  Some minimal org mode tweaks.
+  #+BEGIN_SRC emacs-lisp
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (add-hook 'org-mode-hook 'visual-line-mode)
-#+END_SRC
+  #+END_SRC
+* Ranger
+  #+begin_src emacs-lisp
+  (setq ranger-width-preview 0.5)
+  #+end_src
 * Registers
-Set up registers for jumping to frequently-used files quickly.
-#+BEGIN_SRC emacs-lisp
+  Set up registers for jumping to frequently-used files quickly.
+  #+BEGIN_SRC emacs-lisp
   (set-register ?e '(file . "~/.emacs.d/init.el"))
   (set-register ?o '(file . "~/.emacs.d/config.org"))
   (set-register ?c '(file . "~/.emacs.d/custom.el"))
-#+END_SRC
+  #+END_SRC
 * Smooth Scrolling
-Override Emacs' default scrolling design: jumping half-page. Added "-aggressively" to prevent the cursor to jump around when user scrolls.
-#+BEGIN_SRC emacs-lisp
+  Override Emacs' default scrolling design: jumping half-page. Added "-aggressively" to prevent the cursor to jump around when user scrolls.
+  #+BEGIN_SRC emacs-lisp
   (smooth-scrolling-mode 1)
   (setq scroll-margin 1
         smooth-scroll-margin 1
@@ -138,16 +158,16 @@ Override Emacs' default scrolling design: jumping half-page. Added "-aggressivel
         scroll-down-aggressively 0.01)
   (setq-default scroll-up-aggressively 0.01
                 scroll-down-aggressively 0.01)
-#+END_SRC
+  #+END_SRC
 * Start-up
 ** Better looks and defaults
 *** Auto-pairing brackets etc.
-Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer need an extra package for this.
-#+BEGIN_SRC emacs-lisp
+    Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer need an extra package for this.
+    #+BEGIN_SRC emacs-lisp
   (add-hook 'prog-mode-hook 'electric-pair-mode)
-#+END_SRC
+    #+END_SRC
 *** Improving / Cleaning up the UI.
-#+BEGIN_SRC emacs-lisp
+    #+BEGIN_SRC emacs-lisp
   (setq inhibit-splash-screen t)
   (setq ring-bell-function 'ignore)
   (tool-bar-mode -1)
@@ -161,25 +181,25 @@ Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer 
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'prog-mode-hook 'highlight-operators-mode)
   (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
-#+END_SRC
+    #+END_SRC
 ** No Backup~ Files
-For some people it may be useful. But I just disable it because I rarely needed those backup files scattering about in directories.
-#+BEGIN_SRC emacs-lisp
+   For some people it may be useful. But I just disable it because I rarely needed those backup files scattering about in directories.
+   #+BEGIN_SRC emacs-lisp
   (setq make-backup-files nil)
-#+END_SRC
+   #+END_SRC
 ** Highlight matching parentheses (without delay)
-#+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC emacs-lisp
   (setq show-paren-delay 0)
   (show-paren-mode 1)
-#+END_SRC
+   #+END_SRC
 ** Set 'scratch' buffer's major mode and welcome message
-#+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC emacs-lisp
   (setq initial-scratch-message nil)
   (setq initial-major-mode 'org-mode)
-#+END_SRC
+   #+END_SRC
 * Transparent Emacs
-Sometimes I wanna look cool and show off my wallpaper through my editor. Use ~C-c t~ to toggle transparency.
-#+BEGIN_SRC emacs-lisp
+  Sometimes I wanna look cool and show off my wallpaper through my editor. Use ~C-c t~ to toggle transparency.
+  #+BEGIN_SRC emacs-lisp
   (defun ian/toggle-transparency ()
     (interactive)
     (let ((alpha (frame-parameter nil 'alpha)))
@@ -192,10 +212,10 @@ Sometimes I wanna look cool and show off my wallpaper through my editor. Use ~C-
                 100)
            '(85 . 85) '(100 . 100)))))
   (global-set-key (kbd "C-c t") 'ian/toggle-transparency)
-#+END_SRC
+  #+END_SRC
 * Views and Windows
-Split right and split below.
-#+BEGIN_SRC emacs-lisp
+  Split right and split below.
+  #+BEGIN_SRC emacs-lisp
   (defun ian/split-and-follow-horizontally ()
     (interactive)
     (split-window-below)
@@ -206,14 +226,14 @@ Split right and split below.
     (split-window-right)
     (other-window 1))
   (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
-#+END_SRC
+  #+END_SRC
 * Which Key
-#+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp
   (which-key-mode t)
   (setq which-key-idle-delay 0.5)
   (setq which-key-idle-secondary-delay 0.5)
-#+END_SRC
+  #+END_SRC
 * Whitespace cleanup upon saving
-#+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp
   (add-hook 'before-save-hook 'whitespace-cleanup)
-#+END_SRC
+  #+END_SRC

@@ -7,7 +7,7 @@
 ;; Make sure selected packages are all there
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-selected-packages '(org which-key ranger company evil magit smooth-scrolling rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
+(setq package-selected-packages '(yasnippet yasnippet-snippets org which-key ranger company evil magit smooth-scrolling rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
 (package-initialize)
 (setq package-enable-at-startup nil)
 (unless package-archive-contents

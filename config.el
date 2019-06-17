@@ -26,6 +26,19 @@
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))
    `(company-preview-common ((t (:foreground ,ac :background ,(color-lighten-name bg 25)))))))
 
+(yas-global-mode 1)
+
+(advice-add 'company-complete-common
+            :before
+            (lambda ()
+              (setq my-company-point (point))))
+
+(advice-add 'company-complete-common
+            :after
+            (lambda ()
+              (when (equal my-company-point (point))
+                (yas-expand))))
+
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (setq ispell-program-name "/usr/local/bin/aspell")
 
@@ -89,6 +102,8 @@
 
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'org-mode-hook 'visual-line-mode)
+
+(setq ranger-width-preview 0.5)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?o '(file . "~/.emacs.d/config.org"))
