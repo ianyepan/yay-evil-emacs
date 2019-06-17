@@ -47,6 +47,12 @@
   (custom-theme-set-faces
    'wilmersdorf
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
+   `(company-preview-common ((t (:foreground unspecified :background "#606b67a67aef"))))
+   `(company-scrollbar-bg ((t (:background "#49e94f755e3d"))))
+   `(company-scrollbar-fg ((t (:background "#6bab73bf8948"))))
+   `(company-tooltip ((t (:inherit default :background "#49e94f755e3d"))))
+   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+   `(company-tooltip-selection ((t (:inherit font-lock-keyword-face))))
    `(font-lock-builtin-face ((,class (:foreground ,builtin))))
    `(font-lock-comment-face ((,class (:slant italic :foreground ,comment))))
    `(font-lock-negation-char-face ((,class (:foreground ,const))))
