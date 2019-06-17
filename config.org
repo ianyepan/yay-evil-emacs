@@ -2,7 +2,7 @@
 #+Author: Ian Y.E. Pan
 #+Date: 2019
 * Evil Mode
-  I personally find Vim bindings to be the most efficient (especially for programming) way of editing text. I also changed the default ':q' to be killing current buffer instead of killing the frame.
+  I personally find Vi(m) bindings to be the most efficient way of editing text (especially code) . I also changed the default ':q' and ':wq' to be killing current buffer instead of killing the frame or subsequently killing Emacs.
   #+BEGIN_SRC emacs-lisp
     (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
     (evil-mode 1)
@@ -27,18 +27,18 @@
 
   Activate yasnippets and tweak TAB behaviour so it doesn't clash with company-mode
   #+begin_src emacs-lisp
-  (yas-global-mode 1)
+    (yas-global-mode 1)
 
-  (advice-add 'company-complete-common
-              :before
-              (lambda ()
-                (setq my-company-point (point))))
+    (advice-add 'company-complete-common
+                :before
+                (lambda ()
+                  (setq my-company-point (point))))
 
-  (advice-add 'company-complete-common
-              :after
-              (lambda ()
-                (when (equal my-company-point (point))
-                  (yas-expand))))
+    (advice-add 'company-complete-common
+                :after
+                (lambda ()
+                  (when (equal my-company-point (point))
+                    (yas-expand))))
   #+end_src
 * Flycheck and Spellcheck
   Use aspell instead of ispell for checking spelling mistakes
