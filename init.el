@@ -6,7 +6,8 @@
 
 (require 'package) ;; load package manager
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-selected-packages '(dashboard yasnippet yasnippet-snippets org which-key ranger company evil magit smooth-scrolling rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
+(setq package-selected-packages '(dashboard yasnippet yasnippet-snippets which-key ranger company evil magit smooth-scrolling rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck auto-indent-mode))
 (package-initialize) ;; load and activate packages
 (setq package-enable-at-startup nil)
 (unless package-archive-contents
