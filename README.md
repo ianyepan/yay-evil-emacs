@@ -19,7 +19,7 @@ I will constantly push new commits since *a real Emacser* is never completely sa
 
 ### How the config structure works
 
-My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `custom.el`.
+The `init.el` requires `config.el`, which is produced by org-babel and `config.org`. This allows me to put most of my configuration in an Org file with literate programming style (good for documenting usage!).
 
 ## Packages that I use:
 
@@ -63,6 +63,11 @@ My `init.el` requires `config.el`(produced by org-babel + `config.org`) and `cus
 - Emacs Reverse Video Theme (emacs -r): https://github.com/syohex/emacs-reverse-theme
 - Monochrome: https://github.com/fxn/monochrome-theme.el
 - Monokai Pro (not the original Monokai): https://github.com/belak/emacs-monokai-pro-theme
+
+### Wilmersdorf Theme
+The default installation of my Emacs configuration is shipped with the Wilmersdorf theme I made myself.
+It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
+You can find more information on the theme here: https://github.com/ianpan870102/Emacs-Wilmersdorf-Theme
 
 ## Appendix II: Fonts I adore
 - Monaco (curvy, easy to read)
