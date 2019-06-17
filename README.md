@@ -19,7 +19,7 @@ I will constantly push new commits since *a real Emacser* is never completely sa
 
 ### How the config structure works
 
-The `init.el` requires `config.el`, which is produced by org-babel and `config.org`. This allows me to put most of my configuration in an Org file with literate programming style (good for documenting usage!).
+The `init.el` requires `config.el`, which is produced by org-babel and `config.org`. This allows me to put most of my configuration in an Org file with literate programming style (good for documenting code usage!).
 
 ## Packages that I use:
 
@@ -77,13 +77,13 @@ You can find more information on the theme here: https://github.com/ianpan870102
 - Andale Mono (tall, narrow, elegant characters)
 
 ## FAQ:
-#### Why does my font look wrong?
+#### 1. Why does my font look wrong?
 - You might not have the required fonts installed, feel free to install them or change the font settings to your own liking in `custom.el`
 
-#### How can I install my own packages that I want?
+#### 2. How can I install my own packages that I want?
 You should be able to install packages the normal way (`M-x list-packages RET` and `d x` on the desired package row). If you plan to sync your config files across machines and wish to be prompted for installation if the required packages are missing, you can add the package's name to `init.el` file's `package-select-packages` variable.
 
-#### How can I remove packages that I don't need?
+#### 3. How can I remove packages that I don't need?
 For this you need two steps:
 - First, type `M-x list-packages RET` in Emacs bindings (or `:list-packages RET` in Evil Normal state) and delete the unwanted package by placing your cursor on the row and press `d` followed by an `x`.
 - Next, in the `init.el` file, you'll want to remove the package's name from the `package-select-packages` list to disable the installing prompt when you start Emacs next time.
