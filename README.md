@@ -35,6 +35,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - ido-vertical-mode
 - smooth-scrolling
 - yasnippets
+- dashboard (welcome screen)
 
 #### Org mode
 - org (use most recent version instead of the built-in one)
