@@ -1,7 +1,7 @@
 ;;; init.el --- Emacs init file
 ;;  Author: Ian Y.E. Pan
 ;;; Commentary:
-;;; A personalized configuration file tailored to suit my needs
+;;; A lightweight Emacs config containing only the essentials: shipped with a custom theme!
 ;;; Code:
 
 (setq gc-cons-threshold 402653184

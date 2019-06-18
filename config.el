@@ -112,6 +112,7 @@
 (setq dashboard-startup-banner 'logo)
 (setq dashboard-banner-logo-title "Welcome to Emacs. Happy Hacking!")
 (setq dashboard-items nil)
+(setq dashboard-set-footer nil)
 
 (set-frame-font "Menlo-14" nil t)
 

@@ -153,12 +153,13 @@
    #+BEGIN_SRC emacs-lisp
      (setq initial-frame-alist (quote ((fullscreen . maximized))))
    #+END_SRC
-** Banner welcome page
+** Dashboard welcome page
    #+BEGIN_SRC emacs-lisp
      (dashboard-setup-startup-hook)
      (setq dashboard-startup-banner 'logo)
      (setq dashboard-banner-logo-title "Welcome to Emacs. Happy Hacking!")
      (setq dashboard-items nil)
+     (setq dashboard-set-footer nil)
    #+END_SRC
 ** Better looks and defaults
 *** Setting default font
