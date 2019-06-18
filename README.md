@@ -30,7 +30,6 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - magit
 
 #### Better Emacs defaults
-- auto-indent-mode
 - company (autocompletion)
 - ido-vertical-mode
 - smooth-scrolling
