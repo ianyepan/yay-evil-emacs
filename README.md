@@ -21,6 +21,8 @@ I will constantly push new commits since *a real Emacser* is never completely sa
 
 The `init.el` requires `config.el`, which is produced by org-babel and `config.org`. This allows me to put most of my configuration in an Org file with literate programming style (good for documenting code usage!).
 
+If you prefer the use-package approach, I have the same set up here: https://github.com/ianpan870102/My-dot-files/blob/master/.emacs.d/init.el
+
 ## Packages that I use:
 
 #### Vim Editing habits (Optional depending on your preferences)
