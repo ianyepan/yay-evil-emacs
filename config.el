@@ -115,7 +115,7 @@
 (setq dashboard-items nil)
 (setq dashboard-set-footer nil)
 
-(set-frame-font "Menlo-14" nil t)
+(set-frame-font "Menlo-13" nil t)
 
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 
