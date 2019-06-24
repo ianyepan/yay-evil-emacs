@@ -80,7 +80,7 @@ You can find more information on the theme here: https://github.com/ianpan870102
 
 ## FAQ:
 #### 1. Why does my font look wrong?
-- You might not have the required fonts installed, feel free to install them or change the font settings to your own liking in `custom.el`
+- You might not have the required fonts installed, feel free to install them or change the font settings to your own liking in `config.org` (`set-frame-font`)
 
 #### 2. How can I install my own packages that I want?
 You should be able to install packages the normal way (`M-x list-packages RET` and `i x` on the desired package row). If you plan to sync your config files across machines and wish to be prompted for installation if the required packages are missing, you can add the package's name to `init.el` file's `package-select-packages` variable.
