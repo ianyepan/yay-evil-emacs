@@ -63,7 +63,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - Monokai Pro (not the original Monokai): https://github.com/belak/emacs-monokai-pro-theme
 
 ### Wilmersdorf Theme
-The default installation of my Emacs configuration is shipped with the Wilmersdorf theme I made myself.
+The default installation of my Emacs configuration ships with the Wilmersdorf theme I made myself.
 It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
 You can find more information on the theme here: https://github.com/ianpan870102/Emacs-Wilmersdorf-Theme
 
