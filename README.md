@@ -4,7 +4,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/EmacsIcon.svg/120px-EmacsIcon.svg.png" />
 </p>
 
-### Thanks for dropping by!
+### Welcome!
 This Emacs "distro" is based on my personal Emacs configuration (on GNU Emacs 26.2). It's unopinionated and was created for general use in mind. I've documented, as detailed as possible, what **each code snippet does** in my `config.org` file.
 
 You can find my opinionated personal configuration here: https://github.com/ianpan870102/.use-package.emacs.d
