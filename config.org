@@ -81,31 +81,6 @@ Use 4-space indentation (no tabs), except for JavaScript (use 2 spaces)
     (indent-according-to-mode))
   (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
 #+END_SRC
-* LaTeX
-Compiling LaTeX from Org Mode. The 'minted' package adds colours to the source code blocks.
-#+BEGIN_SRC emacs-lisp
-  ;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
-  ;; export PATH="$PATH:/Library/TeX/texbin"
-  (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
-  (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
-
-  ;; Colourful Org LaTeX Code Blocks
-  (add-to-list 'org-latex-packages-alist '("" "minted"))
-  (setq org-latex-listings 'minted)
-  (setq org-latex-pdf-process
-        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-  (setq org-latex-minted-options '(("linenos=true")))
-
-  (setq org-highlight-latex-and-related (quote (latex)))
-  (setq org-latex-classes
-        (quote
-         (("article" "\\documentclass[12pt, a4paper]{article}"
-           ("\\section{%s}" . "\\section*{%s}")
-           ("\\subsection{%s}" . "\\subsection*{%s}")
-           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-           ("\\paragraph{%s}" . "\\paragraph*{%s}")
-           ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
-#+END_SRC
 * Load init file anywhere
 A quick command to reload the configuration file(s).
 #+BEGIN_SRC emacs-lisp
@@ -126,28 +101,13 @@ Some minimal org mode tweaks.
     (add-hook 'org-mode-hook 'visual-line-mode)
     (add-hook 'org-mode-hook 'org-indent-mode)
 #+END_SRC
-* Ranger
-Columns relative widths = 1 : 3 : 4
-#+begin_src emacs-lisp
-  (setq ranger-width-preview 0.5)
-#+end_src
-* Registers
-Set up registers for jumping to frequently-used files quickly.
-#+BEGIN_SRC emacs-lisp
-    (set-register ?e '(file . "~/.emacs.d/init.el"))
-    (set-register ?o '(file . "~/.emacs.d/config.org"))
-#+END_SRC
 * Smooth Scrolling
-Override Emacs' default scrolling design: jumping half-page. Added "-aggressively" to prevent the cursor to jump around when user scrolls.
+Override Emacs' default scrolling design: jumping half-page.
 #+BEGIN_SRC emacs-lisp
-  (smooth-scrolling-mode 1)
-  (setq scroll-margin 1
-        smooth-scroll-margin 1
-        scroll-conservatively 0
-        scroll-up-aggressively 0.01
-        scroll-down-aggressively 0.01)
-  (setq-default scroll-up-aggressively 0.01
-                scroll-down-aggressively 0.01)
+  (setq scroll-margin 0
+        scroll-conservatively 10000
+        scroll-preserve-screen-position t
+        auto-window-vscroll nil)
 #+END_SRC
 * Start-up
 ** Maximize frame by default
@@ -156,11 +116,11 @@ Override Emacs' default scrolling design: jumping half-page. Added "-aggressivel
 #+END_SRC
 ** Dashboard welcome page
 #+BEGIN_SRC emacs-lisp
-     (dashboard-setup-startup-hook)
-     (setq dashboard-startup-banner 'logo)
-     (setq dashboard-banner-logo-title "Welcome to Emacs. Happy Hacking!")
-     (setq dashboard-items nil)
-     (setq dashboard-set-footer nil)
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner 'logo)
+  (setq dashboard-banner-logo-title "Happy Hacking!")
+  (setq dashboard-items nil)
+  (setq dashboard-set-footer nil)
 #+END_SRC
 ** Better looks and defaults
 *** Setting default font
@@ -207,14 +167,18 @@ For some people it may be useful. But I just disable it because I rarely needed 
 Split right and split below.
 #+BEGIN_SRC emacs-lisp
   (defun ian/split-and-follow-horizontally ()
+    "Split window below"
     (interactive)
     (split-window-below)
     (other-window 1))
-  (global-set-key (kbd "C-x 2") 'ian/split-and-follow-horizontally)
+
   (defun ian/split-and-follow-vertically ()
+    "Split window right"
     (interactive)
     (split-window-right)
     (other-window 1))
+
+  (global-set-key (kbd "C-x 2") 'ian/split-and-follow-horizontally)
   (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
 #+END_SRC
 * Which Key
@@ -223,7 +187,7 @@ Split right and split below.
   (setq which-key-idle-delay 0.4)
   (setq which-key-idle-secondary-delay 0.4)
 #+END_SRC
-* Whitespace cleanup upon saving
+* Whitespace cleanup on save
 #+BEGIN_SRC emacs-lisp
   (add-hook 'before-save-hook 'whitespace-cleanup)
 #+END_SRC

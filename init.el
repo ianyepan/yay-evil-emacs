@@ -12,7 +12,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
-(setq package-selected-packages '(dashboard yasnippet yasnippet-snippets which-key ranger company evil magit smooth-scrolling rainbow-mode org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck))
+(setq package-selected-packages '(dashboard yasnippet yasnippet-snippets which-key company evil magit org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck))
 (package-initialize)
 (setq package-enable-at-startup nil)
 (unless package-archive-contents

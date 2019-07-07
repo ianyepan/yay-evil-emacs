@@ -60,28 +60,6 @@
   (indent-according-to-mode))
 (global-set-key (kbd "RET") 'ian/newline-and-push-brace)
 
-;; In order for 'pdflatex' to work. Also had to export PATH from .zshrc
-;; export PATH="$PATH:/Library/TeX/texbin"
-(setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
-(setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path))
-
-;; Colourful Org LaTeX Code Blocks
-(add-to-list 'org-latex-packages-alist '("" "minted"))
-(setq org-latex-listings 'minted)
-(setq org-latex-pdf-process
-      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-(setq org-latex-minted-options '(("linenos=true")))
-
-(setq org-highlight-latex-and-related (quote (latex)))
-(setq org-latex-classes
-      (quote
-       (("article" "\\documentclass[12pt, a4paper]{article}"
-         ("\\section{%s}" . "\\section*{%s}")
-         ("\\subsection{%s}" . "\\subsection*{%s}")
-         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-         ("\\paragraph{%s}" . "\\paragraph*{%s}")
-         ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
-
 (defun ian/load-init()
   "Reload .emacs.d/init.el"
   (interactive)
@@ -93,25 +71,16 @@
 (add-hook 'org-mode-hook 'visual-line-mode)
 (add-hook 'org-mode-hook 'org-indent-mode)
 
-(setq ranger-width-preview 0.5)
-
-(set-register ?e '(file . "~/.emacs.d/init.el"))
-(set-register ?o '(file . "~/.emacs.d/config.org"))
-
-(smooth-scrolling-mode 1)
-(setq scroll-margin 1
-      smooth-scroll-margin 1
-      scroll-conservatively 0
-      scroll-up-aggressively 0.01
-      scroll-down-aggressively 0.01)
-(setq-default scroll-up-aggressively 0.01
-              scroll-down-aggressively 0.01)
+(setq scroll-margin 0
+      scroll-conservatively 10000
+      scroll-preserve-screen-position t
+      auto-window-vscroll nil)
 
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 (dashboard-setup-startup-hook)
 (setq dashboard-startup-banner 'logo)
-(setq dashboard-banner-logo-title "Welcome to Emacs. Happy Hacking!")
+(setq dashboard-banner-logo-title "Happy Hacking!")
 (setq dashboard-items nil)
 (setq dashboard-set-footer nil)
 
@@ -142,14 +111,18 @@
 (setq initial-major-mode 'org-mode)
 
 (defun ian/split-and-follow-horizontally ()
+  "Split window below"
   (interactive)
   (split-window-below)
   (other-window 1))
-(global-set-key (kbd "C-x 2") 'ian/split-and-follow-horizontally)
+
 (defun ian/split-and-follow-vertically ()
+  "Split window right"
   (interactive)
   (split-window-right)
   (other-window 1))
+
+(global-set-key (kbd "C-x 2") 'ian/split-and-follow-horizontally)
 (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
 
 (which-key-mode t)
