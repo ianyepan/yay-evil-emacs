@@ -78,7 +78,7 @@ You can find more information on the theme here: https://github.com/ianpan870102
 
 ## FAQ:
 #### 1. But I'm not an Evil user
-- Go ahead and delete the couple of lines regarding the Evil section, or simply remove the function call to `(evil-mode)`. Then uninstall the package for good.
+- Go ahead and delete the couple of lines regarding the Evil section in `config.org`, or simply remove the function call to `(evil-mode)`. Then uninstall the package for good.
 #### 2. Why does my font look wrong?
 - You might not have the required fonts installed, feel free to install them or change the font settings to your own liking in `config.org` (`set-frame-font`)
 
