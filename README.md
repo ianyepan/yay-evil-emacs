@@ -77,13 +77,15 @@ You can find more information on the theme here: https://github.com/ianpan870102
 - Input Mono (most compliment; customizable, modern-looking and geeky)
 
 ## FAQ:
-#### 1. Why does my font look wrong?
+#### 1. But I'm not an Evil user
+- Go ahead and delete the couple of lines regarding the Evil section, or simply remove the function call to `(evil-mode)`. Then uninstall the package for good.
+#### 2. Why does my font look wrong?
 - You might not have the required fonts installed, feel free to install them or change the font settings to your own liking in `config.org` (`set-frame-font`)
 
-#### 2. How can I install extra packages that I want?
+#### 3. How can I install extra packages that I want?
 You should be able to install packages the normal way (`M-x list-packages RET` and `i x` on the desired package row). If you plan to sync your config files across machines and wish to be prompted for installation if the required packages are missing, you can add the package's name to `init.el` file's `package-select-packages` variable.
 
-#### 3. How can I remove packages that I don't need?
+#### 4. How can I remove packages that I don't need?
 For this you need two steps:
 - First, type `M-x list-packages RET` in Emacs bindings (or `:list-packages RET` in Evil Normal state) and delete the unwanted package by placing your cursor on the row and press `d` followed by an `x`.
 - Next, in the `init.el` file, you'll want to remove the package's name from the `package-select-packages` list to disable the installing prompt when you start Emacs next time.
