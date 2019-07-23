@@ -1,7 +1,8 @@
-### Ian's Yay-Evil Distro: An even better 'better defaults'
+<h3 align="center">Ian's Yay-Evil Distro: An even better 'better defaults'</h3>
+<hr/>
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
+<p align="center"><a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License GPL 3" /></a>
+  
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/EmacsIcon.svg/120px-EmacsIcon.svg.png" />
 </p>
@@ -29,7 +30,7 @@ I will constantly push new commits as soon as I discover new things suitable for
 
 The `init.el` requires `config.el`, which is produced by org-babel and `config.org`. This allows me to put most of my configuration in an Org file with literate programming style (good for documenting code usage!).
 
-## Packages that I use:
+### Packages that I use:
 
 #### Vim Editing habits (Optional depending on your preferences)
 - evil
@@ -54,7 +55,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - highlight-numbers
 - highlight-escape-sequences
 
-## Appendix I: Themes I adore
+### Appendix I: Themes I adore
 - Spacemacs Dark & Light: https://github.com/nashamri/spacemacs-theme
 - Gruvbox Dark: https://github.com/Greduan/emacs-theme-gruvbox
 - Nord: https://github.com/arcticicestudio/nord-emacs
@@ -69,14 +70,14 @@ The default installation of my Emacs configuration ships with the Wilmersdorf th
 It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
 You can find more information on the theme here: https://github.com/ianpan870102/Emacs-Wilmersdorf-Theme
 
-## Appendix II: Fonts I adore
+### Appendix II: Fonts I adore
 - Monaco (curvy, easy to read)
 - Source Code Pro (playful and modern-looking)
 - Hack / Menlo / DejaVu Sans Mono family (default on lots of systems)
 - Andale Mono (tall, narrow, elegant characters)
 - Input Mono (most compliment; customizable, modern-looking and geeky)
 
-## FAQ:
+### FAQ:
 #### 1. But I'm not an Evil user
 - Go ahead and delete the couple of lines regarding the Evil section in `config.org`, or simply remove the function call to `(evil-mode)`. Then uninstall the package for good.
 #### 2. Why does my font look wrong?
