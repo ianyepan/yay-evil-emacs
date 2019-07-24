@@ -2,7 +2,7 @@
 <hr/>
 
 <p align="center"><a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License GPL 3" /></a>
-  
+
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/EmacsIcon.svg/120px-EmacsIcon.svg.png" />
 </p>
@@ -41,7 +41,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 #### Better Emacs defaults
 - company (autocompletion)
 - ido-vertical-mode
-- yasnippets
+- yasnippets & yasnippet-snippets
 - dashboard (welcome screen)
 
 #### Org mode
