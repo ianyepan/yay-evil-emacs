@@ -16,7 +16,7 @@
                   file-name-handler-alist file-name-handler-alist-original)
             (makunbound 'file-name-handler-alist-original)))
 
-(add-hook 'minibuffer-setup-hook (lambda () (setq gc-cons-threshold (* 40000000))))
+(add-hook 'minibuffer-setup-hook (lambda () (setq gc-cons-threshold 40000000)))
 (add-hook 'minibuffer-exit-hook (lambda ()
                                   (garbage-collect)
                                   (setq gc-cons-threshold 20000000)))
@@ -24,12 +24,18 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
-(setq package-selected-packages '(dashboard yasnippet yasnippet-snippets which-key company evil magit org-bullets ido-vertical-mode highlight-operators highlight-numbers highlight-escape-sequences flycheck))
-(package-initialize)
 (setq package-enable-at-startup nil)
-(unless package-archive-contents
-  (package-refresh-contents))
-(package-install-selected-packages)
+(package-initialize)
+
+;; workaround bug in Emacs 26.2
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+;; Setting up the package manager. Install if missing.
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-and-compile
+  (setq use-package-always-ensure t))
 
 ;; Dump custom-set-variables to a garbage file and don't load it
 (setq custom-file "~/.emacs.d/to-be-dumped.el")
