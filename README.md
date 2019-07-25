@@ -32,14 +32,17 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 
 ### Packages that I use:
 
-#### Vim Editing habits (Optional depending on your preferences)
+#### Package manager
+- use-package
+
+#### Vim editing habits (optional depending on your preferences)
 - evil
 
 #### Git integration
 - magit
 
 #### Better Emacs defaults
-- company (autocompletion)
+- company (auto-completion)
 - ido-vertical-mode
 - yasnippets & yasnippet-snippets
 - dashboard (welcome screen)
