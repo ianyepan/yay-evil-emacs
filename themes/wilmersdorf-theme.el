@@ -128,7 +128,6 @@
    `(mu4e-cited-7-face ((,class (:foreground ,fg3))))
    `(mu4e-header-marks-face ((,class (:foreground ,type))))
    `(ffap ((,class (:foreground ,fg4))))
-
    `(js2-private-function-call ((,class (:foreground ,const))))
    `(js2-jsdoc-html-tag-delimiter ((,class (:foreground ,str))))
    `(js2-jsdoc-html-tag-name ((,class (:foreground ,key2))))
@@ -145,7 +144,6 @@
    `(js2-magic-paren ((t (:foreground ,const))))
    `(js2-function-call ((t (:foreground ,const))))
    `(js2-keywords ((t (:foreground ,keyword))))
-
    `(js3-warning-face ((,class (:underline ,keyword))))
    `(js3-error-face ((,class (:underline ,warning))))
    `(js3-external-variable-face ((,class (:foreground ,var))))
