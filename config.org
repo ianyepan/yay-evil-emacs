@@ -1,194 +1,273 @@
-#+Title: Ian Y.E. Pan's Emacs Configuration
+#+Title: Yay-Evil distro by Ian Y.E. Pan
 #+Author: Ian Y.E. Pan
 #+Date: 2019
-* Evil Mode
-I personally find Vi(m) bindings to be the most efficient way of editing text (especially code) . I also changed the default ':q' and ':wq' to be killing current buffer instead of killing the frame or subsequently killing Emacs.
+* Cleaning up the UI and enhance some basic defaults defined in C Source Code
 #+BEGIN_SRC emacs-lisp
-  (setq evil-want-C-u-scroll t)  ; use C-u to scroll up half a page
-  (evil-mode 1)
-  (evil-set-initial-state 'term-mode 'emacs)
+  (setq frame-title-format '("Yay-Evil") ; Yayyyyy Evil!
+        ring-bell-function 'ignore       ; minimize distraction
+        default-directory "~/")
 
-  (with-eval-after-load 'evil-maps ; avoid conflict with company tooltip selection
-    (define-key evil-insert-state-map (kbd "C-n") nil)
-    (define-key evil-insert-state-map (kbd "C-p") nil))
-
-  (defun ian/save-and-kill-this-buffer ()
-    (interactive)
-    (save-buffer)
-    (kill-this-buffer))
-
-  (evil-ex-define-cmd "q" 'kill-this-buffer)
-  (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer)
-#+END_SRC
-* Company Autocompletion & Yasnippets
-Company for autocompletion. Use ~C-n~ and ~C-p~ to navigate the tooltip.
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'company-mode)
-
-  (setq company-minimum-prefix-length 1
-        company-idle-delay 0
-        company-selection-wrap-around t
-        company-tooltip-align-annotations t
-        company-frontends '(company-pseudo-tooltip-frontend ; show tooltip even for single candidate
-                            company-echo-metadata-frontend))
-
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "C-n") 'company-select-next)
-    (define-key company-active-map (kbd "C-p") 'company-select-previous))
-#+END_SRC
-
-Activate yasnippets and tweak TAB behaviour so it doesn't clash with company-mode
-#+begin_src emacs-lisp
-  (yas-global-mode 1)
-
-  (advice-add 'company-complete-common
-              :before
-              (lambda ()
-                (setq my-company-point (point))))
-
-  (advice-add 'company-complete-common
-              :after
-              (lambda ()
-                (when (equal my-company-point (point))
-                  (yas-expand))))
-#+end_src
-* Flycheck and Spellcheck
-Use aspell instead of ispell for checking spelling mistakes
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'after-init-hook 'global-flycheck-mode)
-  (setq ispell-program-name "/usr/local/bin/aspell")
-#+END_SRC
-* Ido
-Ido (with ido-vertical package) for selecting buffer/file with great efficiency.
-#+BEGIN_SRC emacs-lisp
-  (ido-mode 1)
-  (ido-vertical-mode 1)
-  (setq ido-everywhere t
-        ido-enable-flex-matching t
-        ido-vertical-define-keys 'C-n-C-p-up-and-down)
-#+END_SRC
-* Indentation
-Use 4-space indentation (no tabs) as default. Except for Javascript (2 spaces)
-#+BEGIN_SRC emacs-lisp
-  (setq-default indent-tabs-mode nil
-                tab-width 4
-                c-basic-offset 4)
-  (setq c-default-style '((java-mode . "java")
-                          (awk-mode . "awk")
-                          (other . "k&r")))
-  (setq js-indent-level 2)
-#+END_SRC
-* Magit
-Magit -- need I say more? The best git interface ever.
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-x g") 'magit-status)
-#+END_SRC
-* Org Mode
-Some minimal org mode tweaks.
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'org-mode-hook 'org-bullets-mode)
-  (add-hook 'org-mode-hook 'visual-line-mode)
-  (add-hook 'org-mode-hook 'org-indent-mode)
-#+END_SRC
-* Start-up
-** Maximize frame by default
-#+BEGIN_SRC emacs-lisp
-  (setq initial-frame-alist (quote ((fullscreen . maximized))))
-#+END_SRC
-** Dashboard welcome page
-#+BEGIN_SRC emacs-lisp
-  (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner 'logo)
-  (setq dashboard-banner-logo-title "Happy Hacking!")
-  (setq dashboard-items nil)
-  (setq dashboard-set-footer nil)
-#+END_SRC
-** Better looks and defaults
-*** Setting default font
-#+BEGIN_SRC emacs-lisp
-  (set-frame-font "Menlo-13" nil t)
-#+END_SRC
-*** Smooth Scrolling
-Override Emacs' default scrolling design: jumping half-page. Also set the mouse scrolling speed to a more reasonable amount.
-#+BEGIN_SRC emacs-lisp
-  (setq scroll-margin 0
-        scroll-conservatively 10000
-        scroll-preserve-screen-position t
-        auto-window-vscroll nil
-        mouse-wheel-scroll-amount '(1 ((shift) . 1))
-        mouse-wheel-progressive-speed nil)
-#+END_SRC
-*** Auto-pairing brackets etc.
-Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer need an extra package for this. It also takes care of the new-line-and-push-brace feature.
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'electric-pair-mode)
-#+END_SRC
-*** Improving / Cleaning up the UI.
-#+BEGIN_SRC emacs-lisp
-  (setq inhibit-startup-screen t
-        ring-bell-function 'ignore
-        confirm-kill-processes nil
-        make-backup-files nil
-        default-directory "~/"
-        eldoc-idle-delay 0.4)
-
+  ;; literally every YouTube tutorial starts with this
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
 
-  (column-number-mode)
+  ;; show column number in mode-line
+  (column-number-mode +1)
 
-  (setq show-paren-delay 0)
-  (show-paren-mode 1)
+  ;; better scrolling experience
+  (setq scroll-margin 0
+        scroll-conservatively 10000
+        scroll-preserve-screen-position t
+        auto-window-vscroll nil)
 
+  ;; increase line space for better readability
   (setq-default line-spacing 3)
 
-  (setq frame-title-format '("Emacs"))
+  ;; Always use spaces for indentation (default to 4 spaces).
+  (setq-default indent-tabs-mode nil
+                tab-width 4)
+#+END_SRC
+* Configuration for built-in packages
+Since we're using use-package as our package management system, we might as well try to organize under the same syntax as much as possible to keep the configuration consistent.
+** Split right and split below
+The Emacs default split doesn't seem too intuitive for the majority of users.
+#+BEGIN_SRC emacs-lisp
+  (use-package "window"
+    :ensure nil
+    :config
+    (defun ian/split-and-follow-horizontally ()
+      "Split window below."
+      (interactive)
+      (split-window-below)
+      (other-window 1))
+    (defun ian/split-and-follow-vertically ()
+      "Split window right."
+      (interactive)
+      (split-window-right)
+      (other-window 1))
+    (global-set-key (kbd "C-x 2") 'ian/split-and-follow-horizontally)
+    (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically))
+#+END_SRC
+** Don't bother confirming killing processes and don't let backup~ files scatter around
+#+BEGIN_SRC emacs-lisp
+  (use-package files
+    :ensure nil
+    :config
+    (setq confirm-kill-processes nil))
+#+END_SRC
+** Automatically refreshes the buffer for changes outside of Emacs
+Auto refreshes every 2 seconds. Don't forget to refresh the version control status as well.
+#+BEGIN_SRC emacs-lisp
+  (use-package autorevert
+    :ensure nil
+    :hook (after-init . global-auto-revert-mode)
+    :config
+    (setq auto-revert-interval 2
+          auto-revert-check-vc-info t
+          auto-revert-verbose nil))
+#+END_SRC
+** Eldoc: documentation in the mini-buffer
+Only use eldoc in prog-mode (by defaults it's turned on globally, but reports say it hinders performance).
+#+BEGIN_SRC emacs-lisp
+  (use-package eldoc
+    :ensure nil
+    :diminish eldoc-mode
+    :config
+    (global-eldoc-mode -1)
+    (add-hook 'prog-mode-hook 'eldoc-mode)
+    (setq eldoc-idle-delay 0.4))
+#+END_SRC
+** Indentation improvement
+Use four spaces for indentation in C. Also change the formatting style from GNU (the default) to the more standard K&R. For JavaScript, we use 2 spaces instead.
+#+BEGIN_SRC emacs-lisp
+  (use-package cc-vars
+    :ensure nil
+    :config
+    (setq-default c-basic-offset 4)
+    (setq c-default-style '((java-mode . "java")
+                            (awk-mode . "awk")
+                            (other . "k&r"))))
+
+  (use-package js
+    :ensure nil
+    :config (setq js-indent-level 2))
+#+END_SRC
+** Give mouse wheel (track-pad) scroll a reasonable Speed
+By default, the scrolling is way too fast to be precise and helpful, let's tune it down a little bit.
+#+BEGIN_SRC emacs-lisp
+  (use-package mwheel
+    :ensure nil
+    :config (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
+                  mouse-wheel-progressive-speed nil))
+#+END_SRC
+** Show matching parentheses
+Reduce the highlight delay to instantly.
+#+BEGIN_SRC emacs-lisp
+  (use-package paren
+    :ensure nil
+    :config
+    (setq show-paren-delay 0)
+    (show-paren-mode))
+#+END_SRC
+** Setting up some frame defaults
+Maximize the frame by default on start-up. Set the font size to 13.
+#+BEGIN_SRC emacs-lisp
+  (use-package frame
+    :ensure nil
+    :config
+    (setq initial-frame-alist (quote ((fullscreen . maximized))))
+    (set-frame-font "Menlo-13" nil t))
+#+END_SRC
+** Ediff tweaks
+Enter ediff with side-by-side buffers to better compare the differences.
+#+BEGIN_SRC emacs-lisp
+  (use-package ediff
+    :ensure nil
+    :config (setq ediff-split-window-function 'split-window-horizontally))
+#+END_SRC
+** Check word-spellings in strings and comments
+#+BEGIN_SRC emacs-lisp
+  (use-package flyspell
+    :ensure nil
+    :hook (prog-mode . flyspell-prog-mode))
+#+END_SRC
+** Auto-pairing quotes and parentheses etc.
+Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer need an extra package for this. It also takes care of the new-line-and-push-brace feature.
+#+BEGIN_SRC emacs-lisp
+  (use-package elec-pair
+    :ensure nil
+    :config (add-hook 'prog-mode-hook 'electric-pair-mode))
+#+END_SRC
+** Clean up whitespace and unnecessary empty lines on save
+#+BEGIN_SRC emacs-lisp
+  (use-package whitespace
+    :ensure nil
+    :config (add-hook 'before-save-hook 'whitespace-cleanup))
+#+END_SRC
+* Third-party packages
+Many Emacsers love having tons of packages -- and that's absolutely fine! However, one of the goals of the Yay-Evil distro is to provide an essential-only foundation for users to build upon. Therefore, only the most important packages and/or lightweight improvements will be included here. For example, completion frameworks like Ivy or Helm are considered heavy by many, yet the built-in Ido serves almost the same purpose. The only arguably opinionated package is probably Evil, but hey! You saw that coming from the distro name, didn't you ;) ?
+** Evil
+I personally find Vi(m) bindings to be the most efficient way of editing text (especially code). I also changed the default ~:q~ and ~:wq~ to be killing current buffer instead of killing the frame or subsequently killing Emacs.
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :diminish undo-tree-mode
+    :init (setq evil-want-C-u-scroll t)
+    :hook (after-init . evil-mode)
+    :config
+    (with-eval-after-load 'evil-maps ; avoid conflict with company tooltip selection
+      (define-key evil-insert-state-map (kbd "C-n") nil)
+      (define-key evil-insert-state-map (kbd "C-p") nil))
+    (evil-set-initial-state 'term-mode 'emacs)
+    (defun ian/save-and-kill-this-buffer ()
+      (interactive)
+      (save-buffer)
+      (kill-this-buffer))
+    (evil-ex-define-cmd "q" 'kill-this-buffer)
+    (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer))
+#+END_SRC
+** Dashboard welcome page
+#+BEGIN_SRC emacs-lisp
+  (use-package dashboard
+    :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-startup-banner 'logo
+          dashboard-banner-logo-title "Yay Evil!"
+          dashboard-items nil
+          dashboard-set-footer nil))
+#+END_SRC
+** Company for auto-completion
+Use ~C-n~ and ~C-p~ to navigate the tooltip
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :diminish company-mode
+    :hook (prog-mode . company-mode)
+    :config
+    (setq company-minimum-prefix-length 1
+          company-idle-delay 0
+          company-selection-wrap-around t
+          company-tooltip-align-annotations t
+          company-frontends '(company-pseudo-tooltip-frontend ; show tooltip even for single candidate
+                              company-echo-metadata-frontend))
+    (with-eval-after-load 'company
+      (define-key company-active-map (kbd "C-n") 'company-select-next)
+      (define-key company-active-map (kbd "C-p") 'company-select-previous)))
+#+END_SRC
+** Flycheck
+A modern on-the-fly syntax checking extension -- absolutely essential
+#+BEGIN_SRC emacs-lisp
+   (use-package flycheck
+     :hook (after-init . global-flycheck-mode))
+#+END_SRC
+** Ido, ido-vertical, and flex-matching
+Selecting buffers/files with great efficiency. In my opinion, Ido is enough to replace Ivy and Helm. We install ido-vertical to get a better view of the available options (use ~C-n~, ~C-p~ or arrow keys to navigate). Flex matching is a nice touch and we are lucky to have flx-ido for that purpose.
+#+BEGIN_SRC emacs-lisp
+  (use-package ido-vertical-mode
+    :hook ((after-init . ido-mode)
+           (after-init . ido-vertical-mode))
+    :config
+    (setq ido-everywhere t
+          ido-enable-flex-matching t
+          ido-vertical-define-keys 'C-n-C-p-up-and-down))
+
+  (use-package flx-ido :config (flx-ido-mode))
+#+END_SRC
+** Magit
+Magit -- need I say more? The best git interface ever.
+#+BEGIN_SRC emacs-lisp
+  (use-package magit :bind ("C-x g" . magit-status))
+#+END_SRC
+** Org Mode
+Some minimal org mode tweaks
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :hook ((org-mode . org-bullets-mode)
+           (org-mode . visual-line-mode)
+           (org-mode . org-indent-mode)))
+#+END_SRC
+** Which-key
+Provides you with hints on available keystroke combinations.
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :diminish which-key-mode
+    :defer 1
+    :config
+    (which-key-mode)
+    (setq which-key-idle-delay 0.4
+          which-key-idle-secondary-delay 0.4))
+#+END_SRC
+** Yasnippet & yasnippet-snippets
+Use TAB to expand snippets. The code snippet below also avoids clashing with company-mode.
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet-snippets
+    :config
+    (yas-global-mode)
+    (advice-add 'company-complete-common
+                :before
+                (lambda ()
+                  (setq my-company-point (point))))
+    (advice-add 'company-complete-common
+                :after
+                (lambda ()
+                  (when (equal my-company-point (point))
+                    (yas-expand)))))
+#+END_SRC
+** Markdown mode and JSON mode
+Some useful but missing major modes
+#+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode :hook (markdown-mode . visual-line-mode))
+
+  (use-package json-mode)
+#+END_SRC
+** Configure PATH on macOS
+#+BEGIN_SRC emacs-lisp
+  (use-package exec-path-from-shell
+    :config (when (memq window-system '(mac ns x))
+              (exec-path-from-shell-initialize)))
 #+END_SRC
 ** Lightweight syntax highlighting improvement for numbers, operators, and escape sequences
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
-  (add-hook 'prog-mode-hook 'highlight-operators-mode)
-  (add-hook 'prog-mode-hook 'hes-mode)    ;; highlight escape sequences
-#+END_SRC
-** No Backup~ Files
-For some people it may be useful. But I just disable it because I rarely needed those backup files scattering about in directories.
-#+BEGIN_SRC emacs-lisp
-  (setq make-backup-files nil)
-#+END_SRC
-** Auto-reverting
-#+BEGIN_SRC emacs-lisp
-  (setq auto-revert-interval 2
-        auto-revert-check-vc-info t
-        auto-revert-verbose nil)
-
-  (add-hook 'after-init-hook 'global-auto-revert-mode)
-#+END_SRC
-* Views and Windows
-Split right and split below.
-#+BEGIN_SRC emacs-lisp
-  (defun ian/split-and-follow-horizontally ()
-    "Split window below"
-    (interactive)
-    (split-window-below)
-    (other-window 1))
-
-  (defun ian/split-and-follow-vertically ()
-    "Split window right"
-    (interactive)
-    (split-window-right)
-    (other-window 1))
-
-  (global-set-key (kbd "C-x 2") 'ian/split-and-follow-horizontally)
-  (global-set-key (kbd "C-x 3") 'ian/split-and-follow-vertically)
-#+END_SRC
-* Which Key
-#+BEGIN_SRC emacs-lisp
-  (which-key-mode t)
-  (setq which-key-idle-delay 0.4)
-  (setq which-key-idle-secondary-delay 0.4)
-#+END_SRC
-* Whitespace cleanup on save
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'before-save-hook 'whitespace-cleanup)
+  (use-package highlight-numbers :hook (prog-mode . highlight-numbers-mode))
+  (use-package highlight-operators :hook (prog-mode . highlight-operators-mode))
+  (use-package highlight-escape-sequences :hook (prog-mode . hes-mode))
 #+END_SRC
