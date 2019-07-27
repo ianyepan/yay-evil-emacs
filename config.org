@@ -11,6 +11,9 @@
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
+  
+  ;; replace the active region just by typing text, just like modern editors
+  (delete-selection-mode +1)
 
   ;; show column number in mode-line
   (column-number-mode +1)
