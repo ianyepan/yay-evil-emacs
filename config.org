@@ -11,7 +11,7 @@
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
-  
+
   ;; replace the active region just by typing text, just like modern editors
   (delete-selection-mode +1)
 
@@ -112,7 +112,7 @@ Reduce the highlight delay to instantly.
     :ensure nil
     :config
     (setq show-paren-delay 0)
-    (show-paren-mode))
+    (show-paren-mode +1))
 #+END_SRC
 ** Setting up some frame defaults
 Maximize the frame by default on start-up. Set the font size to 13.
@@ -214,7 +214,7 @@ Selecting buffers/files with great efficiency. In my opinion, Ido is enough to r
           ido-enable-flex-matching t
           ido-vertical-define-keys 'C-n-C-p-up-and-down))
 
-  (use-package flx-ido :config (flx-ido-mode))
+  (use-package flx-ido :config (flx-ido-mode +1))
 #+END_SRC
 ** Magit
 Magit -- need I say more? The best git interface ever.
@@ -239,7 +239,7 @@ Provides you with hints on available keystroke combinations.
     :diminish which-key-mode
     :defer 1
     :config
-    (which-key-mode)
+    (which-key-mode +1)
     (setq which-key-idle-delay 0.4
           which-key-idle-secondary-delay 0.4))
 #+END_SRC
@@ -248,7 +248,7 @@ Use TAB to expand snippets. The code snippet below also avoids clashing with com
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet-snippets
     :config
-    (yas-global-mode)
+    (yas-global-mode +1)
     (advice-add 'company-complete-common
                 :before
                 (lambda ()
