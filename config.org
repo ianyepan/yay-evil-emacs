@@ -57,7 +57,8 @@ The Emacs default split doesn't seem too intuitive for the majority of users.
   (use-package files
     :ensure nil
     :config
-    (setq confirm-kill-processes nil))
+    (setq confirm-kill-processes nil
+          make-backup-files nil))
 #+END_SRC
 ** Automatically refreshes the buffer for changes outside of Emacs
 Auto refreshes every 2 seconds. Don't forget to refresh the version control status as well.
