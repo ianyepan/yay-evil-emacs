@@ -81,9 +81,9 @@ You can find more information on the theme here: https://github.com/ianpan870102
 ### Appendix II: Fonts I adore
 - Monaco (curvy, easy to read)
 - Source Code Pro (playful and modern-looking)
-- Hack / Menlo / DejaVu Sans Mono family (default on lots of systems)
-- Andale Mono (tall, narrow, elegant characters)
-- Input Mono (most compliment; customizable, modern-looking and geeky)
+- Menlo / DejaVu family (classic, default on lots of systems)
+- Andale Mono (tall, thin & subtle characters)
+- Droid Sans Mono (slick and elegant)
 
 ### FAQ:
 #### 1. But I'm not an Evil user
