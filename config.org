@@ -12,9 +12,6 @@
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
 
-  ;; replace the active region just by typing text, just like modern editors
-  (delete-selection-mode +1)
-
   ;; show column number in mode-line
   (column-number-mode +1)
 
@@ -33,6 +30,12 @@
 #+END_SRC
 * Configuration for built-in packages
 Since we're using use-package as our package management system, we might as well try to organize under the same syntax as much as possible to keep the configuration consistent.
+** Replace the active region just by typing text, just like modern editors
+#+BEGIN_SRC emacs-lisp
+  (use-package delsel
+    :ensure nil
+    :config (delete-selection-mode +1))
+#+END_SRC
 ** Split right and split below
 The Emacs default split doesn't seem too intuitive for the majority of users.
 #+BEGIN_SRC emacs-lisp
@@ -78,8 +81,7 @@ Only use eldoc in prog-mode (by defaults it's turned on globally, but reports sa
     :ensure nil
     :diminish eldoc-mode
     :config
-    (global-eldoc-mode -1)
-    (add-hook 'prog-mode-hook 'eldoc-mode)
+    (global-eldoc-mode +1)
     (setq eldoc-idle-delay 0.4))
 #+END_SRC
 ** Indentation improvement
@@ -121,7 +123,8 @@ Maximize the frame by default on start-up. Set the font size to 13.
     :ensure nil
     :config
     (setq initial-frame-alist (quote ((fullscreen . maximized))))
-    (set-frame-font "Menlo-13" nil t))
+    (when (member "Menlo" (font-family-list))
+      (set-frame-font "menlo-13:weight=regular" t t)))
 #+END_SRC
 ** Ediff tweaks
 Enter ediff with side-by-side buffers to better compare the differences.
@@ -134,6 +137,7 @@ Enter ediff with side-by-side buffers to better compare the differences.
 #+BEGIN_SRC emacs-lisp
   (use-package flyspell
     :ensure nil
+    :diminish flyspell-mode
     :hook (prog-mode . flyspell-prog-mode))
 #+END_SRC
 ** Auto-pairing quotes and parentheses etc.
@@ -141,7 +145,7 @@ Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer 
 #+BEGIN_SRC emacs-lisp
   (use-package elec-pair
     :ensure nil
-    :config (add-hook 'prog-mode-hook 'electric-pair-mode))
+    :hook (prog-mode . electric-pair-mode))
 #+END_SRC
 ** Clean up whitespace and unnecessary empty lines on save
 #+BEGIN_SRC emacs-lisp
@@ -156,7 +160,9 @@ I personally find Vi(m) bindings to be the most efficient way of editing text (e
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :diminish undo-tree-mode
-    :init (setq evil-want-C-u-scroll t)
+    :init
+    (setq evil-want-C-u-scroll t)
+    (setq evil-shift-width 4)
     :hook (after-init . evil-mode)
     :config
     (with-eval-after-load 'evil-maps ; avoid conflict with company tooltip selection
@@ -168,7 +174,11 @@ I personally find Vi(m) bindings to be the most efficient way of editing text (e
       (save-buffer)
       (kill-this-buffer))
     (evil-ex-define-cmd "q" 'kill-this-buffer)
-    (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer))
+    (evil-ex-define-cmd "wq" 'ian/save-and-kill-this-buffer)
+    (use-package evil-commentary
+      :after evil
+      :diminish evil-commentary-mode
+      :config (evil-commentary-mode +1)))
 #+END_SRC
 ** Dashboard welcome page
 #+BEGIN_SRC emacs-lisp
@@ -188,7 +198,7 @@ Use ~C-n~ and ~C-p~ to navigate the tooltip
     :hook (prog-mode . company-mode)
     :config
     (setq company-minimum-prefix-length 1
-          company-idle-delay 0
+          company-idle-delay 0.1
           company-selection-wrap-around t
           company-tooltip-align-annotations t
           company-frontends '(company-pseudo-tooltip-frontend ; show tooltip even for single candidate
@@ -237,7 +247,6 @@ Provides you with hints on available keystroke combinations.
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
     :diminish which-key-mode
-    :defer 1
     :config
     (which-key-mode +1)
     (setq which-key-idle-delay 0.4
