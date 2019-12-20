@@ -3,18 +3,18 @@
 ;;; Commentary:
 ;;; A lightweight Emacs config containing only the essentials: shipped with a custom theme!
 ;;; Code:
+(defvar file-name-handler-alist-original file-name-handler-alist)
+
 (setq gc-cons-threshold 402653184
       gc-cons-percentage 0.6
-      file-name-handler-alist-original file-name-handler-alist
       file-name-handler-alist nil
       site-run-file nil)
 
-(add-hook 'emacs-startup-hook
+(add-hook 'emacs-startup-hook ; hook run after loading init files
           (lambda ()
             (setq gc-cons-threshold 20000000
                   gc-cons-percentage 0.1
-                  file-name-handler-alist file-name-handler-alist-original)
-            (makunbound 'file-name-handler-alist-original)))
+                  file-name-handler-alist file-name-handler-alist-original)))
 
 (add-hook 'minibuffer-setup-hook (lambda () (setq gc-cons-threshold 40000000)))
 (add-hook 'minibuffer-exit-hook (lambda ()
