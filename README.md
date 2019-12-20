@@ -70,6 +70,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - Nord: https://github.com/arcticicestudio/nord-emacs
 - Monochrome: https://github.com/fxn/monochrome-theme.el
 - Zenburn: https://github.com/bbatsov/zenburn-emacs
+
 If you prefer a theme pack with some of the most popular themes, I recommend the emacs-doom-themes package
 - Doom-themes package: https://github.com/hlissner/emacs-doom-themes
 
