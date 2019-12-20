@@ -42,6 +42,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 
 #### Vim editing habits (optional depending on your preferences)
 - evil
+- evil-commentary
 
 #### Git integration
 - magit
@@ -67,11 +68,10 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - Spacemacs Dark & Light: https://github.com/nashamri/spacemacs-theme
 - Gruvbox Dark: https://github.com/Greduan/emacs-theme-gruvbox
 - Nord: https://github.com/arcticicestudio/nord-emacs
-- Solarized Dark: https://github.com/bbatsov/solarized-emacs
-- GitHub Default Theme: https://github.com/philiparvidsson/GitHub-Modern-Theme-for-Emacs
-- Emacs Reverse Video Theme (emacs -r): https://github.com/syohex/emacs-reverse-theme
 - Monochrome: https://github.com/fxn/monochrome-theme.el
-- Monokai Pro (not the original Monokai): https://github.com/belak/emacs-monokai-pro-theme
+- Zenburn: https://github.com/bbatsov/zenburn-emacs
+If you prefer a theme pack with some of the most popular themes, I recommend the emacs-doom-themes package
+- Doom-themes package: https://github.com/hlissner/emacs-doom-themes
 
 ### Wilmersdorf Theme
 The default installation of my Emacs configuration ships with the Wilmersdorf theme I made myself.
@@ -79,11 +79,10 @@ It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
 You can find more information on the theme here: https://github.com/ianpan870102/Emacs-Wilmersdorf-Theme
 
 ### Appendix II: Fonts I adore
-- Monaco (curvy, easy to read)
-- Source Code Pro (playful and modern-looking)
-- Menlo / DejaVu family (classic, default on lots of systems)
-- Andale Mono (tall, thin & subtle characters)
+- Source Code Pro (playful and modern-looking, easy on the eyes)
 - Droid Sans Mono (slick and elegant)
+- Menlo / DejaVu family (classic, default on lots of systems)
+- Input Mono (customizable, easy on the eyes)
 
 ### FAQ:
 #### 1. But I'm not an Evil user
