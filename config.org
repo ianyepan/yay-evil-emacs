@@ -1,7 +1,8 @@
 #+Title: Yay-Evil distro by Ian Y.E. Pan
 #+Author: Ian Y.E. Pan
 #+Date: 2019
-* Cleaning up the UI and enhance some basic defaults defined in C Source Code
+* Basic tweaks
+Clean up the UI and enhance some basic defaults defined in C Source Code
 #+BEGIN_SRC emacs-lisp
   (setq frame-title-format '("Yay-Evil") ; Yayyyyy Evil!
         ring-bell-function 'ignore       ; minimize distraction
@@ -29,7 +30,7 @@
                 tab-width 4)
 #+END_SRC
 * Configuration for built-in packages
-Since we're using use-package as our package management system, we might as well try to organize under the same syntax as much as possible to keep the configuration consistent.
+Since we're using use-package as our package management system, we might as well try to organize under the same syntax as much as possible to keep the configuration consistent. The option ~use-package-always-ensure~ is turned on in ~init.el~, so we'll add ~:ensure nil~ when configuring the built-in packages.
 ** Replace the active region just by typing text, just like modern editors
 #+BEGIN_SRC emacs-lisp
   (use-package delsel
@@ -155,6 +156,8 @@ Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer 
 #+END_SRC
 * Third-party packages
 Many Emacsers love having tons of packages -- and that's absolutely fine! However, one of the goals of the Yay-Evil distro is to provide an essential-only foundation for users to build upon. Therefore, only the most important packages and/or lightweight improvements will be included here. For example, completion frameworks like Ivy or Helm are considered heavy by many, yet the built-in Ido serves almost the same purpose. The only arguably opinionated package is probably Evil, but hey! You saw that coming from the distro name, didn't you ;) ?
+
+Normally, we need to add ~:ensure t~ to tell ~use-package~ to download packages when it's not available. But since we've added ~use-package-always-ensure~ in ~init.el~, we can omit it.
 ** Evil
 I personally find Vi(m) bindings to be the most efficient way of editing text (especially code). I also changed the default ~:q~ and ~:wq~ to be killing current buffer instead of killing the frame or subsequently killing Emacs.
 #+BEGIN_SRC emacs-lisp
