@@ -73,6 +73,7 @@ Auto refreshes every 2 seconds. Don't forget to refresh the version control stat
     (global-auto-revert-mode +1)
     (setq auto-revert-interval 2
           auto-revert-check-vc-info t
+          global-auto-revert-non-file-buffers t
           auto-revert-verbose nil))
 #+END_SRC
 ** Eldoc: documentation in the mini-buffer
@@ -154,6 +155,14 @@ Electric-pair-mode has improved quite a bit in recent Emacs versions. No longer 
     :ensure nil
     :config (add-hook 'before-save-hook 'whitespace-cleanup))
 #+END_SRC
+** Dired
+#+begin_src emacs-lisp
+  (use-package dired
+    :ensure nil
+    :config
+    (put 'dired-find-alternate-file 'disabled nil) ; reuse same buffer when navigating
+    (setq delete-by-moving-to-trash t))
+#+end_src
 * Third-party packages
 Many Emacsers love having tons of packages -- and that's absolutely fine! However, one of the goals of the Yay-Evil distro is to provide an essential-only foundation for users to build upon. Therefore, only the most important packages and/or lightweight improvements will be included here. For example, completion frameworks like Ivy or Helm are considered heavy by many, yet the built-in Ido serves almost the same purpose. The only arguably opinionated package is probably Evil, but hey! You saw that coming from the distro name, didn't you ;) ?
 
