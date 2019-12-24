@@ -69,8 +69,8 @@ Auto refreshes every 2 seconds. Don't forget to refresh the version control stat
 #+BEGIN_SRC emacs-lisp
   (use-package autorevert
     :ensure nil
-    :hook (after-init . global-auto-revert-mode)
     :config
+    (global-auto-revert-mode +1)
     (setq auto-revert-interval 2
           auto-revert-check-vc-info t
           auto-revert-verbose nil))
@@ -166,8 +166,8 @@ I personally find Vi(m) bindings to be the most efficient way of editing text (e
     :init
     (setq evil-want-C-u-scroll t)
     (setq evil-shift-width 4)
-    :hook (after-init . evil-mode)
     :config
+    (evil-mode +1)
     (with-eval-after-load 'evil-maps ; avoid conflict with company tooltip selection
       (define-key evil-insert-state-map (kbd "C-n") nil)
       (define-key evil-insert-state-map (kbd "C-p") nil))
@@ -213,19 +213,23 @@ Use ~C-n~ and ~C-p~ to navigate the tooltip
 ** Flycheck
 A modern on-the-fly syntax checking extension -- absolutely essential
 #+BEGIN_SRC emacs-lisp
-   (use-package flycheck
-     :hook (after-init . global-flycheck-mode))
+  (use-package flycheck :config (global-flycheck-mode +1))
 #+END_SRC
-** Ido, ido-vertical, and flex-matching
-Selecting buffers/files with great efficiency. In my opinion, Ido is enough to replace Ivy and Helm. We install ido-vertical to get a better view of the available options (use ~C-n~, ~C-p~ or arrow keys to navigate). Flex matching is a nice touch and we are lucky to have flx-ido for that purpose.
+** Ido, ido-vertical, ido-ubiquitous and flex-matching
+Selecting buffers/files with great efficiency. In my opinion, Ido is enough to replace Ivy and Helm. We install ido-vertical to get a better view of the available options (use ~C-n~, ~C-p~ or arrow keys to navigate). Ido-ubiquitous (from the ~ido-completing-read+~ package) provides us ido-like completions in describing functions and variables etc. Flex matching is a nice touch and we are lucky to have flx-ido for that purpose.
 #+BEGIN_SRC emacs-lisp
-  (use-package ido-vertical-mode
-    :hook ((after-init . ido-mode)
-           (after-init . ido-vertical-mode))
+  (use-package ido
     :config
+    (ido-mode +1)
     (setq ido-everywhere t
-          ido-enable-flex-matching t
-          ido-vertical-define-keys 'C-n-C-p-up-and-down))
+          ido-enable-flex-matching t))
+
+  (use-package ido-vertical-mode
+    :config
+    (ido-vertical-mode +1)
+    (setq ido-vertical-define-keys 'C-n-C-p-up-and-down))
+
+  (use-package ido-completing-read+ :config (ido-ubiquitous-mode +1))
 
   (use-package flx-ido :config (flx-ido-mode +1))
 #+END_SRC
@@ -234,6 +238,10 @@ Magit -- need I say more? The best git interface ever.
 #+BEGIN_SRC emacs-lisp
   (use-package magit :bind ("C-x g" . magit-status))
 #+END_SRC
+Be consistent with the evil bindings.
+#+begin_src emacs-lisp
+  (use-package evil-magit)
+#+end_src
 ** Org Mode
 Some minimal org mode tweaks
 #+BEGIN_SRC emacs-lisp
