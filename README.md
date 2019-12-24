@@ -43,6 +43,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 #### Vim editing habits (optional depending on your preferences)
 - evil
 - evil-commentary
+- evil-magit
 
 #### Git integration
 - magit
@@ -50,6 +51,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 #### Better Emacs defaults
 - company (auto-completion)
 - ido-vertical-mode
+- ido-completing-read+ (ido-ubiquitous)
 - yasnippets & yasnippet-snippets
 - dashboard (welcome screen)
 
