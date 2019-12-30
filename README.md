@@ -16,7 +16,8 @@
 This Emacs "distro" is based on my personal Emacs configuration (on GNU Emacs 26.3). It's unopinionated and was created for general use in mind. The package settings are grouped in a logical manner, and I've documented as detailed as possible what each code snippet does in my `config.org` file.
 
 
-You can find my opinionated personal configuration here: https://github.com/ianpan870102/.use-package.emacs.d
+You can find my opinionated personal configuration [here](https://github.com/ianpan870102/.personal-emacs.d).
+
 
 This Emacs config starts up **super fast** with an average init time of 0.7 second.
 
