@@ -1,4 +1,4 @@
-<h3 align="center">Ian's Yay-Evil Distro: An even better 'better defaults'</h3>
+<h3 align="center">Ian's Yay-Evil Emacs: An even better 'better defaults'</h3>
 <hr/>
 
 <p align="center">
