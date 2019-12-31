@@ -52,6 +52,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 
 #### Vim editing habits (optional depending on your preferences)
 - evil
+- evil-collection
 - evil-commentary
 - evil-magit
 
