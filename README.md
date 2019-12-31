@@ -69,19 +69,19 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - highlight-escape-sequences
 
 ### Appendix I: Themes I adore
-- (Dracula)[https://github.com/dracula/dracula-theme/]
-- (Gruvbox Dark)[https://github.com/Greduan/emacs-theme-gruvbox]
-- (Nord)[https://github.com/arcticicestudio/nord-emacs]
-- (Monochrome)[https://github.com/fxn/monochrome-theme.el]
-- (Zenburn)[https://github.com/bbatsov/zenburn-emacs]
+- [Dracula](https://github.com/dracula/dracula-theme/)
+- [Gruvbox Dark](https://github.com/Greduan/emacs-theme-gruvbox)
+- [Nord](https://github.com/arcticicestudio/nord-emacs)
+- [Monochrome](https://github.com/fxn/monochrome-theme.el)
+- [Zenburn](https://github.com/bbatsov/zenburn-emacs)
 
 If you prefer a theme pack with some of the most popular themes, I recommend the emacs-doom-themes package
-- (Doom-themes package)[https://github.com/hlissner/emacs-doom-themes]
+- [Doom-themes package](https://github.com/hlissner/emacs-doom-themes)
 
 ### Wilmersdorf Theme
 The default installation of my Emacs configuration ships with the Wilmersdorf theme I made myself.
 It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
-You can find more information on my theme (here)[https://github.com/ianpan870102/wilmersdorf-emacs-theme].
+You can find more information on my theme [here](https://github.com/ianpan870102/wilmersdorf-emacs-theme).
 
 ### Appendix II: Fonts I adore
 - Source Code Pro (playful and modern-looking, easy on the eyes)
