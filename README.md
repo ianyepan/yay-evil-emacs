@@ -28,7 +28,13 @@ Back up your `~/.emacs.d/` first (if you have one):
 
 Git clone my configuration to your new `~/.emacs.d/` :
 
-```git clone https://github.com/ianpan870102/yay-evil-emacs ~/.emacs.d/```
+```
+# For Emacs 26 and below
+git clone https://github.com/ianpan870102/yay-evil-emacs.git ~/.emacs.d
+
+# For Emacs 27
+git clone https://github.com/ianpan870102/yay-evil-emacs.git ~/.config/emacs/
+```
 
 ### "Rolling" Release
 I will constantly push new commits as soon as I discover new things suitable for this "distro"
