@@ -24,7 +24,9 @@ This Emacs config starts up **super fast** with an average init time of 0.7 seco
 ### Installation
 Back up your `~/.emacs.d/` first (if you have one):
 
-```mv ~/.emacs.d/ ~/.emacs.d.bak/```
+```
+mv ~/.emacs.d/ ~/.emacs.d.bak/
+```
 
 Git clone my configuration to your new `~/.emacs.d/` :
 
