@@ -12,6 +12,8 @@
 <a href="https://github.com/sindresorhus/awesome"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome"></a>
 </p>
 
+### [Documentation](https://github.com/ianpan870102/yay-evil-emacs/blob/master/config.org)
+
 ### Welcome!
 This Emacs "distro" is based on my personal Emacs configuration. It's unopinionated and was created for general use in mind. The package settings are grouped in a logical manner, and I've documented as detailed as possible what each code snippet does in my `config.org` file.
 
