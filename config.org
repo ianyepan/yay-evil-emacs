@@ -329,18 +329,22 @@ Some minimal org mode tweaks: org-bullets gives our headings (h1, h2, h3...) a m
 *** Yasnippet & yasnippet-snippets
 Use TAB to expand snippets. The code snippet below also avoids clashing with company-mode.
 #+BEGIN_SRC emacs-lisp
-  (use-package yasnippet-snippets
+  (use-package yasnippet
+    :diminish yas-minor-mode
+    :preface (defvar tmp/company-point nil)
     :config
     (yas-global-mode +1)
     (advice-add 'company-complete-common
                 :before
-                (lambda ()
-                  (setq my-company-point (point))))
+                #'(lambda ()
+                    (setq tmp/company-point (point))))
     (advice-add 'company-complete-common
                 :after
-                (lambda ()
-                  (when (equal my-company-point (point))
-                    (yas-expand)))))
+                #'(lambda ()
+                    (when (equal tmp/company-point (point))
+                      (yas-expand)))))
+
+  (use-package yasnippet-snippets)
 #+END_SRC
 *** Useful major modes
 Markdown mode and JSON mode
