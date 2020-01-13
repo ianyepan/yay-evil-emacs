@@ -281,7 +281,7 @@
    `(solaire-org-hide-face ((t (:inherit org-hide :background ,bg0))))
 
    `(ivy-confirm-face ((t (:inherit minibuffer-prompt :foreground ,keyword))))
-   `(ivy-current-match ((t (:background ,bg3))))
+   `(ivy-current-match ((t (:background ,bg3 :extend t))))
    `(ivy-highlight-face ((t (:inherit font-lock-builtin-face))))
    `(ivy-match-required-face ((t (:inherit minibuffer-prompt :foreground ,warning))))
    `(ivy-minibuffer-match-face-1 ((t (:inherit isearch))))
@@ -300,6 +300,9 @@
    `(swiper-match-face-3 ((t (:inherit ivy-minibuffer-match-face-3))))
    `(swiper-match-face-4 ((t (:inherit ivy-minibuffer-match-face-4))))
    `(swiper-line-face ((t (:foreground ,fg0 :background ,bg4))))
+   
+   `(evil-ex-substitute-matches     ((t :foreground "#ff0000" :weight bold :strike-through t)))
+   `(evil-ex-substitute-replacement ((t :foreground "#0ff000" :weight bold)))
    ))
 
 (provide-theme 'wilmersdorf)
