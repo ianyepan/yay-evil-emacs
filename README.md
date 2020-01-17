@@ -39,7 +39,7 @@ git clone https://github.com/ianpan870102/yay-evil-emacs.git ~/.config/emacs/
 ```
 
 ### "Rolling" Release
-I will constantly push new commits as soon as I discover new things suitable for this "distro"
+I will constantly push new commits as soon as I discover new things suitable for this "distro".
 
 ### How the config structure works
 
@@ -84,7 +84,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - [Monochrome](https://github.com/fxn/monochrome-theme.el)
 - [Zenburn](https://github.com/bbatsov/zenburn-emacs)
 
-If you prefer a theme pack with some of the most popular themes, I recommend the emacs-doom-themes package
+If you prefer a theme pack with some of the most popular themes, I recommend the emacs-doom-themes package:
 - [Doom-themes package](https://github.com/hlissner/emacs-doom-themes)
 
 ### Wilmersdorf Theme
