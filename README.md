@@ -21,6 +21,8 @@ You can find my opinionated personal configuration [here](https://github.com/ian
 
 This Emacs config starts up **super fast** with an average init time of 0.7 second.
 
+![alt text](./wilmersdorf.png)
+
 ### Installation
 Back up your `~/.emacs.d/` first (if you have one):
 
