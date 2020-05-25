@@ -13,7 +13,11 @@
 </p>
 
 ### Welcome!
-This Emacs "distro" is based on my personal Emacs configuration. It's unopinionated and was created for general use in mind. The package settings are grouped in a logical manner, and I've documented as detailed as possible what each code snippet does in my `config.org` file.
+This Emacs "distro" is based on my personal Emacs configuration. It's
+unopinionated and was created for general use in mind. The package
+settings are grouped in a logical manner, and I've documented as
+detailed as possible what each code snippet does in my `config.org`
+file.
 
 
 You can find my opinionated personal configuration [here](https://github.com/ianpan870102/.personal-emacs.d).
@@ -65,7 +69,6 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - company (auto-completion)
 - ido-vertical-mode
 - ido-completing-read+ (ido-ubiquitous)
-- yasnippets & yasnippet-snippets
 - dashboard (welcome screen)
 
 #### Org mode
@@ -75,16 +78,13 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - flycheck
 
 #### Lightweight syntax highlight improvement for all languages
-- highlight-operators
 - highlight-numbers
 - highlight-escape-sequences
 
 ### Appendix I: Themes I adore
-- [Dracula](https://github.com/dracula/dracula-theme/)
 - [Gruvbox Dark](https://github.com/Greduan/emacs-theme-gruvbox)
+- [Dracula](https://github.com/dracula/dracula-theme/)
 - [Nord](https://github.com/arcticicestudio/nord-emacs)
-- [Monochrome](https://github.com/fxn/monochrome-theme.el)
-- [Zenburn](https://github.com/bbatsov/zenburn-emacs)
 
 If you prefer a theme pack with some of the most popular themes, I recommend the emacs-doom-themes package:
 - [Doom-themes package](https://github.com/hlissner/emacs-doom-themes)
@@ -95,10 +95,9 @@ It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
 You can find more information on my theme [here](https://github.com/ianpan870102/wilmersdorf-emacs-theme).
 
 ### Appendix II: Fonts I adore
+- Menlo / DejaVu / Hack family (classic, default on lots of systems)
 - Source Code Pro (playful and modern-looking, easy on the eyes)
-- Droid Sans Mono (slick and elegant)
-- Menlo / DejaVu family (classic, default on lots of systems)
-- Input Mono (customizable, easy on the eyes)
+- Consolas (beautifully modern)
 
 ### FAQ:
 #### 1. But I'm not an Evil user
