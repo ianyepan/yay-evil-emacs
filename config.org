@@ -30,7 +30,7 @@ indentation width you prefer in the ~web-mode~ section.)
 
     ;; better scrolling experience
     (setq scroll-margin 0
-          scroll-conservatively 101 > 100
+          scroll-conservatively 101 ; > 100
           scroll-preserve-screen-position t
           auto-window-vscroll nil)
 
@@ -52,7 +52,7 @@ possible to keep the configuration consistent. The option
 #+END_SRC
 ** Modernise selection behaviour
 Replace the active region just by typing text, just like modern
-editors
+editors.
 #+BEGIN_SRC emacs-lisp
   (use-package delsel
     :ensure nil
@@ -98,6 +98,7 @@ scatter around.
     :ensure nil
     :config
     (setq confirm-kill-processes nil
+          create-lockfiles nil) ; don't create .# files (crashes 'npm start')
           make-backup-files nil))
 #+END_SRC
 ** Automatically refreshes the buffer for changes outside of Emacs
@@ -162,7 +163,7 @@ Reduce the highlight delay to instantly.
     :config (show-paren-mode +1))
 #+END_SRC
 ** Setting up some frame defaults
-Maximise the frame by default on start-up. Set the font to size 13.
+Maximise the frame by default on start-up. Set the font to size 12.
 #+BEGIN_SRC emacs-lisp
   (use-package frame
     :preface
@@ -171,7 +172,7 @@ Maximise the frame by default on start-up. Set the font to size 13.
       (when (member "Consolas" (font-family-list))
         (set-face-attribute 'default nil :family "Consolas"))
       (set-face-attribute 'default nil
-                          :height 130
+                          :height 120
                           :weight 'normal))
     :ensure nil
     :config
