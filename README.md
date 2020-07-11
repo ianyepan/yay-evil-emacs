@@ -82,9 +82,9 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - highlight-escape-sequences
 
 ### Appendix I: Themes I adore
-- [Gruvbox Dark](https://github.com/Greduan/emacs-theme-gruvbox)
-- [Dracula](https://github.com/dracula/dracula-theme/)
-- [Nord](https://github.com/arcticicestudio/nord-emacs)
+- Gruvbox Dark
+- Dracula
+- Nord
 
 If you prefer a theme pack with some of the most popular themes, I recommend the emacs-doom-themes package:
 - [Doom-themes package](https://github.com/hlissner/emacs-doom-themes)
