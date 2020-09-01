@@ -98,7 +98,7 @@ scatter around.
     :ensure nil
     :config
     (setq confirm-kill-processes nil
-          create-lockfiles nil) ; don't create .# files (crashes 'npm start')
+          create-lockfiles nil ; don't create .# files (crashes 'npm start')
           make-backup-files nil))
 #+END_SRC
 ** Automatically refreshes the buffer for changes outside of Emacs
@@ -330,13 +330,24 @@ purpose.
   (use-package ido
     :config
     (ido-mode +1)
+
+    ; temporary replacement for ido-vertical
+    (if (version< emacs-version "25")
+        (progn
+          (make-local-variable 'ido-separator)
+          (setq ido-separator "\n"))
+      (progn
+        (make-local-variable 'ido-decorations)
+        (setf (nth 2 ido-decorations) "\n")))
+
     (setq ido-everywhere t
           ido-enable-flex-matching t))
 
-  (use-package ido-vertical-mode
-    :config
-    (ido-vertical-mode +1)
-    (setq ido-vertical-define-keys 'C-n-C-p-up-and-down))
+  ; BUG against Emacs 27.1: temporary disable and use above snippet instead
+  ;; (use-package ido-vertical-mode
+  ;;   :config
+  ;;   (ido-vertical-mode +1)
+  ;;   (setq ido-vertical-define-keys 'C-n-C-p-up-and-down))
 
   (use-package ido-completing-read+ :config (ido-ubiquitous-mode +1))
 
