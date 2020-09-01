@@ -98,7 +98,7 @@ scatter around.
     :ensure nil
     :config
     (setq confirm-kill-processes nil
-          create-lockfiles nil) ; don't create .# files (crashes 'npm start')
+          create-lockfiles nil ; don't create .# files (crashes 'npm start')
           make-backup-files nil))
 #+END_SRC
 ** Automatically refreshes the buffer for changes outside of Emacs
