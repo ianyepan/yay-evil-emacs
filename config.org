@@ -221,7 +221,7 @@ Delete intermediate buffers when navigating through dired.
   (use-package cus-edit
     :ensure nil
     :config
-    (setq custom-file "~/.emacs.d/to-be-dumped.el"))
+    (setq custom-file (concat user-emacs-directory "to-be-dumped.el")))
 #+END_SRC
 * Third-party packages
 Many Emacsers love having tons of packages -- and that's absolutely
@@ -239,7 +239,7 @@ Normally, we need to add ~:ensure t~ to tell ~use-package~ to download packages 
 ** GUI enhancements
 *** Load custom theme
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+  (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
   (load-theme 'wilmersdorf t) ; an orginal theme created by me.
 #+END_SRC
 *** Dashboard welcome page
