@@ -53,7 +53,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 
 ### Packages that I use:
 
-#### Package manager
+#### Better package managing syntax and performance
 - use-package
 
 #### Vim editing habits (optional depending on your preferences)
