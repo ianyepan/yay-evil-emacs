@@ -21,7 +21,7 @@ indentation width you prefer in the ~web-mode~ section.)
     (defvar ian/indent-width 4) ; change this value to your preferred width
     :config
     (setq frame-title-format '("Yay-Evil") ; Yayyyyy Evil!
-          ring-bell-function 'ignore       ; minimise distraction
+          ring-bell-function 'ignore       ; minimize distraction
           frame-resize-pixelwise t
           default-directory "~/")
 
@@ -61,12 +61,12 @@ indentation width you prefer in the ~web-mode~ section.)
 #+END_SRC
 * Configuration for built-in packages
 Since we're using use-package as our package management system, we
-might as well try to organise under the same syntax as much as
+might as well try to organize under the same syntax as much as
 possible to keep the configuration consistent. The option
 ~use-package-always-ensure~ is turned on in ~init.el~, so we'll add
 ~:ensure nil~ when configuring the built-in packages.
 #+END_SRC
-** Modernise selection behaviour
+** Modernize selection behavior
 Replace the active region just by typing text, just like modern
 editors.
 #+BEGIN_SRC emacs-lisp
@@ -159,7 +159,7 @@ Reduce the highlight delay to instantly.
     :config (show-paren-mode +1))
 #+END_SRC
 ** Setting up some frame defaults
-Maximise the frame by default on start-up. Set the font to size 12.
+Maximize the frame by default on start-up. Set the font to size 12.
 #+BEGIN_SRC emacs-lisp
   (use-package frame
     :preface
@@ -229,7 +229,7 @@ considered heavy by many, yet the built-in Ido serves almost the same
 purpose. The only arguably opinionated package is probably Evil, but
 you probably saw that coming from the distro name, didn't you ;) ? If
 you prefer the default keybindings, simply disable the section that
-controls the Evil behaviours.
+controls the Evil behaviors.
 
 Normally, we need to add ~:ensure t~ to tell ~use-package~ to download packages when it's not available. But since we've added ~use-package-always-ensure~ in ~init.el~, we can omit it.
 ** GUI enhancements
