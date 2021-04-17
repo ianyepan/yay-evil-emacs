@@ -36,7 +36,10 @@ indentation width you prefer in the ~web-mode~ section.)
 
     ;; Always use spaces for indentation
     (setq-default indent-tabs-mode nil
-                  tab-width ian/indent-width))
+                  tab-width ian/indent-width)
+
+    ;; Omit default startup screen
+    (setq inhibit-startup-screen t))
 #+END_SRC
 * Configuration for built-in packages
 Since we're using use-package as our package management system, we
@@ -44,11 +47,6 @@ might as well try to organise under the same syntax as much as
 possible to keep the configuration consistent. The option
 ~use-package-always-ensure~ is turned on in ~init.el~, so we'll add
 ~:ensure nil~ when configuring the built-in packages.
-** Omit default startup screen
-#+BEGIN_SRC emacs-lisp
-  (use-package "startup"
-    :ensure nil
-    :config (setq inhibit-startup-screen t))
 #+END_SRC
 ** Modernise selection behaviour
 Replace the active region just by typing text, just like modern
