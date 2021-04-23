@@ -20,7 +20,7 @@ detailed as possible what each code snippet does in my `config.org`
 file.
 
 
-You can find my opinionated personal configuration [here](https://github.com/ianpan870102/.personal-emacs.d) (for macOS) and [here](https://github.com/ianpan870102/.wsl-emacs.d) (for WSL on Windows 10).
+You can find my opinionated personal configuration [here](https://github.com/ianpan870102/.personal-emacs.d) (for macOS) and [here](https://github.com/ianpan870102/.wsl-emacs.d) (for Arch and Ubuntu on WSL2).
 
 
 This Emacs config starts up **super fast** with an average init time of 0.7 second.
