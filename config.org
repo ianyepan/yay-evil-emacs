@@ -348,9 +348,8 @@ Use ~C-n~ and ~C-p~ to navigate the tooltip.
           company-tooltip-align-annotations t
           company-frontends '(company-pseudo-tooltip-frontend ; show tooltip even for single candidate
                               company-echo-metadata-frontend))
-    (with-eval-after-load 'company
-      (define-key company-active-map (kbd "C-n") 'company-select-next)
-      (define-key company-active-map (kbd "C-p") 'company-select-previous)))
+    (define-key company-active-map (kbd "C-n") 'company-select-next)
+    (define-key company-active-map (kbd "C-p") 'company-select-previous))
 #+END_SRC
 *** Flycheck
 A modern on-the-fly syntax checking extension -- absolute essential
