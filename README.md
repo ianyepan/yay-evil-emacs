@@ -1,4 +1,4 @@
-<h3 align="center">Ian's Yay-Evil Emacs: An even better 'better defaults'</h3>
+<h3 align="center">😈 Ian's Yay-Evil Emacs: An even better 'better defaults' 😈</h3>
 <hr/>
 
 <p align="center">
@@ -12,7 +12,7 @@
 <a href="https://github.com/sindresorhus/awesome"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome"></a>
 </p>
 
-### Welcome!
+### Welcome! 👋
 This Emacs "distro" is based on my personal Emacs configuration. It's
 unopinionated and was created for general use in mind. The package
 settings are grouped in a logical manner, and I've documented as
@@ -20,14 +20,17 @@ detailed as possible what each code snippet does in my `config.org`
 file.
 
 
-You can find my opinionated personal configuration [here](https://github.com/ianpan870102/.personal-emacs.d) (for macOS) and [here](https://github.com/ianpan870102/.wsl-emacs.d) (for Arch and Ubuntu on WSL2).
+You can find my opinionated personal configuration
+[here](https://github.com/ianpan870102/.personal-emacs.d) (for macOS)
+and [here](https://github.com/ianpan870102/.wsl-emacs.d) (for Arch and
+Ubuntu on WSL2).
 
 
 This Emacs config starts up **super fast** with an average init time of 0.7 second.
 
 ![alt text](./wilmersdorf.png)
 
-### Installation
+### Installation 🍀
 Back up your `~/.emacs.d/` first (if you have one):
 
 ```
@@ -44,12 +47,16 @@ git clone https://github.com/ianpan870102/yay-evil-emacs.git ~/.emacs.d
 git clone https://github.com/ianpan870102/yay-evil-emacs.git ~/.config/emacs/
 ```
 
-### "Rolling" Release
-I will constantly push new commits as soon as I discover new things suitable for this "distro".
+### "Rolling" Release 🙃
+I will constantly push new commits as soon as I discover new things
+suitable for this "distro".
 
-### How the config structure works
+### How the config structure works 🧐
 
-The `init.el` requires `config.el`, which is produced by org-babel and `config.org`. This allows me to put most of my configuration in an Org file with literate programming style (good for documenting code usage!).
+The `init.el` requires `config.el`, which is produced by org-babel and
+`config.org`. This allows me to put most of my configuration in an Org
+file with literate programming style (good for documenting code
+usage!).
 
 ### Packages that I use:
 
@@ -60,7 +67,6 @@ The `init.el` requires `config.el`, which is produced by org-babel and `config.o
 - evil
 - evil-collection
 - evil-commentary
-- evil-magit
 
 #### Git integration
 - magit
@@ -99,14 +105,22 @@ You can find more information on my theme [here](https://github.com/ianpan870102
 - Source Code Pro (playful and modern-looking, easy on the eyes)
 - Consolas (beautifully modern)
 
-### FAQ:
+### FAQ: ❓
 #### 1. But I'm not an Evil user
-Sure! Simply delete the sections regarding Vi bindings in `config.org`.
+Sure! Simply delete (or comment) the sections regarding Vi bindings in
+`config.org`.
 
 #### 2. How can I install extra packages that I want?
-You should be able to install packages the normal way (`M-x list-packages RET` and `i x` on the desired package row). If you plan to sync your config files across machines, add the configuration in `config.org` with your preferred syntax (use-package is recommended). Yay-Evil sets all the packages `:ensure` to true by default, so you don't need to add `:ensure t`.
+You should be able to install packages the normal way (`M-x
+list-packages RET` and `i x` on the desired package row). If you plan
+to sync your config files across machines, add the configuration in
+`config.org` with your preferred syntax (use-package is
+recommended). Yay-Evil sets all the packages `:ensure` to true by
+default, so you don't need to add `:ensure t`.
 
 #### 3. How can I remove packages that I don't need?
 For this you need two steps:
-- First, type `M-x list-packages RET` in Emacs bindings (or `:list-packages RET` in Evil Normal state) and delete the unwanted package by placing your cursor on the row and press `d` followed by an `x`.
-- Next, in the `config.org` file, remove (or comment out) the relevant configuration code.
+- First, in the `config.org` file, remove (or comment out) the
+  relevant configuration code.
+- Next, type `M-x list-packages RET` and delete the unwanted package
+  by placing your cursor on the target row and press `d` followed by an `x`.
