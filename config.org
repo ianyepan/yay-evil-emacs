@@ -302,10 +302,6 @@ selection etc.)
     :diminish
     :config (evil-commentary-mode +1))
 #+END_SRC
-Evil keybindings for magit.
-#+BEGIN_SRC emacs-lisp
-  (use-package evil-magit)
-#+END_SRC
 ** Git Integration
 Tell magit to automatically put us in vi-insert-mode when committing a change.
 #+BEGIN_SRC emacs-lisp
