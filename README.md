@@ -21,7 +21,7 @@ file.
 
 
 You can find my opinionated personal configuration
-[here](https://github.com/ianpan870102/.personal-emacs.d) (for macOS)
+[here](https://github.com/ianpan870102/.macOS-emacs.d) (for macOS)
 and [here](https://github.com/ianpan870102/.wsl-emacs.d) (for Arch and
 Ubuntu on WSL2).
 
