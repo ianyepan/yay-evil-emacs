@@ -8,7 +8,7 @@
 <p align="center">
 <a href="https://github.com/ianpan870102/.emacs.d"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a>
 <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="GPL License"></a>
-<a href="https://github.com/ianpan870102/.emacs.d"><img src="https://img.shields.io/github/release/ianpan870102/.emacs.d" alt="Version"></a>
+<a href="https://github.com/ianyepan/.emacs.d"><img src="https://img.shields.io/github/release/ianyepan/.emacs.d" alt="Version"></a>
 <a href="https://github.com/sindresorhus/awesome"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome"></a>
 </p>
 
@@ -21,8 +21,8 @@ file.
 
 
 You can find my opinionated personal configuration
-[here](https://github.com/ianpan870102/.macOS-emacs.d) (for macOS)
-and [here](https://github.com/ianpan870102/.wsl-emacs.d) (for Arch and
+[here](https://github.com/ianyepan/.macOS-emacs.d) (for macOS)
+and [here](https://github.com/ianyepan/.wsl-emacs.d) (for Arch and
 Ubuntu on WSL2).
 
 
@@ -94,7 +94,7 @@ If you prefer a theme pack with some of the most popular themes, I recommend the
 ### Wilmersdorf Theme
 The default installation of my Emacs configuration ships with the Wilmersdorf theme I made myself.
 It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
-You can find more information on my theme [here](https://github.com/ianpan870102/wilmersdorf-emacs-theme).
+You can find more information on my theme [here](https://github.com/ianyepan/wilmersdorf-emacs-theme).
 
 ### Appendix II: Fonts I adore
 - Menlo / DejaVu / Hack family (classic, default on lots of systems)
