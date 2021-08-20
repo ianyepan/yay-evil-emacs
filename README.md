@@ -40,11 +40,7 @@ mv ~/.emacs.d/ ~/.emacs.d.bak/
 Git clone my configuration to your new `~/.emacs.d/` :
 
 ```
-# For Emacs 26 and below
-git clone https://github.com/ianpan870102/yay-evil-emacs.git ~/.emacs.d
-
-# For Emacs 27
-git clone https://github.com/ianpan870102/yay-evil-emacs.git ~/.config/emacs/
+git clone https://github.com/ianyepan/yay-evil-emacs.git ~/.emacs.d
 ```
 
 ### "Rolling" Release 🙃
