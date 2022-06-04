@@ -41,6 +41,14 @@
 (eval-and-compile
   (setq use-package-always-ensure t))
 
+;;; Emacs 28+ (native-comp) stuff
+(when (and (fboundp 'native-comp-available-p) (native-comp-available-p))
+  (progn
+    (setq native-comp-async-report-warnings-errors nil)
+    (setq native-comp-deferred-compilation t)
+    (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory))
+    (setq package-native-compile t)))
+
 ;; Load main config file "./config.org"
 (require 'org)
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "config.org")))
