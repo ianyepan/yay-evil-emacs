@@ -84,12 +84,16 @@ usage!).
 - highlight-escape-sequences
 
 ### Appendix I: Themes I adore
-- Gruvbox Dark
-- Dracula
-- Nord
 
-If you prefer a theme pack with some of the most popular themes, I recommend the emacs-doom-themes package:
-- [Doom-themes package](https://github.com/hlissner/emacs-doom-themes)
+#### Dark themes
+- Gruvbox Dark (specifically the [Material](https://github.com/ianyepan/.wsl-emacs.d/blob/master/themes/doom-gruvbox-material-theme.el) variant)
+- Visual Studio Code Dark+ [for Emacs](https://github.com/ianyepan/vscode-dark-plus-emacs-theme)
+
+#### Light themes
+- [Spacemacs Light](https://github.com/nashamri/spacemacs-theme)
+
+If you prefer a theme pack with some of the most popular themes, I recommend the `doom-themes` package:
+- [Doom-themes package](https://github.com/doomemacs/themes)
 
 ### Wilmersdorf Theme
 The default installation of my Emacs configuration ships with the Wilmersdorf theme I made myself.
@@ -97,9 +101,12 @@ It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
 You can find more information on my theme [here](https://github.com/ianyepan/wilmersdorf-emacs-theme).
 
 ### Appendix II: Fonts I adore
-- Menlo / DejaVu / Hack family (classic, default on lots of systems)
+- Hack / Menlo /DejaVu family (classic, default on lots of systems)
 - Source Code Pro (playful and modern-looking, easy on the eyes)
 - Consolas (beautifully modern)
+- Recursive Mono Semicasual
+- Roboto Mono
+- Ubuntu Mono
 
 ### FAQ: ❓
 #### 1. But I'm not an Evil user
