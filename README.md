@@ -12,6 +12,17 @@
 <a href="https://github.com/sindresorhus/awesome"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome"></a>
 </p>
 
+<p align="center">
+<a href="https://star-history.com/#ianyepan/yay-evil-emacs&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" width="600" srcset="https://api.star-history.com/svg?repos=ianyepan/yay-evil-emacs&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" width="600" srcset="https://api.star-history.com/svg?repos=ianyepan/yay-evil-emacs&type=Date" />
+    <img alt="Star History Chart" width="600" src="https://api.star-history.com/svg?repos=ianyepan/yay-evil-emacs&type=Date" />
+  </picture>
+</a>
+</p>
+
+
 ### Welcome! 👋
 This Emacs "distro" is based on my personal Emacs configuration. It's
 unopinionated and was created for general use in mind. The package
