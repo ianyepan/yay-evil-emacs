@@ -17,8 +17,19 @@ defaults to 2-space indent, you can still set it to any other
 indentation width you prefer in the ~web-mode~ section.)
 #+BEGIN_SRC emacs-lisp
   (use-package emacs
+    :ensure nil
     :preface
     (defvar ian/indent-width 4) ; change this value to your preferred width
+    (defun ian/split-and-follow-horizontally ()
+      "Split window below."
+      (interactive)
+      (split-window-below)
+      (other-window 1))
+    (defun ian/split-and-follow-vertically ()
+      "Split window right."
+      (interactive)
+      (split-window-right)
+      (other-window 1))
     :config
     (setq frame-title-format '("Yay-Evil") ; Yayyyyy Evil!
           ring-bell-function 'ignore       ; minimize distraction
@@ -38,26 +49,12 @@ indentation width you prefer in the ~web-mode~ section.)
     (setq-default indent-tabs-mode nil
                   tab-width ian/indent-width)
 
+    ;; The Emacs default split doesn't seem too intuitive for most users.
+    (global-set-key (kbd "C-x 2") #'ian/split-and-follow-horizontally)
+    (global-set-key (kbd "C-x 3") #'ian/split-and-follow-vertically)
+
     ;; Omit default startup screen
     (setq inhibit-startup-screen t))
-
-  ;; The Emacs default split doesn't seem too intuitive for most users.
-  (use-package emacs
-    :ensure nil
-    :preface
-    (defun ian/split-and-follow-horizontally ()
-      "Split window below."
-      (interactive)
-      (split-window-below)
-      (other-window 1))
-    (defun ian/split-and-follow-vertically ()
-      "Split window right."
-      (interactive)
-      (split-window-right)
-      (other-window 1))
-    :config
-    (global-set-key (kbd "C-x 2") #'ian/split-and-follow-horizontally)
-    (global-set-key (kbd "C-x 3") #'ian/split-and-follow-vertically))
 #+END_SRC
 * Configuration for built-in packages
 Since we're using use-package as our package management system, we
