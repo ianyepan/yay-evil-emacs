@@ -90,7 +90,7 @@
 
    `(mode-line ((,class (:bold nil :foreground ,fg1 :background ,bg4))))
    `(mode-line-inactive ((,class (:bold nil :foreground ,fg2 :background ,bg3))))
-   `(mode-line-buffer-id ((,class (:bold t :foreground ,func :background nil))))
+   `(mode-line-buffer-id ((,class (:bold t :foreground ,func :background unspecified))))
    `(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,fg1))))
 
@@ -173,7 +173,7 @@
    `(icompletep-determined ((,class :foreground ,builtin)))
 
    `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
-   `(trailing-whitespace ((,class :foreground nil :background ,warning)))
+   `(trailing-whitespace ((,class :foreground unspecified :background ,warning)))
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
 
    `(undo-tree-visualizer-current-face ((,class :foreground ,builtin)))
@@ -239,7 +239,7 @@
    `(helm-grep-file ((,class (:foreground ,fg1 :background ,bg1))))
    `(helm-grep-finish ((,class (:foreground ,fg2 :background ,bg1))))
    `(helm-grep-lineno ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-grep-match ((,class (:foreground nil :background nil :inherit helm-match))))
+   `(helm-grep-match ((,class (:foreground unspecified :background unspecified :inherit helm-match))))
    `(helm-grep-running ((,class (:foreground ,func :background ,bg1))))
    `(helm-moccur-buffer ((,class (:foreground ,func :background ,bg1))))
    `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
@@ -300,7 +300,7 @@
    `(swiper-match-face-3 ((t (:inherit ivy-minibuffer-match-face-3))))
    `(swiper-match-face-4 ((t (:inherit ivy-minibuffer-match-face-4))))
    `(swiper-line-face ((t (:foreground ,fg0 :background ,bg4))))
-   
+
    `(evil-ex-substitute-matches     ((t :foreground "#ff0000" :weight bold :strike-through t)))
    `(evil-ex-substitute-replacement ((t :foreground "#0ff000" :weight bold)))
    ))
