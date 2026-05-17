@@ -41,6 +41,10 @@ This Emacs config starts up **super fast** with an average init time of 0.7 seco
 
 ![alt text](./wilmersdorf.png)
 
+*The screenshot shows an Emacs configuration built on top of Yay-Evil
+and includes extra UI-enhancement packages like modern file tree,
+tabs, and different background colors for secondary buffers.*
+
 ### Installation 🍀
 Back up your `~/.emacs.d/` first (if you have one):
 
