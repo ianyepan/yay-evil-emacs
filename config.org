@@ -203,6 +203,13 @@ of the new-line-and-push-brace feature.
     :ensure nil
     :config (save-place-mode +1))
 #+end_src
+** Display line numbers in programming buffers
+#+begin_src emacs-lisp
+  (use-package display-line-numbers
+    :ensure nil
+    :hook (prog-mode . display-line-numbers-mode)
+    :config (setq-default display-line-numbers-width 3))
+#+end_src
 ** Dired tweaks
 Delete intermediate buffers when navigating through dired.
 #+begin_src emacs-lisp
