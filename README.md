@@ -99,6 +99,7 @@ usage!).
 #### Dark themes
 - Gruvbox Dark (specifically the [Material](https://github.com/ianyepan/.wsl-emacs.d/blob/master/themes/doom-gruvbox-material-theme.el) variant)
 - Visual Studio Code Dark+ [for Emacs](https://github.com/ianyepan/vscode-dark-plus-emacs-theme)
+- Wilmersdorf theme - the default theme for Yay-Evil. See more below.
 
 #### Light themes
 - [Spacemacs Light](https://github.com/nashamri/spacemacs-theme)
@@ -107,9 +108,9 @@ If you prefer a theme pack with some of the most popular themes, I recommend the
 - [Doom-themes package](https://github.com/doomemacs/themes)
 
 ### Wilmersdorf Theme
-The default installation of my Emacs configuration ships with the Wilmersdorf theme I made myself.
+The default installation of my Emacs configuration ships with the Wilmersdorf theme I designed myself.
 It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
-You can find more information on my theme [here](https://github.com/ianyepan/wilmersdorf-emacs-theme).
+You can find more information on this theme [here](https://github.com/ianyepan/wilmersdorf-emacs-theme).
 
 ### Appendix II: Fonts I adore
 - Hack / Menlo /DejaVu family (classic, default on lots of systems)
@@ -124,7 +125,7 @@ You can find more information on my theme [here](https://github.com/ianyepan/wil
 Sure! Simply delete (or comment out) the sections regarding Vi bindings in
 `config.org`.
 
-#### 2. How can I install extra packages that I want?
+#### 2. How do I install extra packages that I want?
 You should be able to install packages the normal way (`M-x
 list-packages RET` and `i x` on the desired package row). If you plan
 to sync your config files across machines, add the configuration in
@@ -132,7 +133,7 @@ to sync your config files across machines, add the configuration in
 recommended). Yay-Evil sets all the packages `:ensure` to true by
 default, so you don't need to add `:ensure t`.
 
-#### 3. How can I remove packages that I don't need?
+#### 3. How do I remove packages that I don't need?
 For this you need two steps:
 - First, in the `config.org` file, remove (or comment out) the
   relevant configuration code.
