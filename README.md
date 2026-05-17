@@ -121,7 +121,7 @@ You can find more information on my theme [here](https://github.com/ianyepan/wil
 
 ### FAQ: ❓
 #### 1. But I'm not an Evil user
-Sure! Simply delete (or comment) the sections regarding Vi bindings in
+Sure! Simply delete (or comment out) the sections regarding Vi bindings in
 `config.org`.
 
 #### 2. How can I install extra packages that I want?
