@@ -51,7 +51,7 @@ mv ~/.emacs.d/ ~/.emacs.d.bak/
 Git clone my configuration to your new `~/.emacs.d/` :
 
 ```
-git clone https://github.com/ianyepan/yay-evil-emacs.git ~/.emacs.d
+git clone git@github.com:ianyepan/yay-evil-emacs.git ~/.emacs.d
 ```
 
 ### "Rolling" Release 🙃
