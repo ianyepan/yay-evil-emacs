@@ -113,12 +113,13 @@ It is inspired by Monochrome, Spacemacs Dark, Ariake Dark, and Raiju.
 You can find more information on this theme [here](https://github.com/ianyepan/wilmersdorf-emacs-theme).
 
 ### Appendix II: Fonts I adore
-- Hack / Menlo /DejaVu family (classic, default on lots of systems)
-- Source Code Pro (playful and modern-looking, easy on the eyes)
-- Consolas (beautifully modern)
-- Recursive Mono Semicasual
-- Roboto Mono
 - Ubuntu Mono
+- Consolas (classic yet beautifully modern)
+- Hack / Menlo / DejaVu family (classic, default on lots of systems)
+- Source Code Pro (playful and modern-looking, easy on the eyes)
+- Google Sans Code
+- Fixedsys Excelsior (retro Microsoft vibes)
+- IBM VGA 8x16 (from [Ultimate Oldschool PC font pack](https://int10h.org/oldschool-pc-fonts/fontlist/))
 
 ### FAQ: ❓
 #### 1. But I'm not an Evil user
