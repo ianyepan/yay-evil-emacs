@@ -69,7 +69,7 @@ The `init.el` requires `config.el`, which is produced by org-babel and
 file with literate programming style (good for documenting code
 usage!).
 
-### Packages that I use:
+### Third-party packages that Yay-Evil uses:
 
 #### Better package managing syntax and performance
 - use-package
