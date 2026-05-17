@@ -197,6 +197,12 @@ of the new-line-and-push-brace feature.
     :ensure nil
     :hook (before-save . whitespace-cleanup))
 #+END_SRC
+** Remember the last place you visited in a file
+#+begin_src emacs-lisp
+  (use-package saveplace
+    :ensure nil
+    :config (save-place-mode +1))
+#+end_src
 ** Dired tweaks
 Delete intermediate buffers when navigating through dired.
 #+begin_src emacs-lisp
