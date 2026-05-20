@@ -31,9 +31,6 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;; workaround bug in Emacs 26.2
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
 ;; Setting up the package manager. Install if missing.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
