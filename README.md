@@ -13,11 +13,11 @@
 </p>
 
 <p align="center">
-<a href="https://star-history.com/#ianyepan/yay-evil-emacs&Date">
+<a href="https://star-history.dera.page/#ianyepan/yay-evil-emacs&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" width="600" srcset="https://api.star-history.com/svg?repos=ianyepan/yay-evil-emacs&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" width="600" srcset="https://api.star-history.com/svg?repos=ianyepan/yay-evil-emacs&type=Date" />
-    <img alt="Star History Chart" width="600" src="https://api.star-history.com/svg?repos=ianyepan/yay-evil-emacs&type=Date" />
+    <source media="(prefers-color-scheme: dark)" width="600" srcset="https://star-history.dera.page/svg?repos=ianyepan/yay-evil-emacs&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" width="600" srcset="https://star-history.dera.page/svg?repos=ianyepan/yay-evil-emacs&type=Date" />
+    <img alt="Star History Chart" width="600" src="https://star-history.dera.page/svg?repos=ianyepan/yay-evil-emacs&type=Date" />
   </picture>
 </a>
 </p>
